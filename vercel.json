@@ -1,7 +1,0 @@
-{
-  "framework": "nextjs",
-  "rootDirectory": "exl-website",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install"
-}

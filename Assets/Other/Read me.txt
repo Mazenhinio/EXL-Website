@@ -1,0 +1,3 @@
+Cut Out effect 
+stroke : 8: 12 pt 
+Color : #deff00

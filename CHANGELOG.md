@@ -1,6 +1,6 @@
 # EXL Website — Build Changelog
 **Phase 1: Homepage**
-**Last updated:** 2026-04-24
+**Last updated:** 2026-04-24 (Session 3)
 **Dev server:** `http://localhost:3000`
 **Project root:** `EXL Website/exl-website/`
 
@@ -48,10 +48,16 @@ exl-website/
 │   │   ├── CabinetGrotesk-Regular.otf
 │   │   ├── CabinetGrotesk-Bold.otf
 │   │   └── CabinetGrotesk-Black.otf
-│   ├── hero-video.mp4          ← HERO VIDEO.mp4 (renamed, no space)
+│   ├── hero-video.mp4              ← HERO VIDEO.mp4 (renamed, no space)
 │   ├── exl-logo-white.png
 │   ├── exl-logo-black.png
 │   ├── exl-logo-neon.png
+│   ├── exl-icon.png                ← Chartreuse rounded-square X icon (navbar + favicon)
+│   ├── icon-exclamation.png        ← Brand symbol — used in What We Do
+│   ├── icon-question.png           ← Brand symbol — used in How We're Different
+│   ├── icon-star.png               ← Brand symbol — used in Flagship Services
+│   ├── icon-percent.png            ← Brand symbol — used in EXL Advantage
+│   ├── yellow-line.png             ← Directional arrow line — section separator
 │   ├── advise-card.png
 │   ├── produce-card.png
 │   ├── build-card.png
@@ -60,9 +66,9 @@ exl-website/
 │   └── podcast-card.png
 ├── src/
 │   ├── app/
-│   │   ├── globals.css         ← Design system (tokens, typography, resets)
-│   │   ├── layout.tsx          ← Root layout + metadata/SEO
-│   │   └── page.tsx            ← Homepage — assembles all sections
+│   │   ├── globals.css             ← Design system (tokens, typography, resets)
+│   │   ├── layout.tsx              ← Root layout + metadata/SEO
+│   │   └── page.tsx                ← Homepage — assembles all sections
 │   └── components/
 │       ├── Navbar.tsx
 │       ├── HeroSection.tsx
@@ -71,6 +77,7 @@ exl-website/
 │       ├── CredibilitySection.tsx
 │       ├── HowWereDifferentSection.tsx
 │       ├── FlagshipServicesSection.tsx
+│       ├── SectionSeparator.tsx    ← [NEW] Reusable yellow-line divider
 │       └── Footer.tsx
 ```
 
@@ -143,19 +150,72 @@ exl-website/
 
 ---
 
-## CSS Changes — 2026-04-24
+## CSS Changes — Session 2 (2026-04-24)
 
-### Line-height fix on headline classes
+### Brand icon integration
+**Files:** `Navbar.tsx`, `layout.tsx`, `WhatWeDoSection.tsx`, `EXLAdvantageSection.tsx`, `HowWereDifferentSection.tsx`, `FlagshipServicesSection.tsx`, `SectionSeparator.tsx` [NEW], `page.tsx`
+
+All six brand symbol assets (EXL Icon, Exclamation, Question Mark, Star, Percent, Yellow Line) were copied from `Assets/Images/` to `public/` and integrated across the site.
+
+| Asset | Placement | Visual role |
+|---|---|---|
+| `exl-icon.png` | Navbar + browser favicon | Chartreuse X icon beside wordmark; spins -3° on hover |
+| `yellow-line.png` | Between major sections (`SectionSeparator`) | Full-width directional arrow separator, alternates L/R direction |
+| `icon-exclamation.png` | What We Do label | Small icon beside label + faint ghost floater (8° tilt, 18% opacity) |
+| `icon-question.png` | How We're Different label | Icon beside label + large ghost behind header (7% opacity, -6° tilt) |
+| `icon-star.png` | Flagship Services label | Flanking stars on label + slow-spinning ghost (20s, 8% opacity) |
+| `icon-percent.png` | EXL Advantage typewriter | Flanking icons on label + two ghost `%` background decorations |
+
+**Favicon:** Set via `metadata.icons` in `layout.tsx` — `icon`, `apple`, and `shortcut` all point to `/exl-icon.png`.
+
+**`SectionSeparator` component:** Accepts optional `flip` prop to mirror the arrow direction for visual rhythm.
+
+---
+
+## Changes — Session 3 (2026-04-24)
+
+### 1. Section separator cleanup
+**File:** `src/app/page.tsx`
+
+Removed 3 of 5 section separators per client feedback. Remaining two create deliberate rhythm without visual noise.
+
+| Separator position | Result |
+|---|---|
+| Hero → What We Do | ✅ Kept |
+| What We Do → EXL Advantage | ❌ Removed |
+| Credibility → How We're Different | ❌ Removed |
+| How We're Different → Flagship Services | ✅ Kept |
+| Flagship Services → Footer | ❌ Removed |
+
+### 2. Section 5 — Pillar 0 stale closure bugfix
+**File:** `src/components/HowWereDifferentSection.tsx`
+
+Section was opening on the second pillar (AI-Native) instead of the first (Senior Strategy).
+
+**Root cause:** GSAP `ScrollTrigger.onUpdate` is created once inside `useEffect`. It captured the initial `activePillar = 0` React state value and never saw subsequent updates — a classic stale closure. The condition `if (newPillar !== activePillar)` evaluated against the frozen `0`, causing unpredictable pillar jumps on first scroll entry.
+
+**Fix:** Introduced `activePillarRef = useRef(0)` as a mutable ref that GSAP reads and writes directly. React `setActivePillar` is still called to trigger re-renders, but the comparison now uses the ref:
+
+```ts
+// Before (broken — stale closure)
+if (newPillar !== activePillar) { setActivePillar(newPillar); }
+
+// After (fixed — ref always current)
+if (newPillar !== activePillarRef.current) {
+  activePillarRef.current = newPillar;
+  setActivePillar(newPillar);
+}
+```
+
+### 3. Body text size +20%
 **File:** `src/app/globals.css`
 
-Previous values (0.92–0.95) caused multi-line header text to visually collide.
-Increased to give each headline class natural breathing room.
+Applied to the `.body-text` global class — all section paragraphs inherit automatically.
 
-| Class | Before | After |
+| Property | Before | After |
 |---|---|---|
-| `.headline-hero` | `0.92` | `1.04` |
-| `.headline-section` | `0.92` | `1.06` |
-| `.headline-card` | `0.95` | `1.08` |
+| `font-size` | `clamp(1rem, 1.4vw, 1.25rem)` | `clamp(1.2rem, 1.68vw, 1.5rem)` |
+| `line-height` | `1.65` | `1.7` |
 
 ---
 

@@ -35,9 +35,11 @@ export default function FlagshipServices() {
             }
           })
 
+          // Start at 0% (Intro) and move to -50% (Cards)
+          // Since the rail is 200% wide, -50% of its width equals -100% of the screen width.
           tl.fromTo(railRef.current, 
-            { x: '-100%' }, 
-            { x: '0%', ease: 'none', immediateRender: true }
+            { x: '0%' }, 
+            { x: '-50%', ease: 'none', immediateRender: true }
           )
 
           const imgs = railRef.current.querySelectorAll('.flagship-img')
@@ -92,7 +94,7 @@ export default function FlagshipServices() {
         borderTop: '0.5px solid rgba(0,0,0,0.1)',
       }}
     >
-      {/* DESKTOP RAIL (HIDDEN ON MOBILE) */}
+      {/* DESKTOP RAIL */}
       <div
         ref={railRef}
         className="desktop-rail"
@@ -106,8 +108,28 @@ export default function FlagshipServices() {
           willChange: 'transform',
         }}
       >
-        {/* CARDS PANEL */}
-        <div style={{ width: '100%', height: '100vh', display: 'flex' }}>
+        {/* PANEL 1: INTRO (START HERE) */}
+        <div style={{
+          width: '50%',
+          height: '100vh',
+          backgroundColor: 'var(--off-white)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0 10%',
+        }}>
+          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(40px, 9vw, 130px)', textAlign: 'center', lineHeight: 0.85, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '40px' }}>
+            Two engagements<br />
+            <span style={{ color: 'var(--taupe)', WebkitTextStroke: '1.5px var(--black)', WebkitTextFillColor: 'transparent' }}>we&apos;re known for.</span>
+          </h2>
+          <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: 'clamp(18px, 1.5vw, 22px)', color: 'rgba(0,0,0,0.65)', textAlign: 'center', maxWidth: '800px', lineHeight: 1.6, fontWeight: 300 }}>
+            Most EXL clients start with one of these two offers. Both combine our four capabilities into a single monthly engagement, led by a senior partner, delivered by our in-house team.
+          </p>
+        </div>
+
+        {/* PANEL 2: CARDS (SLIDE TO HERE) */}
+        <div style={{ width: '50%', height: '100vh', display: 'flex' }}>
           <div className="flagship-card" style={{ width: '50%', height: '100%', position: 'relative', borderRight: '0.5px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
             <Image src="/assets/images/flagship-imm.jpg" alt="IMM" fill style={{ objectFit: 'cover' }} className="flagship-img" priority />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 80%)', zIndex: 1 }} />
@@ -129,29 +151,9 @@ export default function FlagshipServices() {
             </div>
           </div>
         </div>
-
-        {/* INTRO PANEL */}
-        <div style={{
-          width: '100%',
-          height: '100vh',
-          backgroundColor: 'var(--off-white)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '0 10%',
-        }}>
-          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(40px, 9vw, 130px)', textAlign: 'center', lineHeight: 0.85, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '40px' }}>
-            Two engagements<br />
-            <span style={{ color: 'var(--taupe)', WebkitTextStroke: '1.5px var(--black)', WebkitTextFillColor: 'transparent' }}>we&apos;re known for.</span>
-          </h2>
-          <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: 'clamp(18px, 1.5vw, 22px)', color: 'rgba(0,0,0,0.65)', textAlign: 'center', maxWidth: '800px', lineHeight: 1.6, fontWeight: 300 }}>
-            Most EXL clients start with one of these two offers. Both combine our four capabilities into a single monthly engagement, led by a senior partner, delivered by our in-house team.
-          </p>
-        </div>
       </div>
 
-      {/* MOBILE CONTENT (HIDDEN ON DESKTOP) */}
+      {/* MOBILE CONTENT */}
       <div className="mobile-only" style={{ display: 'none', padding: '80px 20px' }}>
         <div style={{ marginBottom: '60px' }}>
           <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: '56px', lineHeight: 0.9, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '24px' }}>

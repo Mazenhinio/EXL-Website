@@ -103,7 +103,7 @@ export default function FooterCTA() {
             }}
           >
             {/* Split text for stagger */}
-            {"Let&apos;s build something worth watching."
+            {"Let's build something worth watching."
               .split(' ')
               .map((word, i) => (
                 <span

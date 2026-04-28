@@ -115,7 +115,7 @@ export default function FlagshipServices() {
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 600, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>01 — IMM</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>Integrated Marketing Management.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>Your marketing department, on retainer. Built for five-star hospitality, luxury brands, and B2B companies whose reputation is their asset.</p>
-              <Link href="/services/integrated-marketing-management" style={{ backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore IMM</Link>
+              <Link href="#footer-cta" style={{ backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore IMM</Link>
             </div>
           </div>
           <div className="flagship-card" style={{ width: '50%', height: '100%', position: 'relative', overflow: 'hidden' }}>
@@ -125,7 +125,7 @@ export default function FlagshipServices() {
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 600, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>02 — PRODUCTION</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>B2B Video Podcast Production.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>A cinematic B2B video podcast that builds pipeline, not just downloads. The same engine we use to produce Best in B2B.</p>
-              <Link href="/services/podcast-production" style={{ border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore Podcast Production</Link>
+              <Link href="#footer-cta" style={{ border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore Podcast Production</Link>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function FlagshipServices() {
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%)', zIndex: 1 }} />
           <div style={{ position: 'absolute', bottom: '30px', left: '20px', right: '20px', zIndex: 2 }}>
              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: '32px', color: '#fff', marginBottom: '16px' }}>Integrated Marketing Management.</h3>
-             <Link href="/services/integrated-marketing-management" style={{ backgroundColor: 'var(--chartreuse)', color: '#000', padding: '12px 24px', borderRadius: '100px', fontWeight: 700, fontSize: '11px', display: 'inline-block' }}>Explore IMM</Link>
+             <Link href="#footer-cta" style={{ backgroundColor: 'var(--chartreuse)', color: '#000', padding: '12px 24px', borderRadius: '100px', fontWeight: 700, fontSize: '11px', display: 'inline-block' }}>Explore IMM</Link>
           </div>
         </div>
 
@@ -176,7 +176,7 @@ export default function FlagshipServices() {
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%)', zIndex: 1 }} />
           <div style={{ position: 'absolute', bottom: '30px', left: '20px', right: '20px', zIndex: 2 }}>
              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: '32px', color: '#fff', marginBottom: '16px' }}>B2B Video Podcast Production.</h3>
-             <Link href="/services/podcast-production" style={{ border: '1px solid #fff', color: '#fff', padding: '12px 24px', borderRadius: '100px', fontWeight: 700, fontSize: '11px', display: 'inline-block' }}>Explore Production</Link>
+             <Link href="#footer-cta" style={{ border: '1px solid #fff', color: '#fff', padding: '12px 24px', borderRadius: '100px', fontWeight: 700, fontSize: '11px', display: 'inline-block' }}>Explore Production</Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────────────────────── */
+:root {
+  --chartreuse:   #DEFF00;
+  --black:        #000000;
+  --pale-silver:  #CEC5B7;
+  --eerie:        #1C2416;
+  --nyanza:       #E8FFDC;
+  --mystic-red:   #FF550D;
+  --platinum:     #E5E5E5;
+  --off-white:    #EDE8DF;
+  --sky:          #B8D0F0;
+  --sage:         #C4DDB0;
+  --lavender:     #E0C8F8;
+  --peach:        #F8C8B0;
+  --lemon:        #F2FFB8;
+  --taupe:        #B8AFA0;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--off-white);
+  color: var(--black);
+  font-family: var(--font-cabinet), 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Dividers ───────────────────────────────────────────────────────── */
+hr,
+.divider {
+  border: none;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ── Section Labels ─────────────────────────────────────────────────── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-cabinet), 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 0.5px;
+  background: var(--taupe);
+  flex-shrink: 0;
+}
+
+/* ── Ticker ─────────────────────────────────────────────────────────── */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-inner {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+/* ── Pillar Cards ────────────────────────────────────────────────────── */
+.pillar-card {
+  padding: 40px 32px;
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
+  cursor: default;
+}
+
+.pillar-card:hover {
+  background-color: var(--lemon);
+  padding-left: 44px;
+}
+
+/* ── Brand Text Wipe ─────────────────────────────────────────────────── */
+.brand-wipe {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* ── Cutout figure ───────────────────────────────────────────────────── */
+.footer-cutout {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  height: 115%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease-out 0.3s, transform 0.7s ease-out 0.3s;
+}
+
+.footer-cutout.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .footer-cutout {
+    height: 70%;
+    opacity: 0;
+    right: -20px;
+  }
+  .footer-cutout.visible {
+    opacity: 0.5;
+  }
+}
+
+/* ── Utility overrides ──────────────────────────────────────────────── */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

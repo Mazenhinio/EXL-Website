@@ -1,15 +1,9 @@
 export default function Ticker() {
   const items = [
-    'Senior Strategy',
-    'IHG Resort Partner',
-    'AI-Native Workflows',
-    'Best in B2B',
-    'Dallas Studio',
-    'Cinematic Production',
-    'North America · Middle East',
+    'Trusted to run the marketing function for a flagship IHG resort property, and to produce Best in B2B, the only B2B podcast filmed on location across Dallas-Fort Worth.',
   ]
 
-  const displayItems = [...items, ...items]
+  const displayItems = [...items, ...items, ...items, ...items]
 
   return (
     <section
@@ -28,23 +22,23 @@ export default function Ticker() {
             key={i}
             style={{
               fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '11px',
+              fontSize: '14px',
               fontWeight: 700,
-              letterSpacing: '0.1em',
+              letterSpacing: '0.05em',
               textTransform: 'uppercase',
               color: 'var(--black)',
               display: 'inline-flex',
               alignItems: 'center',
-              paddingRight: '32px',
+              paddingRight: '64px',
               whiteSpace: 'nowrap',
             }}
           >
             {item}
             <span
               style={{
-                marginLeft: '32px',
+                marginLeft: '64px',
                 color: 'rgba(0,0,0,0.3)',
-                fontSize: '16px',
+                fontSize: '18px',
               }}
             >
               ▲

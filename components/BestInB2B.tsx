@@ -27,17 +27,38 @@ export default function BestInB2B() {
             scrollTrigger: { trigger: textRef.current, start: 'top 80%' },
           }
         )
+
+        // Title wipe
+        const title = textRef.current.querySelector('h2')
+        if (title) {
+          gsap.fromTo(
+            title,
+            { clipPath: 'inset(0 100% 0 0)' },
+            {
+              clipPath: 'inset(0 0% 0 0)',
+              duration: 1.2,
+              ease: 'power4.out',
+              scrollTrigger: { trigger: textRef.current, start: 'top 75%' },
+            }
+          )
+        }
       }
 
-      if (brandRef.current) {
+      // Image settle
+      const img = document.querySelector('#best-in-b2b .image-panel img')
+      if (img) {
         gsap.fromTo(
-          brandRef.current,
-          { clipPath: 'inset(0 100% 0 0)' },
+          img,
+          { scale: 1.04 },
           {
-            clipPath: 'inset(0 0% 0 0)',
-            duration: 1.0,
-            ease: 'power4.out',
-            scrollTrigger: { trigger: brandRef.current, start: 'top 25%' },
+            scale: 1,
+            duration: 1.5,
+            ease: 'power2.out',
+            scrollTrigger: { 
+              trigger: '#best-in-b2b', 
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            },
           }
         )
       }
@@ -145,24 +166,7 @@ export default function BestInB2B() {
               zIndex: 1,
             }}
           />
-          {/* Brand moment */}
-          <span
-            ref={brandRef}
-            style={{
-              position: 'absolute',
-              bottom: '36px',
-              left: '32px',
-              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(32px, 9vw, 68px)',
-              color: 'var(--chartreuse)',
-              zIndex: 2,
-              clipPath: 'inset(0 100% 0 0)',
-              lineHeight: 1,
-            }}
-          >
-            Best in B2B.
-          </span>
+
         </div>
 
         {/* Col 3 — Section number */}
@@ -189,7 +193,7 @@ export default function BestInB2B() {
               transform: 'rotate(180deg)',
             }}
           >
-            03 — Owned Media
+            04 — Our work
           </span>
         </div>
       </div>

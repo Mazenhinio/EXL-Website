@@ -30,14 +30,19 @@ export default function Advantage() {
       if (rightRef.current) {
         gsap.fromTo(
           rightRef.current.querySelectorAll('.stat-item'),
-          { opacity: 0, x: 20 },
+          { opacity: 0, x: 30, filter: 'blur(4px)' },
           {
             opacity: 1,
             x: 0,
-            duration: 0.65,
-            ease: 'power2.out',
-            stagger: 0.13,
-            scrollTrigger: { trigger: rightRef.current, start: 'top 10%' },
+            filter: 'blur(0px)',
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.2,
+            scrollTrigger: { 
+              trigger: rightRef.current, 
+              start: 'top 75%',
+              toggleActions: 'play none none none' 
+            },
           }
         )
       }

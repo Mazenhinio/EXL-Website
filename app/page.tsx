@@ -1,6 +1,6 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import CredibilityLine from '@/components/CredibilityLine'
+
 import WhatWeDo from '@/components/WhatWeDo'
 import Advantage from '@/components/Advantage'
 import Ticker from '@/components/Ticker'
@@ -16,7 +16,7 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <CredibilityLine />
+
       <WhatWeDo />
       <Advantage />
       <Ticker />

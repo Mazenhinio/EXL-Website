@@ -1,69 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import Image from 'next/image'
+import { useEffect } from 'react'
 import Link from 'next/link'
 
 export default function WhatWeDo() {
-  const textRef = useRef<HTMLDivElement>(null)
-  const brandRef = useRef<HTMLSpanElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const loadGsap = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
-
-      // Text panel reveal
-      if (textRef.current) {
-        gsap.fromTo(
-          textRef.current.querySelectorAll('.reveal-el'),
-          { opacity: 0, y: 26 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: 'power2.out',
-            stagger: 0.12,
-            scrollTrigger: { trigger: textRef.current, start: 'top 80%' },
-          }
-        )
-      }
-
-      // Brand wipe "No handoffs."
-      if (brandRef.current) {
-        gsap.fromTo(
-          brandRef.current,
-          { clipPath: 'inset(0 100% 0 0)' },
-          {
-            clipPath: 'inset(0 0% 0 0)',
-            duration: 1.0,
-            ease: 'power4.out',
-            scrollTrigger: { trigger: brandRef.current, start: 'top 25%' },
-          }
-        )
-      }
-
-      // Capability cards stagger
-      if (cardsRef.current) {
-        gsap.fromTo(
-          cardsRef.current.querySelectorAll('.cap-card'),
-          { opacity: 0, y: 26 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: 'power2.out',
-            stagger: 0.11,
-            scrollTrigger: { trigger: cardsRef.current, start: 'top 10%' },
-          }
-        )
-      }
-    }
-    loadGsap()
-  }, [])
-
   const capabilities = [
     {
       id: '01',
@@ -95,178 +35,122 @@ export default function WhatWeDo() {
     },
   ]
 
+  useEffect(() => {
+    const loadGsap = async () => {
+      const { gsap } = await import('gsap')
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+      // Any additional animations can go here if needed, but sticky handles the pinning.
+    }
+    loadGsap()
+  }, [])
+
   return (
-    <>
-      {/* 3a — Editorial Panel */}
-      <section
-        id="what-we-do"
+    <section
+      id="what-we-do"
+      style={{
+        backgroundColor: 'var(--off-white)',
+        borderTop: '0.5px solid rgba(0,0,0,0.08)',
+        position: 'relative',
+        margin: 0,
+        padding: 0,
+      }}
+    >
+      <div
         style={{
-          backgroundColor: 'var(--off-white)',
-          borderTop: '0.5px solid rgba(0,0,0,0.08)',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
         }}
+        className="wwd-flex-container"
       >
+        {/* Left Column — Sticky Text */}
         <div
+          className="wwd-left-col"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '28% 57% 15%',
-            minHeight: '560px',
+            position: 'sticky',
+            top: 0,
+            width: '40%',
+            height: '100vh',
+            padding: '40px 64px 40px 32px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            borderRight: '0.5px solid rgba(0,0,0,0.08)',
+            backgroundColor: 'var(--off-white)',
+            zIndex: 10,
           }}
-          className="editorial-grid"
         >
-          {/* Col 1 — Text */}
-          <div
-            ref={textRef}
-            style={{
-              padding: '64px 40px 64px 32px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              borderRight: '0.5px solid rgba(0,0,0,0.08)',
-            }}
-          >
-            <p className="section-label reveal-el" style={{ marginBottom: '24px' }}>
+          <div style={{ maxWidth: '440px' }}>
+            <p
+              className="section-label"
+              style={{
+                marginBottom: '24px',
+                fontSize: '11px',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--taupe)',
+              }}
+            >
               What we do
             </p>
             <h2
-              className="reveal-el"
               style={{
                 fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
                 fontWeight: 300,
-                fontSize: 'clamp(24px, 4vw, 40px)',
-                lineHeight: 1.25,
+                fontSize: 'clamp(28px, 4.5vw, 48px)',
+                lineHeight: 1.1,
                 color: 'var(--black)',
-                marginBottom: '20px',
+                marginBottom: '24px',
               }}
             >
-              One firm. Four capabilities.{' '}
+              One firm. Four capabilities.<br />
               <strong style={{ fontWeight: 600 }}>No handoffs.</strong>
             </h2>
             <p
-              className="reveal-el"
               style={{
                 fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
                 fontWeight: 300,
                 fontSize: '18px',
-                lineHeight: 1.7,
-                color: 'rgba(0,0,0,0.65)',
+                lineHeight: 1.65,
+                color: 'rgba(0,0,0,0.6)',
               }}
             >
               Most B2B brands juggle a strategy firm, an agency, a dev shop, and
               a freelancer. We built EXL so you don&apos;t have to.
             </p>
           </div>
-
-          {/* Col 2 — Image */}
-          <div style={{ position: 'relative', overflow: 'hidden' }}>
-            <Image
-              src="/assets/images/what-we-do.jpg"
-              alt="EXL strategy and production"
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="57vw"
-            />
-            {/* Bottom gradient */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: '50%',
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
-                zIndex: 1,
-              }}
-            />
-            {/* Brand moment */}
-            <span
-              ref={brandRef}
-              style={{
-                position: 'absolute',
-                bottom: '36px',
-                left: '32px',
-                fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(32px, 9vw, 68px)',
-                color: 'var(--chartreuse)',
-                zIndex: 2,
-                clipPath: 'inset(0 100% 0 0)',
-                lineHeight: 1.4,
-                padding: '10px 0',
-              }}
-            >
-              No handoffs.
-            </span>
-          </div>
-
-          {/* Col 3 — Section number */}
-          <div
-            className="section-col"
-            style={{
-              borderLeft: '0.5px solid rgba(0,0,0,0.08)',
-              display: 'flex',
-              alignItems: 'flex-start',
-              justifyContent: 'flex-end',
-              padding: '24px 16px',
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '9px',
-                fontWeight: 600,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--taupe)',
-                writingMode: 'vertical-rl',
-                transform: 'rotate(180deg)',
-              }}
-            >
-              02 — What we do
-            </span>
-          </div>
         </div>
-      </section>
 
-      {/* 3b — Capabilities Grid */}
-      <section
-        id="capabilities"
-        style={{
-          backgroundColor: 'var(--off-white)',
-          borderTop: '0.5px solid rgba(0,0,0,0.08)',
-        }}
-      >
+        {/* Right Column — Scrolling Cards */}
         <div
-          ref={cardsRef}
+          className="wwd-right-col"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            width: '60%',
+            position: 'relative',
           }}
-          className="cap-grid"
         >
           {capabilities.map((cap) => (
             <div
               key={cap.id}
-              className="cap-card"
               style={{
+                height: '80vh',
                 backgroundColor: cap.bg,
-                minHeight: '310px',
-                padding: '32px',
+                padding: '64px 64px',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                borderRight: '0.5px solid rgba(0,0,0,0.08)',
-                opacity: 0,
+                justifyContent: 'center',
+                borderBottom: '0.5px solid rgba(0,0,0,0.08)',
               }}
             >
-              <div>
+              <div style={{ maxWidth: '520px' }}>
                 <p
                   style={{
                     fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                    fontSize: '9px',
+                    fontSize: '12px',
                     fontWeight: 600,
-                    letterSpacing: '0.12em',
-                    color: 'rgba(0,0,0,0.45)',
+                    color: 'rgba(0,0,0,0.3)',
                     marginBottom: '16px',
                   }}
                 >
@@ -276,10 +160,10 @@ export default function WhatWeDo() {
                   style={{
                     fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                     fontWeight: 600,
-                    fontSize: 'clamp(32px, 5vw, 56px)',
-                    lineHeight: 1.25,
+                    fontSize: 'clamp(40px, 8vw, 72px)',
+                    lineHeight: 1.05,
                     color: 'var(--black)',
-                    marginBottom: '20px',
+                    marginBottom: '24px',
                   }}
                 >
                   {cap.name}
@@ -288,51 +172,59 @@ export default function WhatWeDo() {
                   style={{
                     fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
                     fontWeight: 300,
-                    fontSize: '17px',
-                    lineHeight: 1.65,
+                    fontSize: '20px',
+                    lineHeight: 1.55,
                     color: 'rgba(0,0,0,0.7)',
                   }}
                 >
                   {cap.body}
                 </p>
+                <Link
+                  href={cap.href}
+                  style={{
+                    fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: 'var(--black)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    marginTop: '40px',
+                  }}
+                >
+                  Explore {cap.name} →
+                </Link>
               </div>
-              <Link
-                href={cap.href}
-                style={{
-                  fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--black)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  marginTop: '24px',
-                }}
-              >
-                Explore →
-              </Link>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
       <style jsx>{`
         @media (max-width: 1023px) {
-          .editorial-grid {
-            grid-template-columns: 1fr !important;
+          .wwd-flex-container {
+            flex-direction: column !important;
           }
-          .section-col {
-            display: none !important;
+          .wwd-left-col {
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
+            padding: 64px 24px !important;
+            border-right: none !important;
+            border-bottom: 0.5px solid rgba(0,0,0,0.08);
           }
-        }
-        @media (max-width: 767px) {
-          .cap-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
+          .wwd-right-col {
+            width: 100% !important;
+          }
+          .wwd-right-col > div {
+            height: auto !important;
+            min-height: 400px;
+            padding: 64px 24px !important;
           }
         }
       `}</style>
-    </>
+    </section>
   )
 }

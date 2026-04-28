@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 export default function BestInB2B() {
   const textRef = useRef<HTMLDivElement>(null)
-  const brandRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     const loadGsap = async () => {

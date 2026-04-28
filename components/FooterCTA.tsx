@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function FooterCTA() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -102,7 +103,7 @@ export default function FooterCTA() {
             }}
           >
             {/* Split text for stagger */}
-            {"Let's build something worth watching."
+            {"Let&apos;s build something worth watching."
               .split(' ')
               .map((word, i) => (
                 <span
@@ -190,12 +191,16 @@ export default function FooterCTA() {
       </div>
 
       {/* Cutout Figure */}
-      <img
-        ref={cutoutRef}
-        src="/assets/images/cutout_model.png"
-        alt="EXL brand team member"
-        className="footer-cutout"
-      />
+      <div className="footer-cutout-container" style={{ position: 'absolute', bottom: 0, right: '5%', width: '400px', height: '500px', pointerEvents: 'none' }}>
+        <Image
+          ref={cutoutRef}
+          src="/assets/images/cutout_model.png"
+          alt="EXL brand team member"
+          fill
+          style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+          className="footer-cutout"
+        />
+      </div>
 
       <style jsx>{`
         @media (max-width: 1023px) {

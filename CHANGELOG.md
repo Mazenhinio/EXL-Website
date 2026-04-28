@@ -7,6 +7,9 @@
 - **Pillar Hover States**: Implemented specified hover interaction for "How We're Different" pillars, featuring a #F2FFB8 (Lemon) background and a +12px padding shift.
 - **Section Numbers**: Added/Corrected vertical section labels throughout the homepage (e.g., "02 — What we do", "04 — Our work").
 
+### Design Pivot
+- **Light Editorial Focus**: Explicitly moving away from dark-mode transitions (e.g., for the "How We Work" section) to maintain a consistent, airy, and premium light editorial aesthetic across the entire homepage.
+
 ### Changed
 - **What We Do (Section 3)**: Completely rebuilt into a consolidated 2-column pinned scroll experience.
     - Left panel (40%) is now sticky with core brand messaging.

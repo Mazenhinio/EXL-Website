@@ -154,11 +154,12 @@ export default function WhatWeDo() {
         <div style={{ width: '0.5px', height: '24px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
         <h2 style={{ 
           fontFamily: 'var(--font-tusker)', 
-          fontSize: 'clamp(32px, 6vw, 68px)', 
+          fontSize: 'clamp(36px, 9vw, 90px)', // Unified mobile scale
           textAlign: 'center', 
-          lineHeight: 1.05, 
+          lineHeight: 1.1, 
           color: 'var(--black)', 
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          overflowWrap: 'break-word'
         }}>
           One firm. Four capabilities.<br />
           <span className="highlight-marker" style={{ marginTop: '8px' }}>No handoffs.</span>
@@ -220,8 +221,17 @@ export default function WhatWeDo() {
 
       {/* MOBILE CONTENT */}
       <div className="mobile-only" style={{ display: 'none', padding: '64px 20px' }}>
-        <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: '48px', lineHeight: 0.9, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '32px' }}>
-          One firm. Four capabilities.<br /><span style={{ color: 'var(--taupe)', WebkitTextStroke: '1px var(--black)', WebkitTextFillColor: 'transparent' }}>No handoffs.</span>
+        <h2 style={{ 
+          fontFamily: 'var(--font-tusker)', 
+          fontSize: 'clamp(36px, 10vw, 48px)', // Unified scale
+          lineHeight: 1, 
+          color: 'var(--black)', 
+          textTransform: 'uppercase', 
+          marginBottom: '32px',
+          overflowWrap: 'break-word'
+        }}>
+          One firm. Four capabilities.<br />
+          <span className="highlight-marker" style={{ marginTop: '4px' }}>No handoffs.</span>
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
           {capabilities.map(cap => (

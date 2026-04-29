@@ -118,7 +118,16 @@ export default function FlagshipServices() {
           justifyContent: 'center',
           padding: '0 10%',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(40px, 8vw, 110px)', textAlign: 'center', lineHeight: 1.05, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '40px' }}>
+          <h2 style={{ 
+            fontFamily: 'var(--font-tusker)', 
+            fontSize: 'clamp(36px, 9vw, 110px)', // Unified mobile scale
+            textAlign: 'center', 
+            lineHeight: 1.1, 
+            color: 'var(--black)', 
+            textTransform: 'uppercase', 
+            marginBottom: '40px',
+            overflowWrap: 'break-word'
+          }}>
             Two engagements<br />
             <span className="highlight-marker" style={{ marginTop: '12px' }}>we&apos;re known for.</span>
           </h2>
@@ -155,8 +164,17 @@ export default function FlagshipServices() {
       {/* MOBILE CONTENT */}
       <div className="mobile-only" style={{ display: 'none', padding: '80px 20px' }}>
         <div style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: '56px', lineHeight: 0.9, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '24px' }}>
-            Two engagements<br /><span style={{ color: 'var(--taupe)', WebkitTextStroke: '1px var(--black)', WebkitTextFillColor: 'transparent' }}>we&apos;re known for.</span>
+          <h2 style={{ 
+            fontFamily: 'var(--font-tusker)', 
+            fontSize: 'clamp(36px, 10vw, 56px)', // Unified scale
+            lineHeight: 1, 
+            color: 'var(--black)', 
+            textTransform: 'uppercase', 
+            marginBottom: '24px',
+            overflowWrap: 'break-word'
+          }}>
+            Two engagements<br />
+            <span className="highlight-marker" style={{ marginTop: '4px' }}>we&apos;re known for.</span>
           </h2>
           <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: '16px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.6 }}>
             Most EXL clients start with one of these two offers. Led by a senior partner, delivered by our in-house team.

@@ -134,12 +134,13 @@ export default function Hero() {
           ref={h1Ref}
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-            fontSize: 'clamp(50px, 13vw, 130px)',
-            lineHeight: 1.15,
+            fontSize: 'clamp(36px, 10vw, 130px)',
+            lineHeight: 1.05,
             color: '#ffffff',
             marginBottom: '28px',
             opacity: 0,
             textTransform: 'uppercase',
+            overflowWrap: 'break-word',
           }}
         >
           A B2B consultancy with its own{' '}

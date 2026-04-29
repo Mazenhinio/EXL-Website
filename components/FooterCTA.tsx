@@ -98,8 +98,8 @@ export default function FooterCTA() {
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontWeight: 600,
-              fontSize: 'clamp(54px, 14vw, 110px)',
-              lineHeight: 1.15,
+              fontSize: 'clamp(36px, 12vw, 110px)',
+              lineHeight: 1.05,
               color: 'var(--black)',
             }}
           >

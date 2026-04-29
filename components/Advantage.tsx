@@ -136,8 +136,15 @@ export default function Advantage() {
                 The EXL Advantage
               </div>
               <h2 
-                style={{ fontFamily: 'var(--font-tusker)' }}
-                className="text-[clamp(28px,5vw,64px)] leading-[1.05] uppercase text-white max-w-[1000px] mb-8 tracking-tight"
+                style={{ 
+                  fontFamily: 'var(--font-tusker)',
+                  fontSize: 'clamp(36px, 9vw, 64px)', 
+                  lineHeight: 1.1,
+                  textTransform: 'uppercase',
+                  color: 'white',
+                  marginBottom: '32px'
+                }}
+                className="max-w-[1000px] tracking-tight"
               >
                 A traditional consultancy with an <br/>
                 <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
@@ -198,23 +205,41 @@ export default function Advantage() {
       </div>
 
       {/* MOBILE FALLBACK */}
-      <div className="lg:hidden relative z-[100] bg-[var(--eerie)] px-6 py-24 space-y-20 border-t border-white/10">
-        <div className="text-center">
-          <div className="section-label mb-8 text-[var(--taupe)]">The EXL Advantage</div>
-          <h2 className="font-[var(--font-tusker)] text-5xl leading-none uppercase text-white">
-            AI-native engine
+      <div className="lg:hidden relative z-[100] bg-[var(--eerie)] px-6 py-24 space-y-24">
+        <div className="text-center mb-12">
+          <div className="section-label mb-8 text-[var(--taupe)] justify-center">The EXL Advantage</div>
+          <h2 style={{ 
+            fontFamily: 'var(--font-tusker)', 
+            fontSize: 'clamp(36px, 10vw, 64px)', 
+            lineHeight: 1.05, 
+            textTransform: 'uppercase', 
+            color: 'white' 
+          }}>
+            A traditional consultancy with an <br/>
+            <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
           </h2>
         </div>
         
         {steps.map((step, i) => (
-          <div key={i} className="space-y-6">
-            <h3 className="font-[var(--font-tusker)] text-4xl text-[var(--chartreuse)] leading-tight uppercase">
-              {step.left} <br />
-              <span className="text-white">{step.right}</span>
-            </h3>
-            <p className="font-[var(--font-cabinet)] text-lg text-white/70 leading-relaxed font-light">
-              {step.body}
-            </p>
+          <div key={i} className="space-y-8">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+              <Image 
+                src={step.image} 
+                alt={step.left} 
+                fill 
+                className="object-cover opacity-60 grayscale"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--eerie)] to-transparent" />
+            </div>
+            <div className="space-y-4">
+              <h3 style={{ fontFamily: 'var(--font-tusker)' }} className="text-[clamp(32px,8vw,48px)] text-[var(--chartreuse)] leading-none uppercase">
+                {step.left} <br />
+                <span className="text-white">{step.right}</span>
+              </h3>
+              <p className="font-[var(--font-cabinet)] text-lg text-white/70 leading-relaxed font-light">
+                {step.body}
+              </p>
+            </div>
           </div>
         ))}
       </div>

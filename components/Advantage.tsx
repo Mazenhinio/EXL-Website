@@ -3,8 +3,6 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-const GRAIN_URL = '/cinematic_grainy_texture_1777465783570.png'
-
 export default function Advantage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const stickyRef = useRef<HTMLDivElement>(null)
@@ -31,7 +29,7 @@ export default function Advantage() {
   ]
 
   useEffect(() => {
-    let ctx: any;
+    let ctx: gsap.Context;
     
     const init = async () => {
       const { gsap } = await import('gsap')
@@ -106,7 +104,7 @@ export default function Advantage() {
 
     init()
     return () => ctx && ctx.revert()
-  }, [])
+  }, [steps])
 
   return (
     <section 

@@ -170,9 +170,9 @@ export default function FooterCTA() {
             <Link
               href="/contact"
               style={{
-                fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '14px',
-                fontWeight: 700,
+                fontFamily: "var(--font-tusker), sans-serif",
+                fontSize: '13px',
+                fontWeight: 600,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 backgroundColor: 'var(--black)',
@@ -189,13 +189,14 @@ export default function FooterCTA() {
             <a
               href="mailto:info@exl.agency"
               style={{
-                fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '14px',
-                fontWeight: 700,
-                letterSpacing: '0.04em',
+                fontFamily: "var(--font-tusker), sans-serif",
+                fontSize: '13px',
+                fontWeight: 600,
+                letterSpacing: '0.05em',
                 color: 'var(--black)',
                 textDecoration: 'underline',
                 textUnderlineOffset: '4px',
+                textTransform: 'uppercase'
               }}
             >
               info@exl.agency

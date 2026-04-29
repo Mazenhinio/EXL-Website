@@ -14,16 +14,19 @@ export default function Advantage() {
       left: 'WEEKS',
       right: 'NOT QUARTERS',
       body: 'From brief to first delivery.',
+      image: '/assets/images/weeks-not-quarters.png'
     },
     {
       left: 'SENIOR JUDGMENT',
       right: 'MACHINE LIFT',
       body: 'On every decision, with machines doing the lift underneath.',
+      image: '/assets/images/senior-judgement.png'
     },
     {
       left: 'SCALABLE SYSTEMS',
       right: 'NOT HEADCOUNT',
       body: 'Production and distribution systems that scale with your growth.',
+      image: '/assets/images/scalable-systems.png'
     }
   ]
 
@@ -119,16 +122,30 @@ export default function Advantage() {
         <div className="absolute inset-0">
           {/* INTRO PANEL */}
           <div className="adv-intro absolute inset-0 z-50 flex flex-col items-center justify-center px-6 text-center bg-[var(--eerie)]">
-            <div className="section-label mb-12 text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px]">
-              The EXL Advantage
+            <div className="absolute inset-0 opacity-40">
+              <Image 
+                src="/assets/images/advantage-intro.png" 
+                alt="Advantage Intro" 
+                fill 
+                className="object-cover"
+                priority
+              />
             </div>
-            <h2 className="font-[var(--font-tusker)] text-[clamp(36px,7vw,90px)] leading-[0.9] uppercase text-white max-w-[1100px] mb-8">
-              A traditional consultancy with an <br/>
-              <span className="text-[var(--chartreuse)]">AI-native engine</span> underneath.
-            </h2>
-            <p className="font-[var(--font-cabinet)] text-[clamp(16px,1.4vw,20px)] text-white/60 max-w-[850px] font-light leading-relaxed">
-              Every EXL deliverable runs through an AI-accelerated workflow. Not to replace the work, to compress the timeline. We build and maintain internal automation systems that handle research, transcription, editing assistance, content repurposing, CRM sync, and distribution, so our senior team spends their hours on strategy and craft, not on tasks a machine can do better.
-            </p>
+            <div className="relative z-10">
+              <div className="section-label mb-12 text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px]">
+                The EXL Advantage
+              </div>
+              <h2 
+                style={{ fontFamily: 'var(--font-tusker)' }}
+                className="text-[clamp(28px,5vw,64px)] leading-[1.05] uppercase text-white max-w-[1000px] mb-8 tracking-tight"
+              >
+                A traditional consultancy with an <br/>
+                <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
+              </h2>
+              <p className="font-[var(--font-cabinet)] text-[clamp(16px,1.4vw,20px)] text-white/60 max-w-[850px] font-light leading-relaxed">
+                Every EXL deliverable runs through an AI-accelerated workflow. Not to replace the work, to compress the timeline. We build and maintain internal automation systems that handle research, transcription, editing assistance, content repurposing, CRM sync, and distribution, so our senior team spends their hours on <span className="highlight-scribble">strategy and craft</span>, not on tasks a machine can do better.
+              </p>
+            </div>
           </div>
 
           {/* CLASH PANELS */}
@@ -137,25 +154,33 @@ export default function Advantage() {
               key={i} 
               className={`clash-panel-${i} absolute inset-0 opacity-0 pointer-events-none flex flex-col items-center justify-center`}
             >
-              {/* Grainy Cinematic Background */}
-              <div className="grain-bg absolute inset-0 pointer-events-none z-0">
+              {/* Cinematic Background */}
+              <div className="absolute inset-0 pointer-events-none z-0">
                 <Image 
-                  src={GRAIN_URL} 
-                  alt="Grain Texture" 
+                  src={step.image} 
+                  alt={step.left} 
                   fill 
-                  className="object-cover opacity-60 mix-blend-overlay"
+                  className="object-cover opacity-40 grayscale transition-all duration-700"
                   priority
                 />
+                {/* CSS Grain Overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
                 <div className="absolute inset-0 bg-radial-[circle,transparent_20%,var(--eerie)_100%]" />
               </div>
 
               <div className="relative z-10 w-full flex flex-col items-center">
                 {/* TYPOGRAPHY CLASH */}
                 <div className="relative flex items-center justify-center w-full h-[50vh]">
-                  <h3 className="word-left font-[var(--font-tusker)] text-[clamp(40px,14vw,200px)] text-[var(--chartreuse)] uppercase whitespace-nowrap absolute mix-blend-difference z-20 -translate-y-1/3">
+                  <h3 
+                    style={{ fontFamily: 'var(--font-tusker)' }}
+                    className="word-left text-[clamp(22px,8vw,90px)] text-[var(--chartreuse)] uppercase whitespace-nowrap absolute mix-blend-difference z-20 -translate-y-[30%]"
+                  >
                     {step.left}
                   </h3>
-                  <h3 className="word-right font-[var(--font-tusker)] text-[clamp(40px,14vw,200px)] text-white uppercase whitespace-nowrap absolute mix-blend-difference z-10 translate-y-1/3">
+                  <h3 
+                    style={{ fontFamily: 'var(--font-tusker)' }}
+                    className="word-right text-[clamp(22px,8vw,90px)] text-white uppercase whitespace-nowrap absolute mix-blend-difference z-10 translate-y-[30%]"
+                  >
                     {step.right}
                   </h3>
                 </div>

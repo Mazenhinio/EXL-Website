@@ -57,10 +57,10 @@ hr,
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-cabinet), 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-tusker), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--taupe);
 }
@@ -136,6 +136,43 @@ hr,
 }
 
 /* ── Utility overrides ──────────────────────────────────────────────── */
+/* ── Highlights ─────────────────────────────────────────────────────── */
+.highlight-marker {
+  background-color: var(--chartreuse);
+  color: var(--black);
+  padding: 0 12px 4px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.highlight-scribble {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@keyframes scribble-wipe {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.highlight-scribble::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -6px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='20' viewBox='0 0 200 20' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M2 13c15-4 30 8 45 0s30-8 45 0 30 8 45 0 30-8 45 0' stroke='%23DEFF00' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M5 15c15 4 30-8 45 0s30 8 45 0 30-8 45 0 30 8 45 0' stroke='%23DEFF00' stroke-width='1.5' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0); /* Hidden initially */
+  animation: scribble-wipe 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 1.2s; /* Default delay to sync with other entrance animations */
+}
+
 img {
   display: block;
   max-width: 100%;

@@ -118,9 +118,9 @@ export default function FlagshipServices() {
           justifyContent: 'center',
           padding: '0 10%',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(40px, 9vw, 130px)', textAlign: 'center', lineHeight: 0.85, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '40px' }}>
+          <h2 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(40px, 8vw, 110px)', textAlign: 'center', lineHeight: 1.05, color: 'var(--black)', textTransform: 'uppercase', marginBottom: '40px' }}>
             Two engagements<br />
-            <span style={{ color: 'var(--taupe)', WebkitTextStroke: '1.5px var(--black)', WebkitTextFillColor: 'transparent' }}>we&apos;re known for.</span>
+            <span className="highlight-marker" style={{ marginTop: '12px' }}>we&apos;re known for.</span>
           </h2>
           <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: 'clamp(18px, 1.5vw, 22px)', color: 'rgba(0,0,0,0.65)', textAlign: 'center', maxWidth: '800px', lineHeight: 1.6, fontWeight: 300 }}>
             Most EXL clients start with one of these two offers. Both combine our four capabilities into a single monthly engagement, led by a senior partner, delivered by our in-house team.
@@ -130,23 +130,23 @@ export default function FlagshipServices() {
         {/* PANEL 2: CARDS */}
         <div style={{ width: '50%', height: '100vh', display: 'flex' }}>
           <div className="flagship-card" style={{ width: '50%', height: '100%', position: 'relative', borderRight: '0.5px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-            <Image src="/assets/images/flagship-imm.jpg" alt="IMM" fill style={{ objectFit: 'cover' }} className="flagship-img" priority />
+            <Image src="/assets/images/flagship-imm.png" alt="IMM" fill style={{ objectFit: 'cover' }} className="flagship-img" priority />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 80%)', zIndex: 1 }} />
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 600, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>01 — IMM</p>
+              <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>01 — IMM</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>Integrated Marketing Management.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>Your marketing department, on retainer. Built for five-star hospitality, luxury brands, and B2B companies whose reputation is their asset.</p>
-              <Link href="#footer-cta" style={{ backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore IMM</Link>
+              <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore IMM</Link>
             </div>
           </div>
           <div className="flagship-card" style={{ width: '50%', height: '100%', position: 'relative', overflow: 'hidden' }}>
             <Image src="/assets/images/flagship-podcast.jpg" alt="Podcast" fill style={{ objectFit: 'cover' }} className="flagship-img" priority />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 80%)', zIndex: 1 }} />
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 600, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>02 — PRODUCTION</p>
+              <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>02 — PRODUCTION</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>B2B Video Podcast Production.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>A cinematic B2B video podcast that builds pipeline, not just downloads. The same engine we use to produce Best in B2B.</p>
-              <Link href="#footer-cta" style={{ border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 700, fontSize: '12px', display: 'inline-block' }}>Explore Podcast Production</Link>
+              <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore Podcast Production</Link>
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function FlagshipServices() {
         </div>
 
         <div className="flagship-card-mobile" style={{ marginBottom: '40px', position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '500px' }}>
-          <Image src="/assets/images/flagship-imm.jpg" alt="IMM" fill style={{ objectFit: 'cover' }} />
+          <Image src="/assets/images/flagship-imm.png" alt="IMM" fill style={{ objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%)', zIndex: 1 }} />
           <div style={{ position: 'absolute', bottom: '30px', left: '20px', right: '20px', zIndex: 2 }}>
              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: '32px', color: '#fff', marginBottom: '16px' }}>Integrated Marketing Management.</h3>

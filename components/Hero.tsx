@@ -117,12 +117,12 @@ export default function Hero() {
         <p
           ref={eyebrowRef}
           style={{
-            fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-            fontSize: '13px',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
+            fontFamily: "var(--font-tusker), sans-serif",
+            fontSize: '11px',
+            fontWeight: 500,
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.55)',
+            color: 'rgba(255,255,255,0.6)',
             marginBottom: '20px',
             opacity: 0,
           }}
@@ -139,10 +139,11 @@ export default function Hero() {
             color: '#ffffff',
             marginBottom: '28px',
             opacity: 0,
+            textTransform: 'uppercase',
           }}
         >
           A B2B consultancy with its own{' '}
-          <span style={{ color: 'var(--chartreuse)' }}>production</span> floor.
+          <span className="highlight-marker">production</span> floor.
         </h1>
 
         <p
@@ -158,8 +159,7 @@ export default function Hero() {
             opacity: 0,
           }}
         >
-          We advise, produce, build, and grow for ambitious B2B and luxury
-          brands. Senior strategy, AI-native workflows, cinematic output. From
+          We advise, produce, build, and grow for <span className="highlight-scribble">ambitious B2B and luxury brands</span>. Senior strategy, AI-native workflows, cinematic output. From
           Dallas, for clients across North America and the Middle East.
         </p>
 
@@ -176,14 +176,14 @@ export default function Hero() {
             href="/contact"
             id="hero-book-cta"
             style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
+              fontFamily: "var(--font-tusker), sans-serif",
               fontSize: '13px',
-              fontWeight: 700,
+              fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              backgroundColor: 'var(--black)',
-              color: 'var(--chartreuse)',
-              padding: '14px 28px',
+              backgroundColor: 'var(--chartreuse)',
+              color: 'var(--black)',
+              padding: '16px 32px',
               display: 'inline-block',
               transition: 'opacity 0.2s',
             }}

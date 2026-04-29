@@ -70,10 +70,11 @@ export default function Nav() {
             key={item.label}
             href={item.href}
             style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '15px',
+              fontFamily: "var(--font-tusker), sans-serif",
+              fontSize: '13px',
               fontWeight: 500,
-              letterSpacing: '0.04em',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
               color: 'var(--black)',
               opacity: 0.7,
               transition: 'opacity 0.2s',
@@ -93,11 +94,13 @@ export default function Nav() {
       >
         <span
           style={{
-            fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-            fontSize: '15px',
+            fontFamily: "var(--font-tusker), sans-serif",
+            fontSize: '13px',
             fontWeight: 500,
             color: 'var(--black)',
             opacity: 0.5,
+            textTransform: 'uppercase',
+            letterSpacing: '0.08em'
           }}
         >
           Call us
@@ -106,9 +109,9 @@ export default function Nav() {
           href="/contact"
           id="nav-book-cta"
           style={{
-            fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-            fontSize: '14px',
-            fontWeight: 700,
+            fontFamily: "var(--font-tusker), sans-serif",
+            fontSize: '13px',
+            fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             color: 'var(--black)',

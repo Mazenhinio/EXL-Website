@@ -113,7 +113,7 @@ export default function BestInB2B() {
             }}
           >
             Our most visible build:<br />
-            <span style={{ color: 'var(--black)' }}>Best in B2B.</span>
+            <span style={{ backgroundColor: 'var(--chartreuse)', color: 'var(--black)', padding: '0 12px 4px', display: 'inline-block', lineHeight: '1', marginTop: '8px' }}>Best in B2B.</span>
           </h2>
           <p
             className="reveal-el"
@@ -138,9 +138,9 @@ export default function BestInB2B() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '11px',
-                fontWeight: 700,
+                fontFamily: "var(--font-tusker), sans-serif",
+                fontSize: '12px',
+                fontWeight: 600,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: 'var(--black)',
@@ -210,10 +210,10 @@ export default function BestInB2B() {
         >
           <span
             style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '9px',
-              fontWeight: 600,
-              letterSpacing: '0.12em',
+              fontFamily: "var(--font-tusker), sans-serif",
+              fontSize: '10px',
+              fontWeight: 500,
+              letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'var(--taupe)',
               writingMode: 'vertical-rl',

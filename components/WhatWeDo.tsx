@@ -13,28 +13,28 @@ export default function WhatWeDo() {
     {
       id: '01',
       name: 'Advise.',
-      img: '/assets/images/what-we-do.jpg',
+      img: '/assets/images/advise.png',
       href: '/services/advise',
       body: 'Positioning, brand, and go-to-market strategy from a team that has built businesses across three continents.',
     },
     {
       id: '02',
       name: 'Produce.',
-      img: '/assets/images/flagship-podcast.jpg',
+      img: '/assets/images/produce.png',
       href: '/services/produce',
       body: 'Podcasts, video, and social content shot in-house from our Dallas studio. B2B that looks like media.',
     },
     {
       id: '03',
       name: 'Build.',
-      img: '/assets/images/flagship-imm.jpg',
+      img: '/assets/images/build.png',
       href: '/services/build',
       body: 'Projects, launches, and integrated campaigns executed end to end. We scope it, build it, ship it, measure it.',
     },
     {
       id: '04',
       name: 'Grow.',
-      img: '/assets/images/best-in-b2b.jpg',
+      img: '/assets/images/grow.png',
       href: '/services/grow',
       body: "Partnerships, channels, and distribution systems that turn content into pipeline.",
     },
@@ -154,14 +154,14 @@ export default function WhatWeDo() {
         <div style={{ width: '0.5px', height: '24px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
         <h2 style={{ 
           fontFamily: 'var(--font-tusker)', 
-          fontSize: 'clamp(32px, 6vw, 72px)', 
+          fontSize: 'clamp(32px, 6vw, 68px)', 
           textAlign: 'center', 
-          lineHeight: 0.9, 
+          lineHeight: 1.05, 
           color: 'var(--black)', 
           textTransform: 'uppercase'
         }}>
           One firm. Four capabilities.<br />
-          <span style={{ WebkitTextStroke: '1.5px var(--black)', color: 'transparent' }}>No handoffs.</span>
+          <span className="highlight-marker" style={{ marginTop: '8px' }}>No handoffs.</span>
         </h2>
       </div>
 
@@ -200,16 +200,18 @@ export default function WhatWeDo() {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 80%)', zIndex: 2 }} />
             
             <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', zIndex: 5 }}>
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '9px', fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase' }}>{cap.id}</p>
+              <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.45)', fontSize: '10px', fontWeight: 500, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{cap.id}</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(24px, 3vw, 36px)', color: '#fff', lineHeight: 1, marginBottom: '12px' }}>{cap.name}</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '13px', lineHeight: 1.4, marginBottom: '16px', maxWidth: '85%' }}>{cap.body}</p>
               <Link href={cap.href} style={{ 
+                fontFamily: 'var(--font-tusker)',
                 color: 'var(--chartreuse)',
-                fontSize: '10px', 
-                fontWeight: 700, 
+                fontSize: '11px', 
+                fontWeight: 600, 
                 textTransform: 'uppercase', 
                 textDecoration: 'none',
-                display: 'inline-block'
+                display: 'inline-block',
+                letterSpacing: '0.08em'
               }}>Explore →</Link>
             </div>
           </div>

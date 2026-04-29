@@ -137,11 +137,11 @@ export default function HowWeWork() {
         {/* Header (Standard 3) */}
         <div style={{ marginBottom: '80px' }} className="how-header">
           <p className="section-label" style={{ 
-            fontFamily: 'var(--font-cabinet)', 
-            fontSize: '10px', 
-            fontWeight: 600, 
+            fontFamily: 'var(--font-tusker)', 
+            fontSize: '11px', 
+            fontWeight: 500, 
             textTransform: 'uppercase', 
-            letterSpacing: '0.12em', 
+            letterSpacing: '0.15em', 
             color: 'var(--taupe)', 
             marginBottom: '16px' 
           }}>

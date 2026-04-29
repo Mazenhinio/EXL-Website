@@ -76,10 +76,10 @@ export default function Footer() {
         <div className="footer-links-col">
           <p
             style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '10px',
-              fontWeight: 600,
-              letterSpacing: '0.1em',
+              fontFamily: "var(--font-tusker), sans-serif",
+              fontSize: '11px',
+              fontWeight: 500,
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.4)',
               marginBottom: '24px',
@@ -100,11 +100,13 @@ export default function Footer() {
                 <Link
                   href={link.href}
                   style={{
-                    fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                    fontWeight: 300,
-                    fontSize: '13px',
+                    fontFamily: "var(--font-tusker), sans-serif",
+                    fontWeight: 500,
+                    fontSize: '12px',
                     color: 'rgba(255,255,255,0.7)',
                     transition: 'color 0.2s',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
                   }}
                   onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#ffffff')}
                   onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
@@ -120,10 +122,10 @@ export default function Footer() {
         <div className="footer-links-col">
           <p
             style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '10px',
-              fontWeight: 600,
-              letterSpacing: '0.1em',
+              fontFamily: "var(--font-tusker), sans-serif",
+              fontSize: '11px',
+              fontWeight: 500,
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.4)',
               marginBottom: '24px',
@@ -145,11 +147,13 @@ export default function Footer() {
                 <Link
                   href={link.href}
                   style={{
-                    fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                    fontWeight: 300,
-                    fontSize: '13px',
+                    fontFamily: "var(--font-tusker), sans-serif",
+                    fontWeight: 500,
+                    fontSize: '12px',
                     color: 'rgba(255,255,255,0.7)',
                     transition: 'color 0.2s',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
                   }}
                   onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#ffffff')}
                   onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
@@ -176,20 +180,24 @@ export default function Footer() {
       >
         <p
           style={{
-            fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-            fontWeight: 300,
-            fontSize: '11px',
+            fontFamily: "var(--font-tusker), sans-serif",
+            fontWeight: 400,
+            fontSize: '10px',
             color: 'rgba(255,255,255,0.4)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em'
           }}
         >
           © 2026 EXL Ventures LLC. All rights reserved.
         </p>
         <p
           style={{
-            fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
+            fontFamily: "var(--font-tusker), sans-serif",
             fontWeight: 500,
-            fontSize: '11px',
+            fontSize: '10px',
             color: 'rgba(255,255,255,0.6)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em'
           }}
         >
           exl.agency

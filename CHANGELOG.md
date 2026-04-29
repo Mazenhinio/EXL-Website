@@ -1,5 +1,24 @@
 # EXL Agency - Antigravity V3 Changelog
 
+## [2026-04-29] - V7 High-Fidelity Refinements & GSAP Stabilization
+
+### Added
+- **Technical Standard: The Rail System**: Established the "Physical Rail" as the mandatory implementation pattern for scrubbed GSAP animations. Replaces absolute-positioned floating elements with a contiguous track of panels (e.g., 200vh height or 200vw width) to resolve "clipping" and bidirectional sync issues.
+- **Brand Treatments**: Applied "Treatment B" (Hand-drawn SVG Underline) to key differentiator hooks in the Advantage and How Different sections.
+- **Rising 2x2 Grid**: Implemented a cinematic "platform reveal" for the What We Do section, where the 2x2 capability grid rises vertically on a rail to meet the fixed headline.
+- **Cinematic Overlays**: Applied standardized dual-layer overlays (35% solid + 85% bottom gradient) to all image-backed components (Capability Cards, Flagship Cards, Best in B2B).
+
+### Changed
+- **What We Do (Section 3)**: Re-architected into a Vertical Rail system (Panel-to-Panel swipe) to ensure rock-solid scroll stability in both directions.
+- **Flagship Services**: Restored to the Horizontal Rail interaction ("just as it was") while maintaining the updated V7 typography and image treatments.
+- **Header Standardization**: Applied "Standard 3" (Label -> Thin Vertical Rule -> H2) across all sections to ensure editorial consistency.
+- **Desktop Spacing**: Unified all major section padding to the V7 standard of `80px 48px`.
+
+### Fixed
+- **Bidirectional Clipping**: Resolved the high-priority bug where scrubbed animations would skip or "jump" to the end state when scrolling down.
+- **Image Overflow**: Fixed scaling issues on capability cards by switching to the Rail container model.
+- **Layout Regressions**: Purged unreferenced "dummy code" (`Ticker.tsx`, `CredibilityLine.tsx`) to prevent bundle bloat and component confusion.
+
 ## [2026-04-28] - Homepage High-Fidelity Refinements
 
 ### Added

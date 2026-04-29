@@ -3,7 +3,6 @@ import Hero from '@/components/Hero'
 
 import WhatWeDo from '@/components/WhatWeDo'
 import Advantage from '@/components/Advantage'
-import Ticker from '@/components/Ticker'
 import HowDifferent from '@/components/HowDifferent'
 import FlagshipServices from '@/components/FlagshipServices'
 import BestInB2B from '@/components/BestInB2B'
@@ -19,7 +18,6 @@ export default function Home() {
 
       <WhatWeDo />
       <Advantage />
-      <Ticker />
       <HowDifferent />
       <FlagshipServices />
       <BestInB2B />

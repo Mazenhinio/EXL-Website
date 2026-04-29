@@ -71,7 +71,7 @@ export default function BestInB2B() {
         style={{
           display: 'grid',
           gridTemplateColumns: '28% 57% 15%',
-          minHeight: '600px',
+          minHeight: '650px',
         }}
         className="editorial-grid"
       >
@@ -81,39 +81,50 @@ export default function BestInB2B() {
           className="text-panel"
           style={{
             backgroundColor: 'var(--lavender)',
-            padding: '64px 40px 64px 32px',
+            padding: '80px 48px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
             borderRight: '0.5px solid rgba(0,0,0,0.08)',
           }}
         >
-          <p className="section-label reveal-el" style={{ marginBottom: '24px' }}>
+          {/* STANDARD ENTRY (Standard 3) */}
+          <p className="section-label reveal-el" style={{ 
+            marginBottom: '16px',
+            fontSize: '10px',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '0.12em',
+            color: 'var(--taupe)'
+          }}>
             Owned Media
           </p>
+          <div className="reveal-el" style={{ width: '0.5px', height: '32px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
+
           <h2
             className="reveal-el"
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontWeight: 600,
-              fontSize: 'clamp(24px, 4vw, 40px)',
-              lineHeight: 1.25,
+              fontSize: 'clamp(32px, 4vw, 48px)',
+              lineHeight: 1.05,
               color: 'var(--black)',
               marginBottom: '20px',
             }}
           >
-            Our most visible build:{' '}
-            <strong style={{ fontWeight: 600 }}>Best in B2B.</strong>
+            Our most visible build:<br />
+            <span style={{ color: 'var(--black)' }}>Best in B2B.</span>
           </h2>
           <p
             className="reveal-el"
             style={{
               fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontWeight: 300,
-              fontSize: '18px',
-              lineHeight: 1.7,
+              fontWeight: 400,
+              fontSize: '16px',
+              lineHeight: 1.6,
               color: 'rgba(0,0,0,0.65)',
               marginBottom: '32px',
+              maxWidth: '380px'
             }}
           >
             Best in B2B is our own video podcast, filmed on location across
@@ -128,14 +139,16 @@ export default function BestInB2B() {
               rel="noopener noreferrer"
               style={{
                 fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '10px',
+                fontSize: '11px',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: 'var(--black)',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '8px',
+                textDecoration: 'underline',
+                textUnderlineOffset: '4px'
               }}
             >
               Visit b2b.media →
@@ -152,6 +165,8 @@ export default function BestInB2B() {
             style={{ objectFit: 'cover' }}
             sizes="57vw"
           />
+          {/* Standard Overlay (Standard 1) */}
+          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.35)', zIndex: 1 }} />
           {/* Bottom gradient */}
           <div
             style={{
@@ -159,13 +174,26 @@ export default function BestInB2B() {
               bottom: 0,
               left: 0,
               right: 0,
-              height: '50%',
+              height: '65%',
               background:
-                'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
-              zIndex: 1,
+                'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)',
+              zIndex: 2,
             }}
           />
 
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '40px', 
+            left: '40px', 
+            zIndex: 5,
+            fontFamily: 'var(--font-tusker)',
+            fontSize: '48px',
+            color: 'var(--chartreuse)',
+            opacity: 0.12,
+            pointerEvents: 'none'
+          }}>
+            BEST IN B2B.
+          </div>
         </div>
 
         {/* Col 3 — Section number */}
@@ -210,11 +238,11 @@ export default function BestInB2B() {
           .text-panel {
             order: 1;
             border-right: none !important;
-            padding: 48px 20px !important;
+            padding: 64px 20px !important;
           }
           .image-panel {
             order: 2;
-            min-height: 60vw;
+            min-height: 500px;
           }
         }
       `}</style>

@@ -74,8 +74,9 @@ export default function FooterCTA() {
       style={{
         position: 'relative',
         backgroundColor: 'var(--chartreuse)',
-        padding: '120px 32px 100px',
+        padding: '80px 48px',
         overflow: 'hidden',
+        borderTop: '0.5px solid rgba(0,0,0,0.1)',
       }}
     >
       <div
@@ -103,7 +104,7 @@ export default function FooterCTA() {
             }}
           >
             {/* Split text for stagger */}
-            {"Let's build something worth watching."
+            {"Let's build something "
               .split(' ')
               .map((word, i) => (
                 <span
@@ -114,6 +115,19 @@ export default function FooterCTA() {
                   {word}
                 </span>
               ))}
+            <span 
+              className="word" 
+              style={{ 
+                display: 'inline-block', 
+                opacity: 0, 
+                backgroundColor: 'var(--black)', 
+                color: 'var(--chartreuse)', 
+                padding: '0 12px 6px',
+                lineHeight: 1
+              }}
+            >
+              worth watching.
+            </span>
           </h2>
         </div>
 

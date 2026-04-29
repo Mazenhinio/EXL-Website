@@ -36,7 +36,6 @@ export default function FlagshipServices() {
           })
 
           // Start at 0% (Intro) and move to -50% (Cards)
-          // Since the rail is 200% wide, -50% of its width equals -100% of the screen width.
           tl.fromTo(railRef.current, 
             { x: '0%' }, 
             { x: '-50%', ease: 'none', immediateRender: true }
@@ -108,7 +107,7 @@ export default function FlagshipServices() {
           willChange: 'transform',
         }}
       >
-        {/* PANEL 1: INTRO (START HERE) */}
+        {/* PANEL 1: INTRO */}
         <div style={{
           width: '50%',
           height: '100vh',
@@ -128,7 +127,7 @@ export default function FlagshipServices() {
           </p>
         </div>
 
-        {/* PANEL 2: CARDS (SLIDE TO HERE) */}
+        {/* PANEL 2: CARDS */}
         <div style={{ width: '50%', height: '100vh', display: 'flex' }}>
           <div className="flagship-card" style={{ width: '50%', height: '100%', position: 'relative', borderRight: '0.5px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
             <Image src="/assets/images/flagship-imm.jpg" alt="IMM" fill style={{ objectFit: 'cover' }} className="flagship-img" priority />

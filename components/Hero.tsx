@@ -192,31 +192,6 @@ export default function Hero() {
           >
             Book a call
           </Link>
-          <Link
-            href="/#what-we-do"
-            id="hero-see-cta"
-            style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontSize: '13px',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              backgroundColor: 'transparent',
-              color: '#ffffff',
-              padding: '14px 28px',
-              display: 'inline-block',
-              border: '0.5px solid rgba(255,255,255,0.6)',
-              transition: 'border-color 0.2s',
-            }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,1)')
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.6)')
-            }
-          >
-            See what we do
-          </Link>
         </div>
       </div>
 

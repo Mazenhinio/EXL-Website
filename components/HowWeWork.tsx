@@ -128,17 +128,27 @@ export default function HowWeWork() {
         backgroundColor: 'var(--off-white)',
         backgroundImage: `linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)`,
         backgroundSize: '50px 50px',
-        padding: '100px 0',
+        padding: '80px 0',
         borderTop: '0.5px solid rgba(0,0,0,0.08)',
         overflow: 'hidden',
       }}
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 32px' }} className="how-we-work-container">
-        {/* Header */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 48px' }} className="how-we-work-container">
+        {/* Header (Standard 3) */}
         <div style={{ marginBottom: '80px' }} className="how-header">
-          <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'rgba(0,0,0,0.5)', marginBottom: '16px' }}>
-            05 — THE EXL SYSTEM
+          <p className="section-label" style={{ 
+            fontFamily: 'var(--font-cabinet)', 
+            fontSize: '10px', 
+            fontWeight: 600, 
+            textTransform: 'uppercase', 
+            letterSpacing: '0.12em', 
+            color: 'var(--taupe)', 
+            marginBottom: '16px' 
+          }}>
+            How we work
           </p>
+          <div style={{ width: '0.5px', height: '32px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
+          
           <h2 style={{
             fontFamily: 'var(--font-tusker)',
             fontSize: 'clamp(40px, 6vw, 100px)',
@@ -147,7 +157,7 @@ export default function HowWeWork() {
             textTransform: 'uppercase',
           }}>
             Methodology.<br />
-            <span style={{ color: 'var(--taupe)', WebkitTextStroke: '1.5px var(--black)', WebkitTextFillColor: 'transparent' }}>
+            <span style={{ WebkitTextStroke: '1.5px var(--black)', color: 'transparent' }}>
               Built for speed.
             </span>
           </h2>

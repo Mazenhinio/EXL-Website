@@ -90,7 +90,6 @@ export default function FlagshipServices() {
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: 'var(--off-white)',
-        borderTop: '0.5px solid rgba(0,0,0,0.1)',
       }}
     >
       {/* DESKTOP RAIL */}
@@ -118,6 +117,10 @@ export default function FlagshipServices() {
           justifyContent: 'center',
           padding: '0 10%',
         }}>
+          <p className="section-label" style={{ marginBottom: '16px', fontSize: '10px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--taupe)' }}>
+            Flagship Services
+          </p>
+          <div style={{ width: '0.5px', height: '24px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
           <h2 style={{ 
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 9vw, 110px)', // Unified mobile scale
@@ -131,8 +134,16 @@ export default function FlagshipServices() {
             Two engagements<br />
             <span className="highlight-marker" style={{ marginTop: '12px' }}>we&apos;re known for.</span>
           </h2>
-          <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: 'clamp(18px, 1.5vw, 22px)', color: 'rgba(0,0,0,0.65)', textAlign: 'center', maxWidth: '800px', lineHeight: 1.6, fontWeight: 300 }}>
-            Most EXL clients start with one of these two offers. Both combine our four capabilities into a single monthly engagement, led by a senior partner, delivered by our in-house team.
+          <p style={{ 
+            fontFamily: 'var(--font-cabinet)', 
+            fontSize: 'clamp(18px, 4.5vw, 55px)', 
+            color: 'rgba(0,0,0,0.65)', 
+            textAlign: 'center', 
+            maxWidth: '1000px', 
+            lineHeight: 1.4, 
+            fontWeight: 300 
+          }}>
+            Most EXL clients start with <span className="font-medium text-black">one of these two offers</span>. Both combine our <span className="font-medium text-black">four capabilities</span> into a <span className="font-medium text-black">single monthly engagement</span>, led by a <span className="font-medium text-black">senior partner</span>, delivered by our <span className="font-medium text-black">in-house team</span>.
           </p>
         </div>
 
@@ -144,7 +155,7 @@ export default function FlagshipServices() {
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
               <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>01 — IMM</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>Integrated Marketing Management.</h3>
-              <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>Your marketing department, on retainer. Built for five-star hospitality, luxury brands, and B2B companies whose reputation is their asset.</p>
+              <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(16px, 2vw, 28px)', lineHeight: 1.5, marginBottom: '32px', maxWidth: '480px' }}>Your marketing department, on retainer. Built for five-star hospitality, luxury brands, and B2B companies whose reputation is their asset.</p>
               <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore IMM</Link>
             </div>
           </div>
@@ -154,7 +165,7 @@ export default function FlagshipServices() {
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
               <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>02 — PRODUCTION</p>
               <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>B2B Video Podcast Production.</h3>
-              <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px', maxWidth: '480px' }}>A cinematic B2B video podcast that builds pipeline, not just downloads. The same engine we use to produce Best in B2B.</p>
+              <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(16px, 2vw, 28px)', lineHeight: 1.5, marginBottom: '32px', maxWidth: '480px' }}>Your production floor, on retainer. A high-output content engine for CEOs and CMOs who need to dominate LinkedIn, YouTube, and the podcast charts.</p>
               <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore Podcast Production</Link>
             </div>
           </div>

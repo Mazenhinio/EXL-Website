@@ -147,8 +147,8 @@ export default function Advantage() {
                 A traditional consultancy with an <br/>
                 <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
               </h2>
-              <p className="font-[var(--font-cabinet)] text-[clamp(16px,1.4vw,20px)] text-white/60 max-w-[850px] font-light leading-relaxed">
-                Every EXL deliverable runs through an AI-accelerated workflow. Not to replace the work, to compress the timeline. We build and maintain internal automation systems that handle research, transcription, editing assistance, content repurposing, CRM sync, and distribution, so our senior team spends their hours on <span className="highlight-scribble">strategy and craft</span>, not on tasks a machine can do better.
+              <p className="font-[var(--font-cabinet)] text-[clamp(18px,4.5vw,32px)] text-white/60 max-w-[850px] font-light leading-relaxed">
+                Every EXL deliverable runs through an AI-accelerated workflow. Not to replace the work, to compress the timeline. We build and maintain internal automation systems that handle research, transcription, editing assistance, content repurposing, CRM sync, and distribution, so our senior team spends their hours on strategy and craft, not on tasks a machine can do better.
               </p>
             </div>
           </div>

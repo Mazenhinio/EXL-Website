@@ -62,15 +62,16 @@ export default function HowDifferent() {
       className="relative bg-[var(--eerie)] min-h-screen overflow-hidden py-24 px-6 lg:px-12 flex flex-col"
     >
       {/* Header */}
-      <div className="mb-20">
-        <p className="section-label text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px] mb-8">
+      <div className="mb-20 flex flex-col items-center">
+        <p className="section-label text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px] mb-4">
           Why Clients Pick EXL
         </p>
+        <div className="w-[0.5px] h-6 bg-white/15 mb-6" />
         <h2 
           style={{ fontFamily: 'var(--font-tusker)' }}
-          className="text-[clamp(32px,6.5vw,68px)] leading-[1.05] text-white uppercase max-w-[900px] tracking-tight"
+          className="text-[clamp(32px,6.5vw,68px)] leading-[1.05] text-white uppercase max-w-[900px] tracking-tight text-center"
         >
-          Why clients pick EXL <span className="highlight-marker">over the alternatives.</span>
+          Why clients pick EXL over the <span className="highlight-marker">alternatives.</span>
         </h2>
       </div>
 
@@ -119,10 +120,10 @@ export default function HowDifferent() {
                 {/* Body Text (Reveals on Active) */}
                 <div className={`mt-8 transition-all duration-700 ease-out overflow-hidden
                   ${activePillar === i ? 'max-h-[500px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}`}>
-                  <p className="font-[var(--font-cabinet)] text-[clamp(16px,1.2vw,20px)] text-white/70 max-w-[450px] font-light leading-relaxed">
-                    {i === 0 && <>Every engagement is led by a founder with international consulting experience across three continents. You get the <span className="highlight-scribble">senior thinking the big firms charge for</span>, without the layers between you and the person actually solving your problem.</>}
-                    {i === 1 && <>We built our production and content stack on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the <span className="highlight-scribble">pace of your market</span>, not the pace of your agency.</>}
-                    {i === 2 && <>Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this <span className="highlight-scribble">move the number?</span> We build marketing that&apos;s accountable from planning through delivery, and we own the outcome end to end.</>}
+                  <p className="font-[var(--font-cabinet)] text-[clamp(14px,2.25vw,28px)] text-white/70 max-w-[450px] font-light leading-relaxed">
+                    {i === 0 && <>Every engagement is led by a founder with international consulting experience across three continents. You get the senior thinking the big firms charge for, without the layers between you and the person actually solving your problem.</>}
+                    {i === 1 && <>We built our production and content stack on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the pace of your market, not the pace of your agency.</>}
+                    {i === 2 && <>Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this move the number? We build marketing that&apos;s accountable from planning through delivery, and we own the outcome end to end.</>}
                   </p>
                   
                   {/* Visual Indicator */}

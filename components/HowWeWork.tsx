@@ -135,7 +135,7 @@ export default function HowWeWork() {
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 48px' }} className="how-we-work-container">
         {/* Header (Standard 3) */}
-        <div style={{ marginBottom: '80px' }} className="how-header">
+        <div style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="how-header text-center">
           <p className="section-label" style={{ 
             fontFamily: 'var(--font-tusker)', 
             fontSize: '11px', 
@@ -155,6 +155,7 @@ export default function HowWeWork() {
             lineHeight: 0.9,
             color: 'var(--black)',
             textTransform: 'uppercase',
+            textAlign: 'center'
           }}>
             Methodology.<br />
             <span style={{ WebkitTextStroke: '1.5px var(--black)', color: 'transparent' }}>
@@ -174,28 +175,48 @@ export default function HowWeWork() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className="blueprint-tile"
+              className="blueprint-tile group"
+              onMouseMove={(e) => {
+                const tile = e.currentTarget;
+                const rect = tile.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                import('gsap').then(({ gsap }) => {
+                  gsap.to(tile.querySelector('.tile-icon'), { x: x * 0.12, y: y * 0.12, duration: 0.6, ease: 'power2.out' });
+                  gsap.to(tile.querySelector('.tile-num'), { x: x * 0.06, y: y * 0.06, duration: 0.6, ease: 'power2.out' });
+                  gsap.to(tile.querySelector('.tile-title'), { x: x * 0.03, y: y * 0.03, duration: 0.6, ease: 'power2.out' });
+                  gsap.to(tile.querySelector('.tile-body'), { x: x * 0.015, y: y * 0.015, duration: 0.6, ease: 'power2.out' });
+                });
+              }}
+              onMouseLeave={(e) => {
+                const tile = e.currentTarget;
+                import('gsap').then(({ gsap }) => {
+                  gsap.to(tile.querySelectorAll('.tile-icon, .tile-num, .tile-title, .tile-body'), { 
+                    x: 0, y: 0, duration: 1, ease: 'power3.out' 
+                  });
+                });
+              }}
               style={{
                 backgroundColor: 'var(--off-white)',
                 padding: '60px 40px',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '500px',
+                display: 'grid',
+                gridTemplateRows: '80px 80px 60px 1fr',
+                height: '550px',
                 position: 'relative',
               }}
             >
-              <div className="tile-icon" style={{ marginBottom: '60px', color: 'var(--black)' }}>
+              <div className="tile-icon pointer-events-none" style={{ color: 'var(--black)' }}>
                 <svg width="48" height="48" viewBox="0 0 24 24" style={{ display: 'block' }}>
                   {step.icon}
                 </svg>
               </div>
-              <div className="tile-num" style={{ marginBottom: '24px' }}>
+              <div className="tile-num pointer-events-none">
                 <span style={{
                   fontFamily: 'var(--font-tusker)',
                   fontSize: '14px',
                   color: 'var(--chartreuse)',
                   display: 'block',
-                  marginBottom: '12px',
                   backgroundColor: 'var(--black)',
                   width: 'fit-content',
                   padding: '4px 10px',
@@ -203,27 +224,33 @@ export default function HowWeWork() {
                   {step.num}
                 </span>
               </div>
-              <div className="tile-content" style={{ marginTop: 'auto' }}>
+              <div className="tile-title pointer-events-none">
                 <h3 style={{
                   fontFamily: 'var(--font-tusker)',
                   fontSize: '32px',
                   color: 'var(--black)',
                   textTransform: 'uppercase',
                   lineHeight: 1,
-                  marginBottom: '20px',
+                  margin: 0,
                 }}>
                   {step.title}
                 </h3>
+              </div>
+              <div className="tile-body pointer-events-none">
                 <p style={{
                   fontFamily: 'var(--font-cabinet)',
                   fontSize: '17px',
                   lineHeight: 1.6,
                   color: 'rgba(0,0,0,0.6)',
                   fontWeight: 300,
+                  margin: 0,
                 }}>
                   {step.desc}
                 </p>
               </div>
+
+              {/* Hover Glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-500 bg-radial-[circle,var(--chartreuse)_0%,transparent_70%]" />
             </div>
           ))}
         </div>

@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://exl.agency'),
 }
 
+import CustomCursor from '@/components/CustomCursor'
+
 export default function RootLayout({
   children,
 }: {
@@ -53,7 +55,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   )
 }

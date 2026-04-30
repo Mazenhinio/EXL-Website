@@ -96,7 +96,7 @@ Every EXL deliverable runs through an AI-accelerated workflow. Not to replace th
 
 ---
 
-### SECTION 4 — CREDIBILITY LINE
+### SECTION 4 — CREDIBILITY LINE (skip this for now it looks unprofessional)
 
 Trusted to run the marketing function for a flagship IHG resort property, and to produce Best in B2B, the only B2B podcast filmed on location across Dallas-Fort Worth.
 

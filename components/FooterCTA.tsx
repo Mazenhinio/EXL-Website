@@ -98,7 +98,7 @@ export default function FooterCTA() {
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontWeight: 600,
-              fontSize: 'clamp(36px, 12vw, 110px)',
+              fontSize: 'clamp(32px, 7vw, 70px)',
               lineHeight: 1.05,
               color: 'var(--black)',
             }}
@@ -136,9 +136,9 @@ export default function FooterCTA() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-end',
-            maxWidth: '420px',
-            paddingBottom: '16px',
+            justifyContent: 'flex-start',
+            maxWidth: '450px',
+            paddingTop: '16px',
           }}
         >
           <p
@@ -146,10 +146,10 @@ export default function FooterCTA() {
             style={{
               fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
               fontWeight: 400,
-              fontSize: '21px',
-              lineHeight: 1.6,
-              color: 'rgba(0,0,0,0.7)',
-              marginBottom: '32px',
+              fontSize: 'clamp(16px, 3.5vw, 35px)',
+              lineHeight: 1.2,
+              color: 'rgba(0,0,0,0.8)',
+              marginBottom: '48px',
               opacity: 0,
             }}
           >
@@ -206,13 +206,13 @@ export default function FooterCTA() {
       </div>
 
       {/* Cutout Figure */}
-      <div className="footer-cutout-container" style={{ position: 'absolute', bottom: 0, right: '5%', width: '400px', height: '500px', pointerEvents: 'none' }}>
+      <div className="footer-cutout-container" style={{ position: 'absolute', bottom: 0, right: '8%', width: '550px', height: '100%', pointerEvents: 'none' }}>
         <Image
           ref={cutoutRef}
           src="/assets/images/cutout_model.png"
           alt="EXL brand team member"
           fill
-          style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+          style={{ objectFit: 'contain', objectPosition: 'bottom right' }}
           className="footer-cutout"
         />
       </div>

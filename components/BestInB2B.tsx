@@ -240,6 +240,15 @@ export default function BestInB2B() {
             border-right: none !important;
             padding: 64px 20px !important;
           }
+          @media (max-width: 1023px) {
+            .text-panel {
+              align-items: center !important;
+              text-align: center !important;
+            }
+            .text-panel p {
+              max-width: 100% !important;
+            }
+          }
           .image-panel {
             order: 2;
             min-height: 500px;

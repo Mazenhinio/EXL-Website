@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Hero() {
-  const eyebrowRef = useRef<HTMLParagraphElement>(null)
   const h1Ref = useRef<HTMLHeadingElement>(null)
   const subRef = useRef<HTMLParagraphElement>(null)
   const ctasRef = useRef<HTMLDivElement>(null)
@@ -23,12 +22,6 @@ export default function Hero() {
         { opacity: 1, duration: 2.5, ease: 'power1.out', delay: 0.1 },
         0
       )
-        .fromTo(
-          eyebrowRef.current,
-          { opacity: 0, y: 22 },
-          { opacity: 1, y: 0, duration: 0.6, delay: 0.3 },
-          0
-        )
         .fromTo(
           h1Ref.current,
           { opacity: 0, y: 32 },
@@ -62,22 +55,38 @@ export default function Hero() {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
-        paddingTop: '120px',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '80px',
         paddingBottom: '64px',
         paddingLeft: '32px',
         paddingRight: '32px',
+        textAlign: 'center',
       }}
     >
-      {/* Background image */}
-      <Image
-        src="/assets/images/hero.png"
-        alt="EXL production studio"
-        fill
-        style={{ objectFit: 'cover', objectPosition: 'center' }}
-        priority
-        sizes="100vw"
-      />
+      {/* Split background images */}
+      <div style={{ position: 'absolute', inset: 0, display: 'flex', zIndex: 0 }}>
+        <div style={{ position: 'relative', width: '50%', height: '100%', borderRight: '0.5px solid rgba(255,255,255,0.05)' }}>
+          <Image
+            src="/assets/images/hero-2.png"
+            alt="Hero Left"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            priority
+            sizes="50vw"
+          />
+        </div>
+        <div style={{ position: 'relative', width: '50%', height: '100%' }}>
+          <Image
+            src="/assets/images/hero-1.png"
+            alt="Hero Right"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            priority
+            sizes="50vw"
+          />
+        </div>
+      </div>
 
       {/* Gradient overlay */}
       <div
@@ -85,7 +94,7 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+            'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
           zIndex: 1,
         }}
       />
@@ -96,7 +105,8 @@ export default function Hero() {
         style={{
           position: 'absolute',
           bottom: '-10px',
-          left: '-20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
           fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
           fontWeight: 600,
           fontSize: '95vw',
@@ -113,28 +123,12 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div style={{ position: 'relative', zIndex: 3, maxWidth: '820px' }}>
-        <p
-          ref={eyebrowRef}
-          style={{
-            fontFamily: "var(--font-tusker), sans-serif",
-            fontSize: '11px',
-            fontWeight: 500,
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.6)',
-            marginBottom: '20px',
-            opacity: 0,
-          }}
-        >
-          exl.agency · Dallas, Texas
-        </p>
-
+      <div style={{ position: 'relative', zIndex: 3, maxWidth: '1100px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <h1
           ref={h1Ref}
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-            fontSize: 'clamp(36px, 10vw, 130px)',
+            fontSize: 'clamp(25px, 7vw, 90px)',
             lineHeight: 1.05,
             color: '#ffffff',
             marginBottom: '28px',
@@ -152,15 +146,15 @@ export default function Hero() {
           style={{
             fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
             fontWeight: 300,
-            fontSize: '20px',
-            lineHeight: 1.7,
+            fontSize: 'clamp(13px, 3.5vw, 45px)',
+            lineHeight: 1.2,
             color: 'rgba(255,255,255,0.72)',
-            maxWidth: '520px',
-            marginBottom: '36px',
+            maxWidth: '1000px',
+            marginBottom: '48px',
             opacity: 0,
           }}
         >
-          We advise, produce, build, and grow for <span className="highlight-scribble">ambitious B2B and luxury brands</span>. Senior strategy, AI-native workflows, cinematic output. From
+          We advise, produce, build, and grow for ambitious B2B and luxury brands. Senior strategy, AI-native workflows, cinematic output. From
           Dallas, for clients across North America and the Middle East.
         </p>
 
@@ -170,6 +164,7 @@ export default function Hero() {
             display: 'flex',
             gap: '16px',
             flexWrap: 'wrap',
+            justifyContent: 'center',
             opacity: 0,
           }}
         >
@@ -178,7 +173,7 @@ export default function Hero() {
             id="hero-book-cta"
             style={{
               fontFamily: "var(--font-tusker), sans-serif",
-              fontSize: '13px',
+              fontSize: '9px',
               fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',

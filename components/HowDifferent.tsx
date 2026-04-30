@@ -63,7 +63,7 @@ export default function HowDifferent() {
     >
       {/* Header */}
       <div className="mb-20 flex flex-col items-center">
-        <p className="section-label text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px] mb-4">
+        <p className="section-label mb-4">
           Why Clients Pick EXL
         </p>
         <div className="w-[0.5px] h-6 bg-white/15 mb-6" />

@@ -91,7 +91,6 @@ export default function BestInB2B() {
           {/* STANDARD ENTRY (Standard 3) */}
           <p className="section-label reveal-el" style={{ 
             marginBottom: '16px',
-            fontSize: '10px',
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.12em',

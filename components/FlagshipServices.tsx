@@ -117,7 +117,7 @@ export default function FlagshipServices() {
           justifyContent: 'center',
           padding: '0 10%',
         }}>
-          <p className="section-label" style={{ marginBottom: '16px', fontSize: '10px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--taupe)' }}>
+          <p className="section-label" style={{ marginBottom: '16px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--taupe)' }}>
             Flagship Services
           </p>
           <div style={{ width: '0.5px', height: '24px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />

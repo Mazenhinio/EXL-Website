@@ -138,7 +138,6 @@ export default function HowWeWork() {
         <div style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="how-header text-center">
           <p className="section-label" style={{ 
             fontFamily: 'var(--font-tusker)', 
-            fontSize: '11px', 
             fontWeight: 500, 
             textTransform: 'uppercase', 
             letterSpacing: '0.15em', 

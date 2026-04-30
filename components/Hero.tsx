@@ -146,7 +146,7 @@ export default function Hero() {
           style={{
             fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
             fontWeight: 300,
-            fontSize: 'clamp(13px, 3.5vw, 45px)',
+            fontSize: 'clamp(13px, 3.5vw, 30px)',
             lineHeight: 1.2,
             color: 'rgba(255,255,255,0.72)',
             maxWidth: '1000px',
@@ -173,13 +173,13 @@ export default function Hero() {
             id="hero-book-cta"
             style={{
               fontFamily: "var(--font-tusker), sans-serif",
-              fontSize: '9px',
+              fontSize: '18px',
               fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               backgroundColor: 'var(--chartreuse)',
               color: 'var(--black)',
-              padding: '16px 32px',
+              padding: '32px 64px',
               display: 'inline-block',
               transition: 'opacity 0.2s',
             }}

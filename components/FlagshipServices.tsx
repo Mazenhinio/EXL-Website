@@ -67,7 +67,6 @@ export default function FlagshipServices() {
       })
 
       return () => {
-        ScrollTrigger.getAll().forEach(t => t.kill())
         mm.revert()
       }
     }

@@ -1,15 +1,12 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 
 export default function FooterCTA() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLHeadingElement>(null)
-  const subRef = useRef<HTMLParagraphElement>(null)
-  const ctasRef = useRef<HTMLDivElement>(null)
-  const cutoutRef = useRef<HTMLImageElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const xRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const loadGsap = async () => {
@@ -17,222 +14,102 @@ export default function FooterCTA() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
 
-      // Cutout figure animation
-      if (cutoutRef.current && sectionRef.current) {
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: 'top 88%',
-          onEnter: () => {
-            if (cutoutRef.current) {
-              cutoutRef.current.classList.add('visible')
-            }
-          },
+      if (!containerRef.current) return
+
+      let ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.5,
+          }
         })
-      }
 
-      // Headline stagger
-      if (headerRef.current) {
-        const words = headerRef.current.querySelectorAll('.word')
-        gsap.fromTo(
-          words,
-          { opacity: 0, y: '55%' },
-          {
-            opacity: 1,
-            y: '0%',
-            duration: 0.8,
-            ease: 'power2.out',
-            stagger: 0.075,
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
-          }
-        )
-      }
+        // Initial state: X is massive (texture-like) and centered
+        gsap.set(xRef.current, { scale: 50, opacity: 0, y: 0 })
+        gsap.set(contentRef.current, { opacity: 0, y: 100 })
 
-      // Sub text and CTAs
-      if (subRef.current && ctasRef.current) {
-        gsap.fromTo(
-          [subRef.current, ctasRef.current],
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            stagger: 0.15,
-            delay: 0.4,
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
-          }
-        )
-      }
+        // 1. MASSIVE ZOOM OUT - Sped up by another 50%
+        tl.to(xRef.current, {
+          scale: 1,
+          opacity: 1,
+          duration: 25,
+          ease: 'power1.inOut'
+        })
+
+        // 2. CONTENT FADES IN BELOW
+        tl.to(contentRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 10,
+          ease: 'power2.out'
+        }, '-=5')
+      })
+
+      return () => ctx.revert()
     }
     loadGsap()
   }, [])
 
   return (
-    <section
-      id="footer-cta"
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        backgroundColor: 'var(--chartreuse)',
-        padding: '80px 48px',
-        overflow: 'hidden',
-        borderTop: '0.5px solid rgba(0,0,0,0.1)',
-      }}
+    <section 
+      ref={containerRef} 
+      className="relative w-full h-[220vh] bg-[#DEFF00]"
+      data-cursor-theme="light"
     >
-      <div
-        className="cta-grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '64px',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      >
-        {/* Left col */}
-        <div style={{ maxWidth: '90%' }}>
-          <h2
-            ref={headerRef}
-            style={{
-              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(32px, 7vw, 70px)',
-              lineHeight: 1.05,
-              color: 'var(--black)',
-            }}
-          >
-            {/* Split text for stagger */}
-            {"Let's build something "
-              .split(' ')
-              .map((word, i) => (
-                <span
-                  key={i}
-                  className="word"
-                  style={{ display: 'inline-block', opacity: 0, marginRight: '0.25em' }}
-                >
-                  {word}
-                </span>
-              ))}
-            <span 
-              className="word" 
-              style={{ 
-                display: 'inline-block', 
-                opacity: 0, 
-                backgroundColor: 'var(--black)', 
-                color: 'var(--chartreuse)', 
-                padding: '0 12px 6px',
-                lineHeight: 1
-              }}
-            >
-              worth watching.
-            </span>
-          </h2>
-        </div>
-
-        {/* Right col */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            maxWidth: '450px',
-            paddingTop: '16px',
-          }}
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
+        
+        {/* VIBRATING X - Positioned above the text after zoom out */}
+        <div 
+          ref={xRef}
+          className="relative w-32 h-32 md:w-48 md:h-48 mb-8 md:mb-12"
         >
-          <p
-            ref={subRef}
-            style={{
-              fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-              fontWeight: 400,
-              fontSize: 'clamp(16px, 3.5vw, 35px)',
-              lineHeight: 1.2,
-              color: 'rgba(0,0,0,0.8)',
-              marginBottom: '48px',
-              opacity: 0,
-            }}
-          >
-            Book a 20-minute call. No deck, no pitch. Just a conversation about
-            what you&apos;re trying to ship.
-          </p>
-
-          <div
-            ref={ctasRef}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '24px',
-              flexWrap: 'wrap',
-              opacity: 0,
-            }}
-          >
-            <Link
-              href="/contact"
-              style={{
-                fontFamily: "var(--font-tusker), sans-serif",
-                fontSize: '13px',
-                fontWeight: 600,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                backgroundColor: 'var(--black)',
-                color: 'var(--chartreuse)',
-                padding: '14px 28px',
-                display: 'inline-block',
-                transition: 'opacity 0.2s',
-              }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.85')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
-            >
-              Book a call
-            </Link>
-            <a
-              href="mailto:info@exl.agency"
-              style={{
-                fontFamily: "var(--font-tusker), sans-serif",
-                fontSize: '13px',
-                fontWeight: 600,
-                letterSpacing: '0.05em',
-                color: 'var(--black)',
-                textDecoration: 'underline',
-                textUnderlineOffset: '4px',
-                textTransform: 'uppercase'
-              }}
-            >
-              info@exl.agency
-            </a>
-          </div>
+          <Image 
+            src="/assets/images/x-vibration.png"
+            alt="X Vibration"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-      </div>
 
-      {/* Cutout Figure */}
-      <div className="footer-cutout-container" style={{ position: 'absolute', bottom: 0, right: '8%', width: '550px', height: '100%', pointerEvents: 'none' }}>
-        <Image
-          ref={cutoutRef}
-          src="/assets/images/cutout_model.png"
-          alt="EXL brand team member"
-          fill
-          style={{ objectFit: 'contain', objectPosition: 'bottom right' }}
-          className="footer-cutout"
-        />
-      </div>
+        {/* CONTENT */}
+        <div 
+          ref={contentRef}
+          className="flex flex-col items-center text-center"
+        >
+          <h2 
+            style={{ 
+              fontFamily: 'var(--font-tusker)',
+              lineHeight: 1.1
+            }}
+            className="text-[#1a1a1a] text-[clamp(44px,12vw,120px)] uppercase mb-12 max-w-[1200px]"
+          >
+            READY TO DOMINATE<br />YOUR MARKET?
+          </h2>
 
-      <style jsx>{`
-        @media (max-width: 1023px) {
-          .cta-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-        @media (max-width: 767px) {
-          section {
-            padding: 80px 20px 320px !important;
-          }
-          .cta-grid > div {
-            max-width: 100% !important;
-          }
-        }
-      `}</style>
+          <button className="group relative flex items-center gap-4 bg-[#1a1a1a] text-[#DEFF00] pl-8 pr-2 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl">
+            <span className="font-[var(--font-cabinet)] font-bold text-lg md:text-xl">Book your discovery call</span>
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center text-black transition-all duration-300 group-hover:rotate-45">
+              <svg 
+                width="28" 
+                height="28" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </button>
+        </div>
+
+      </div>
     </section>
   )
 }

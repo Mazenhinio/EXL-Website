@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
   const [cursorType, setCursorType] = useState<'default' | 'nav' | 'click'>('default')
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
     const loadGsap = async () => {
@@ -20,6 +21,15 @@ export default function CustomCursor() {
           duration: 0.1,
           ease: 'power2.out'
         })
+
+        // Detect theme
+        const target = e.target as HTMLElement
+        const themedSection = target.closest('[data-cursor-theme]')
+        if (themedSection) {
+          setTheme(themedSection.getAttribute('data-cursor-theme') as 'dark' | 'light')
+        } else {
+          setTheme('dark')
+        }
       }
 
       const handleMouseEnter = (e: MouseEvent) => {
@@ -61,7 +71,7 @@ export default function CustomCursor() {
           left: 0,
           width: cursorType === 'nav' ? '120px' : cursorType === 'click' ? '80px' : '20px',
           height: cursorType === 'nav' ? '40px' : cursorType === 'click' ? '80px' : '20px',
-          backgroundColor: 'var(--chartreuse)',
+          backgroundColor: theme === 'light' ? '#000000' : 'var(--chartreuse)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           zIndex: 9999,
@@ -79,7 +89,7 @@ export default function CustomCursor() {
             fontFamily: 'var(--font-tusker)', 
             fontSize: '14px', 
             fontWeight: 600, 
-            color: 'black',
+            color: theme === 'light' ? 'var(--chartreuse)' : 'black',
             letterSpacing: '0.05em'
           }}>
             CLICK

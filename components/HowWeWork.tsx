@@ -8,62 +8,32 @@ export default function HowWeWork() {
   useEffect(() => {
     const loadGsap = async () => {
       const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
+      
+      const tiles = gsap.utils.toArray('.blueprint-tile') as HTMLElement[]
+      
+      // Sequential load animation on mount
+      const tl = gsap.timeline({ delay: 0.4 })
 
-      const mm = gsap.matchMedia()
+      tiles.forEach((tile, i) => {
+        const icon = tile.querySelector('.tile-icon')
+        const num = tile.querySelector('.tile-num')
+        const title = tile.querySelector('.tile-title')
+        const body = tile.querySelector('.tile-body')
 
-      mm.add({
-        isDesktop: "(min-width: 1024px)",
-        isMobile: "(max-width: 1023px)"
-      }, (context) => {
-        const { isDesktop } = context.conditions as { isDesktop: boolean }
+        // Starting positions
+        gsap.set([icon, num, title, body], { opacity: 0, y: 20 })
 
-        if (isDesktop) {
-          // DESKTOP: Assembly Scrub
-          const tiles = gsap.utils.toArray('.blueprint-tile') as HTMLElement[]
-          tiles.forEach((tile) => {
-            const icon = tile.querySelector('.tile-icon')
-            const content = tile.querySelector('.tile-content')
-            const num = tile.querySelector('.tile-num')
-
-            const tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: tile,
-                start: "top bottom",
-                end: "center center",
-                scrub: 1,
-              }
-            })
-
-            tl.fromTo(icon, { y: -60, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, ease: "none" }, 0)
-            tl.fromTo(num, { x: -40, opacity: 0 }, { x: 0, opacity: 1, ease: "none" }, 0.2)
-            tl.fromTo(content, { y: 40, opacity: 0 }, { y: 0, opacity: 1, ease: "none" }, 0.3)
-          })
-        } else {
-          // MOBILE: Vertical Path Reveal
-          const tiles = gsap.utils.toArray('.blueprint-tile') as HTMLElement[]
-          tiles.forEach((tile) => {
-            gsap.fromTo(tile, 
-              { opacity: 0, x: -20 },
-              {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                ease: "power2.out",
-                scrollTrigger: {
-                  trigger: tile,
-                  start: "top 85%",
-                }
-              }
-            )
-          })
-        }
+        tl.to([icon, num, title, body], {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out"
+        }, i * 0.25) // Stagger each tile's start
       })
 
       return () => {
-        ScrollTrigger.getAll().forEach(t => t.kill())
-        mm.revert()
+        tl.kill()
       }
     }
     
@@ -128,12 +98,15 @@ export default function HowWeWork() {
         backgroundColor: 'var(--off-white)',
         backgroundImage: `linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)`,
         backgroundSize: '50px 50px',
-        padding: '80px 0',
+        padding: '100px 0 0', // Bottom padding removed as grid will handle it
         borderTop: '0.5px solid rgba(0,0,0,0.08)',
         overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
       }}
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 48px' }} className="how-we-work-container">
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 48px', width: '100%' }} className="how-header-container">
         {/* Header (Standard 3) */}
         <div style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="how-header text-center">
           <p className="section-label" style={{ 
@@ -162,54 +135,61 @@ export default function HowWeWork() {
             </span>
           </h2>
         </div>
+      </div>
 
-        {/* Blueprint Grid */}
-        <div className="blueprint-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1px',
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          border: '0.5px solid rgba(0,0,0,0.1)',
-        }}>
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="blueprint-tile group"
-              onMouseMove={(e) => {
-                const tile = e.currentTarget;
-                const rect = tile.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                import('gsap').then(({ gsap }) => {
-                  gsap.to(tile.querySelector('.tile-icon'), { x: x * 0.12, y: y * 0.12, duration: 0.6, ease: 'power2.out' });
-                  gsap.to(tile.querySelector('.tile-num'), { x: x * 0.06, y: y * 0.06, duration: 0.6, ease: 'power2.out' });
-                  gsap.to(tile.querySelector('.tile-title'), { x: x * 0.03, y: y * 0.03, duration: 0.6, ease: 'power2.out' });
-                  gsap.to(tile.querySelector('.tile-body'), { x: x * 0.015, y: y * 0.015, duration: 0.6, ease: 'power2.out' });
+      {/* Blueprint Grid - FULL WIDTH */}
+      <div className="blueprint-grid" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '0.5px', // Thinner gap for cleaner look
+        backgroundColor: 'rgba(0,0,0,0.08)',
+        borderTop: '0.5px solid rgba(0,0,0,0.1)',
+        borderBottom: '0.5px solid rgba(0,0,0,0.1)',
+        width: '100%',
+      }}>
+        {steps.map((step, i) => (
+          <div
+            key={i}
+            className="blueprint-tile group"
+            onMouseMove={(e) => {
+              const tile = e.currentTarget;
+              const rect = tile.getBoundingClientRect();
+              const x = e.clientX - rect.left - rect.width / 2;
+              const y = e.clientY - rect.top - rect.height / 2;
+              
+              import('gsap').then(({ gsap }) => {
+                gsap.to(tile.querySelector('.tile-icon'), { x: x * 0.12, y: y * 0.12, duration: 0.6, ease: 'power2.out' });
+                gsap.to(tile.querySelector('.tile-num'), { x: x * 0.06, y: y * 0.06, duration: 0.6, ease: 'power2.out' });
+                gsap.to(tile.querySelector('.tile-title'), { x: x * 0.03, y: y * 0.03, duration: 0.6, ease: 'power2.out' });
+                gsap.to(tile.querySelector('.tile-body'), { x: x * 0.015, y: y * 0.015, duration: 0.6, ease: 'power2.out' });
+              });
+            }}
+            onMouseLeave={(e) => {
+              const tile = e.currentTarget;
+              import('gsap').then(({ gsap }) => {
+                gsap.to(tile.querySelectorAll('.tile-icon, .tile-num, .tile-title, .tile-body'), { 
+                  x: 0, y: 0, duration: 1, ease: 'power3.out' 
                 });
-              }}
-              onMouseLeave={(e) => {
-                const tile = e.currentTarget;
-                import('gsap').then(({ gsap }) => {
-                  gsap.to(tile.querySelectorAll('.tile-icon, .tile-num, .tile-title, .tile-body'), { 
-                    x: 0, y: 0, duration: 1, ease: 'power3.out' 
-                  });
-                });
-              }}
-              style={{
-                backgroundColor: 'var(--off-white)',
-                padding: '60px 40px',
-                display: 'grid',
-                gridTemplateRows: '80px 80px 60px 1fr',
-                height: '550px',
-                position: 'relative',
-              }}
-            >
-              <div className="tile-icon pointer-events-none" style={{ color: 'var(--black)' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" style={{ display: 'block' }}>
-                  {step.icon}
-                </svg>
-              </div>
+              });
+            }}
+            style={{
+              backgroundColor: 'var(--off-white)',
+              padding: '80px 60px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '32px',
+              minHeight: '500px',
+              position: 'relative',
+              borderRight: i === 3 ? 'none' : '0.5px solid rgba(0,0,0,0.08)'
+            }}
+          >
+            <div className="tile-icon pointer-events-none" style={{ color: 'var(--black)' }}>
+              <svg width="56" height="56" viewBox="0 0 24 24" style={{ display: 'block' }}>
+                {step.icon}
+              </svg>
+            </div>
+            
+            <div className="tile-content-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div className="tile-num pointer-events-none">
                 <span style={{
                   fontFamily: 'var(--font-tusker)',
@@ -218,7 +198,8 @@ export default function HowWeWork() {
                   display: 'block',
                   backgroundColor: 'var(--black)',
                   width: 'fit-content',
-                  padding: '4px 10px',
+                  padding: '4px 12px',
+                  fontWeight: 600,
                 }}>
                   {step.num}
                 </span>
@@ -226,7 +207,7 @@ export default function HowWeWork() {
               <div className="tile-title pointer-events-none">
                 <h3 style={{
                   fontFamily: 'var(--font-tusker)',
-                  fontSize: '32px',
+                  fontSize: 'clamp(28px, 3vw, 42px)',
                   color: 'var(--black)',
                   textTransform: 'uppercase',
                   lineHeight: 1,
@@ -238,42 +219,40 @@ export default function HowWeWork() {
               <div className="tile-body pointer-events-none">
                 <p style={{
                   fontFamily: 'var(--font-cabinet)',
-                  fontSize: '17px',
-                  lineHeight: 1.6,
+                  fontSize: '18px',
+                  lineHeight: 1.5,
                   color: 'rgba(0,0,0,0.6)',
                   fontWeight: 300,
                   margin: 0,
+                  maxWidth: '320px'
                 }}>
                   {step.desc}
                 </p>
               </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-500 bg-radial-[circle,var(--chartreuse)_0%,transparent_70%]" />
             </div>
-          ))}
-        </div>
+
+            {/* Hover Glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] pointer-events-none transition-opacity duration-500 bg-black" />
+          </div>
+        ))}
       </div>
 
       <style jsx>{`
         @media (max-width: 1023px) {
-          .how-we-work-container { padding: 0 20px !important; }
+          .how-header-container { padding: 0 20px !important; }
           .how-header { margin-bottom: 60px !important; }
           .blueprint-grid {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
-            background-color: transparent !important;
-            border: none !important;
+            gap: 0 !important;
+            border-bottom: none !important;
           }
           .blueprint-tile { 
-            height: auto !important; 
             min-height: auto !important;
-            padding: 40px 30px !important;
-            border: 0.5px solid rgba(0,0,0,0.1) !important;
-            border-radius: 12px;
+            padding: 60px 24px !important;
+            border-right: none !important;
+            border-bottom: 0.5px solid rgba(0,0,0,0.08) !important;
           }
-          .tile-icon { margin-bottom: 30px !important; }
-          .tile-content { margin-top: 24px !important; }
+          .tile-icon { margin-bottom: 0 !important; }
         }
       `}</style>
     </section>

@@ -3,30 +3,30 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
+const steps = [
+  {
+    left: 'WEEKS',
+    right: 'NOT QUARTERS',
+    body: 'From brief to first delivery.',
+    image: '/assets/images/weeks-not-quarters.png'
+  },
+  {
+    left: 'SENIOR JUDGMENT',
+    right: 'MACHINE LIFT',
+    body: 'On every decision, with machines doing the lift underneath.',
+    image: '/assets/images/senior-judgement.png'
+  },
+  {
+    left: 'SCALABLE SYSTEMS',
+    right: 'NOT HEADCOUNT',
+    body: 'Production and distribution systems that scale with your growth.',
+    image: '/assets/images/scalable-systems.png'
+  }
+]
+
 export default function Advantage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const stickyRef = useRef<HTMLDivElement>(null)
-
-  const steps = [
-    {
-      left: 'WEEKS',
-      right: 'NOT QUARTERS',
-      body: 'From brief to first delivery.',
-      image: '/assets/images/weeks-not-quarters.png'
-    },
-    {
-      left: 'SENIOR JUDGMENT',
-      right: 'MACHINE LIFT',
-      body: 'On every decision, with machines doing the lift underneath.',
-      image: '/assets/images/senior-judgement.png'
-    },
-    {
-      left: 'SCALABLE SYSTEMS',
-      right: 'NOT HEADCOUNT',
-      body: 'Production and distribution systems that scale with your growth.',
-      image: '/assets/images/scalable-systems.png'
-    }
-  ]
 
   useEffect(() => {
     let ctx: gsap.Context;
@@ -104,7 +104,7 @@ export default function Advantage() {
 
     init()
     return () => ctx && ctx.revert()
-  }, [steps])
+  }, [])
 
   return (
     <section 

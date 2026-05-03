@@ -16,7 +16,7 @@ export default function FooterCTA() {
 
       if (!containerRef.current) return
 
-      let ctx = gsap.context(() => {
+      const ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,

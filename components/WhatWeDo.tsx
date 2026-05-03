@@ -50,7 +50,7 @@ function WhatWeDoDesktop() {
 
       if (!railRef.current || !stickyRef.current) return
 
-      let ctx = gsap.context(() => {
+      const ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: railRef.current,
@@ -218,7 +218,7 @@ function WhatWeDoMobile() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
 
-      let ctx = gsap.context(() => {
+      const ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: railRef.current,

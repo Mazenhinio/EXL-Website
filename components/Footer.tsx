@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Matter from 'matter-js'
@@ -20,7 +20,7 @@ export default function Footer() {
   useEffect(() => {
     if (!sceneRef.current) return
 
-    const { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint } = Matter
+    const { Engine, Runner, Bodies, Composite, Mouse, MouseConstraint } = Matter
 
     const engine = Engine.create({
       gravity: { x: 0, y: 1, scale: 0.001 }

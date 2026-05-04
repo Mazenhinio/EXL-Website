@@ -1,5 +1,36 @@
 # EXL Agency - Antigravity V3 Changelog
 
+## [2026-05-04] - Scroll Pacing & UX Refinements
+
+- **Dead Scroll Zone**: Implemented a dynamic rail height system that automatically computes the optimal section height based on the GSAP timeline duration. This ensures the section unsticks precisely as the animation completes, regardless of content changes, and allows for fine-tuned pacing control via cinematic multipliers (Desktop: 1.35, Mobile: 1.2).
+- **Headline Readability**: Finalized the animation sequence by balancing the timing budget: implemented a front buffer (Desktop: 25 units, Mobile: 18 units) and compensated by reducing inter-card holds (Desktop: 9 units, Mobile: 16 units) and headline overlap. This maintains a consistent total timeline duration while ensuring pinning stability and optimal entry pacing at 'top -10%'.
+
+
+## [2026-05-03] - Finalizing Production & Mobile Experience
+
+### Added
+- **Cinematic Mobile Experience**: Re-engineered the 'What We Do' section for mobile, featuring a high-impact branding entry and a massive scale-zoom (50x) on the core "X" asset.
+- **Brand Assets**: Integrated new cinematic branding assets, including `X.png` and `x-vibration.png` for high-fidelity animations.
+
+### Changed
+- **Visual Artifact Suppression**: Eliminated rectangular container artifacts in the 'What We Do' animation by switching to direct asset rendering and refined `clip-path` masks.
+- **Synchronized Transitions**: Linked the "X" zoom animation with a background color shift from deep forest (`#1C2416`) to signature chartreuse (`#DEFF00`) for a seamless cinematic hand-off.
+- **Production-Ready Build**: Resolved critical TypeScript and GSAP performance bottlenecks to ensure build compliance for deployment.
+- **Component Polish**: Finalized padding and typographic refinements for `Advantage.tsx` and `Footer.tsx` for production readiness.
+
+## [2026-04-30] - Global Interaction System & Aesthetic Audit
+
+### Added
+- **Smart Cursor System**: Implemented a global, context-aware `CustomCursor` that dynamically adjusts its behavior based on the underlying content.
+- **Contextual Themes**: The cursor now inverts color and interaction style based on the `data-cursor-theme` (light/dark) of the active section.
+- **Interactive Lens**: Added a "lens" effect for navigation elements and a "CLICK" indicator for call-to-action buttons to enhance the premium feel.
+
+### Changed
+- **Aesthetic Audit**: Standardized typography and color tokens across `globals.css` to align with the V7 design system.
+- **Pointer Suppression**: Globally suppressed the default system pointer in favor of the custom interactive experience (while maintaining mobile accessibility).
+- **Section Refinements**: Applied "Standard 3" header patterns and cinematic overlays to `BestInB2B.tsx` and `HowDifferent.tsx`.
+
+
 ## [2026-04-29] - V7 High-Fidelity Refinements & GSAP Stabilization
 
 ### Added

@@ -26,11 +26,12 @@ export default function FooterCTA() {
           }
         })
 
-        // Initial state: X is massive (texture-like) and centered
-        gsap.set(xRef.current, { scale: 50, opacity: 0, y: 0 })
+        // Initial state: Black background, massive X
+        gsap.set(containerRef.current, { backgroundColor: '#1a1a1a' })
+        gsap.set(xRef.current, { scale: 50, opacity: 0 })
         gsap.set(contentRef.current, { opacity: 0, y: 100 })
 
-        // 1. MASSIVE ZOOM OUT - Sped up by another 50%
+        // 1. ZOOM OUT & BACKGROUND FLIP
         tl.to(xRef.current, {
           scale: 1,
           opacity: 1,
@@ -38,7 +39,13 @@ export default function FooterCTA() {
           ease: 'power1.inOut'
         })
 
-        // 2. CONTENT FADES IN BELOW
+        tl.to(containerRef.current, {
+          backgroundColor: '#DEFF00',
+          duration: 15,
+          ease: 'power2.inOut'
+        }, '-=15')
+
+        // 2. CONTENT FADES IN & COLOR ADJUSTS
         tl.to(contentRef.current, {
           opacity: 1,
           y: 0,
@@ -55,7 +62,7 @@ export default function FooterCTA() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full h-[220vh] bg-[#DEFF00]"
+      className="relative w-full h-[220vh] bg-[#1a1a1a]"
       data-cursor-theme="light"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">

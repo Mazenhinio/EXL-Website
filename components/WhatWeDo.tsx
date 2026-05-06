@@ -188,11 +188,11 @@ function WhatWeDoDesktop() {
         </div>
 
         <div ref={headlineRef} className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pointer-events-none">
-          <p className="section-label mb-6 text-[var(--taupe)]">What we do</p>
+          <p className="section-label mb-6 text-[var(--taupe)] text-[11px] font-semibold uppercase tracking-[0.15em]">What we do</p>
           <h2
             style={{
               fontFamily: 'var(--font-tusker)',
-              fontSize: 'clamp(44px, 11vw, 120px)',
+              fontSize: 'clamp(44px, 10vw, 80px)',
               textAlign: 'center',
               lineHeight: 0.9,
               color: 'var(--black)',
@@ -222,10 +222,10 @@ function WhatWeDoDesktop() {
                       <div className="h-[1px] w-8 bg-white/20" />
                       <span className="font-[var(--font-tusker)] text-white/40 text-[20px] tracking-widest">{cap.name}</span>
                     </div>
-                    <h3 style={{ fontFamily: 'var(--font-tusker)' }} className="text-white text-[clamp(36px,6vw,64px)] leading-[1.1] uppercase">
+                    <h3 style={{ fontFamily: 'var(--font-tusker)' }} className="text-white text-[clamp(32px,5vw,48px)] leading-[1.1] uppercase">
                       {cap.title}
                     </h3>
-                    <p className="font-[var(--font-cabinet)] text-white/50 text-[24px] font-light max-w-[750px] leading-[1.6]">
+                    <p className="font-[var(--font-cabinet)] text-white/50 text-[18px] font-light max-w-[650px] leading-[1.5]">
                       {cap.body}
                     </p>
                   </div>

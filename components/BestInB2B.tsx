@@ -138,7 +138,7 @@ export default function BestInB2B() {
         <div className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
           <h2 
             style={{ fontFamily: 'var(--font-tusker)' }}
-            className="main-headline text-[clamp(48px,12vw,180px)] text-black leading-[0.85] text-center uppercase"
+            className="main-headline text-[clamp(48px,11vw,110px)] text-black leading-[0.85] text-center uppercase"
           >
             Best in <br />
             <span className="text-outline-black text-transparent">B2B.</span>
@@ -147,18 +147,18 @@ export default function BestInB2B() {
 
         {/* Foreground Content (Revealed) */}
         <div ref={contentRef} className="relative z-30 w-full max-w-4xl px-6 flex flex-col items-center text-center">
-          <p className="b2b-reveal-el section-label mb-8 text-[var(--chartreuse)] font-semibold uppercase tracking-[0.15em] text-[12px]">
+          <p className="b2b-reveal-el section-label mb-8 text-[var(--chartreuse)] font-semibold uppercase tracking-[0.15em] text-[11px]">
             Owned Media
           </p>
           <h3 
             style={{ fontFamily: 'var(--font-tusker)' }}
-            className="b2b-reveal-el text-white text-[clamp(32px,6vw,80px)] leading-[1.05] uppercase mb-8"
+            className="b2b-reveal-el text-white text-[clamp(32px,6vw,56px)] leading-[1.05] uppercase mb-8"
           >
             Our most visible build:<br />
             <span className="text-[var(--chartreuse)]">Best in B2B.</span>
           </h3>
           <p 
-            className="b2b-reveal-el font-[var(--font-cabinet)] text-white/60 text-[clamp(16px,2vw,22px)] font-light leading-relaxed max-w-2xl mb-12"
+            className="b2b-reveal-el font-[var(--font-cabinet)] text-white/60 text-[clamp(16px,2vw,18px)] font-light leading-relaxed max-w-2xl mb-12"
           >
             Best in B2B is our own video podcast, filmed on location across
             Dallas-Fort Worth. Framework-driven conversations with the operators

@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Matter from 'matter-js'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const PILLS = [
   { text: 'STRATEGY', color: '#4C5F1B', textColor: '#DEFF00' },
@@ -13,12 +15,16 @@ const PILLS = [
 ]
 
 export default function Footer() {
+  const footerRef = useRef<HTMLElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
   const engineRef = useRef<Matter.Engine | null>(null)
   const pillsRef = useRef<{ body: Matter.Body; element: HTMLDivElement }[]>([])
 
   useEffect(() => {
-    if (!sceneRef.current) return
+    if (!sceneRef.current || !footerRef.current) return
+
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger)
 
     const { Engine, Runner, Bodies, Composite, Mouse, MouseConstraint } = Matter
 
@@ -27,50 +33,53 @@ export default function Footer() {
     })
     engineRef.current = engine
 
-    const width = sceneRef.current.clientWidth || 1300
-    const height = sceneRef.current.clientHeight || 350
+    // Get actual dimensions
+    const width = sceneRef.current.offsetWidth
+    const height = sceneRef.current.offsetHeight
 
-    // Boundaries matching the rounded container - thick walls to prevent escaping
-    const ground = Bodies.rectangle(width / 2, height + 500, width + 2000, 1000, { isStatic: true })
-    const leftWall = Bodies.rectangle(-500, height / 2, 1000, height + 2000, { isStatic: true })
-    const rightWall = Bodies.rectangle(width + 500, height / 2, 1000, height + 2000, { isStatic: true })
-    const ceiling = Bodies.rectangle(width / 2, -500, width + 2000, 1000, { isStatic: true })
+    // Boundaries matching the footer exactly
+    const ground = Bodies.rectangle(width / 2, height + 50, width + 1000, 100, { isStatic: true })
+    const leftWall = Bodies.rectangle(-50, height / 2, 100, height + 1000, { isStatic: true })
+    const rightWall = Bodies.rectangle(width + 50, height / 2, 100, height + 1000, { isStatic: true })
+    const ceiling = Bodies.rectangle(width / 2, -50, width + 1000, 100, { isStatic: true })
 
     Composite.add(engine.world, [ground, leftWall, rightWall, ceiling])
 
-    // Create pill bodies in a Cross Formation
+    // Arrange pills in a DIAMOND formation
     const pillElements = sceneRef.current.querySelectorAll('.gravity-pill')
     const centerX = width / 2
-    const centerY = height - 120
+    const centerY = height * 0.65
 
     pillElements.forEach((el, i) => {
       const element = el as HTMLDivElement
-      const pWidth = element.offsetWidth || 150
-      const pHeight = element.offsetHeight || 50
+      const pWidth = element.offsetWidth || 180
+      const pHeight = element.offsetHeight || 60
       
       let x = centerX
       let y = centerY
 
-      if (i === 0) { // BASE
+      // Precise Diamond Arrangement
+      if (i === 0) { // TOP: STRATEGY
         x = centerX
+        y = centerY - 110
+      } else if (i === 1) { // LEFT: PRODUCTION
+        x = centerX - 130
         y = centerY
-      } else if (i === 1) { // LEFT
-        x = centerX - 180
-        y = centerY - 60
-      } else if (i === 2) { // RIGHT
-        x = centerX + 180
-        y = centerY - 60
-      } else if (i === 3) { // TOP
+      } else if (i === 2) { // RIGHT: SYSTEMS
+        x = centerX + 130
+        y = centerY
+      } else if (i === 3) { // BOTTOM: PIPELINE
         x = centerX
-        y = centerY - 120
+        y = centerY + 110
       }
 
       const body = Bodies.rectangle(x, y, pWidth, pHeight, {
         chamfer: { radius: pHeight / 2 },
-        restitution: 0.5,
-        friction: 0.1,
-        density: 0.01,
-        angle: 0
+        restitution: 0.2,    // Much less bouncy (more solid feel)
+        friction: 0.9,       // High grip
+        frictionStatic: 1.0, // High static grip
+        frictionAir: 0.05,   // More air resistance (slower fall)
+        density: 0.015,      // Slightly heavier
       })
 
       Composite.add(engine.world, body)
@@ -78,19 +87,33 @@ export default function Footer() {
     })
 
     const runner = Runner.create()
-    Runner.run(runner, engine)
-
     const mouse = Mouse.create(sceneRef.current)
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
       constraint: {
-        stiffness: 0.6,
+        stiffness: 0.2,
         damping: 0.1,
         render: { visible: false }
       }
     })
 
     Composite.add(engine.world, mouseConstraint)
+
+    // Remove default scroll interaction if dragging
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mouse.element.removeEventListener("mousewheel", (mouse as any).mousewheel);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mouse.element.removeEventListener("DOMMouseScroll", (mouse as any).mousewheel);
+
+    // ScrollTrigger to activate physics
+    const st = ScrollTrigger.create({
+      trigger: footerRef.current,
+      start: 'top 85%', // Activate when footer is 85% into the viewport
+      onEnter: () => {
+        Runner.run(runner, engine)
+      },
+      once: true
+    })
 
     const update = () => {
       pillsRef.current.forEach(({ body, element }) => {
@@ -104,16 +127,21 @@ export default function Footer() {
 
     const handleResize = () => {
       if (!sceneRef.current) return
-      const newWidth = sceneRef.current.clientWidth
-      const newHeight = sceneRef.current.clientHeight
-      Matter.Body.setPosition(ground, { x: newWidth / 2, y: newHeight + 40 })
-      Matter.Body.setPosition(rightWall, { x: newWidth + 40, y: newHeight / 2 })
+      const newWidth = sceneRef.current.offsetWidth
+      const newHeight = sceneRef.current.offsetHeight
+      
+      Matter.Body.setPosition(ground, { x: newWidth / 2, y: newHeight + 50 })
+      Matter.Body.setPosition(rightWall, { x: newWidth + 50, y: newHeight / 2 })
+      Matter.Body.setPosition(leftWall, { x: -50, y: newHeight / 2 })
+      Matter.Body.setPosition(ceiling, { x: newWidth / 2, y: -50 })
     }
+    
     window.addEventListener('resize', handleResize)
 
     return () => {
       Engine.clear(engine)
       Runner.stop(runner)
+      st.kill()
       window.removeEventListener('resize', handleResize)
       pillsRef.current = []
     }
@@ -121,7 +149,10 @@ export default function Footer() {
 
   return (
     <div className="bg-[#DEFF00] p-4 md:p-8 flex justify-center">
-      <footer className="relative bg-[#000000] text-white pt-16 pb-8 rounded-[40px] overflow-hidden min-h-[700px] w-full max-w-[1100px] flex flex-col shadow-2xl border border-white/5">
+      <footer 
+        ref={footerRef}
+        className="relative bg-[#000000] text-white pt-16 pb-8 rounded-[40px] overflow-hidden min-h-[700px] w-full max-w-[1100px] flex flex-col shadow-2xl border border-white/5"
+      >
         <div className="relative z-10 w-full px-10">
           {/* TOP CONTENT GRID */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
@@ -190,7 +221,7 @@ export default function Footer() {
         </div>
 
         {/* MASSIVE BACKGROUND NEON LOGO */}
-        <div className="absolute left-0 right-0 bottom-0 z-10 px-10 pointer-events-none opacity-80">
+        <div className="absolute left-0 right-0 bottom-0 z-0 px-10 pointer-events-none opacity-80">
           <div className="relative w-full h-[250px]">
             <Image 
               src="/assets/images/exl-logo-neon.png"
@@ -201,10 +232,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* FULL-AREA GRAVITY PILLS CONTAINER */}
+        {/* TOPMOST PHYSICS LAYER */}
         <div 
           ref={sceneRef}
-          className="absolute inset-0 z-20 cursor-grab active:cursor-grabbing overflow-hidden rounded-[40px]"
+          className="absolute inset-0 z-50 cursor-grab active:cursor-grabbing overflow-hidden rounded-[40px]"
           style={{ touchAction: 'none' }}
         >
           {PILLS.map((pill, i) => (
@@ -215,11 +246,11 @@ export default function Footer() {
                 backgroundColor: pill.color,
                 color: pill.textColor,
                 fontFamily: 'var(--font-tusker)',
-                fontSize: 'clamp(24px, 4vw, 60px)',
+                fontSize: 'clamp(24px, 4vw, 50px)',
                 whiteSpace: 'nowrap',
                 lineHeight: 0.8,
                 willChange: 'transform',
-                zIndex: 30
+                zIndex: 60
               }}
             >
               {pill.text}

@@ -122,12 +122,12 @@ export default function FlagshipServices() {
           <div style={{ width: '0.5px', height: '24px', backgroundColor: 'rgba(0,0,0,0.15)', marginBottom: '24px' }} />
           <h2 style={{ 
             fontFamily: 'var(--font-tusker)', 
-            fontSize: 'clamp(36px, 9vw, 110px)', // Unified mobile scale
+            fontSize: 'clamp(36px, 8vw, 80px)', 
             textAlign: 'center', 
             lineHeight: 1.1, 
             color: 'var(--black)', 
             textTransform: 'uppercase', 
-            marginBottom: '40px',
+            marginBottom: '32px',
             overflowWrap: 'break-word'
           }}>
             Two engagements<br />
@@ -135,11 +135,11 @@ export default function FlagshipServices() {
           </h2>
           <p style={{ 
             fontFamily: 'var(--font-cabinet)', 
-            fontSize: 'clamp(18px, 4.5vw, 55px)', 
+            fontSize: 'clamp(18px, 4vw, 38px)', 
             color: 'rgba(0,0,0,0.65)', 
             textAlign: 'center', 
-            maxWidth: '1000px', 
-            lineHeight: 1.4, 
+            maxWidth: '900px', 
+            lineHeight: 1.3, 
             fontWeight: 300 
           }}>
             Most EXL clients start with <span className="font-medium text-black">one of these two offers</span>. Both combine our <span className="font-medium text-black">four capabilities</span> into a <span className="font-medium text-black">single monthly engagement</span>, led by a <span className="font-medium text-black">senior partner</span>, delivered by our <span className="font-medium text-black">in-house team</span>.

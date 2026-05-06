@@ -115,6 +115,7 @@ export default function HowWeWork() {
             textTransform: 'uppercase', 
             letterSpacing: '0.15em', 
             color: 'var(--taupe)', 
+            fontSize: '11px',
             marginBottom: '16px' 
           }}>
             How we work
@@ -123,7 +124,7 @@ export default function HowWeWork() {
           
           <h2 style={{
             fontFamily: 'var(--font-tusker)',
-            fontSize: 'clamp(40px, 6vw, 100px)',
+            fontSize: 'clamp(40px, 6vw, 80px)',
             lineHeight: 0.9,
             color: 'var(--black)',
             textTransform: 'uppercase',

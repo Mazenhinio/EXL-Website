@@ -60,7 +60,7 @@ export default function Nav() {
         }}
       >
         {[
-          { label: 'Services', href: '#' },
+          { label: 'Services', href: '/services' },
           { label: 'IMM', href: '/integrated-marketing-management' },
           { label: 'Podcast Production', href: '/podcast-production' },
           { label: 'Best in B2B', href: '#best-in-b2b' },
@@ -158,7 +158,7 @@ export default function Nav() {
           }}
         >
           {[
-            { label: 'Services', href: '#' },
+            { label: 'Services', href: '/services' },
             { label: 'IMM', href: '/integrated-marketing-management' },
             { label: 'Podcast Production', href: '/podcast-production' },
             { label: 'Best in B2B', href: '#best-in-b2b' },

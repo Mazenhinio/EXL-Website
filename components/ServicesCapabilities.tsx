@@ -50,7 +50,7 @@ const CAPABILITIES = [
       'Third-Party Vendor Management'
     ],
     link: '/services/build',
-    image: '/assets/images/cap-build.webp'
+    image: '/assets/images/cap-build.png'
   },
   {
     number: '04',
@@ -65,7 +65,7 @@ const CAPABILITIES = [
       'Marketing Ops & Pipeline Reporting'
     ],
     link: '/services/grow',
-    image: '/assets/images/cap-grow.webp'
+    image: '/assets/images/cap-grow-v3.png'
   }
 ]
 
@@ -114,16 +114,25 @@ export default function ServicesCapabilities() {
   return (
     <section 
       ref={containerRef}
-      className="bg-[#F5F5F5] py-32 lg:py-48 px-6 lg:px-12 overflow-hidden"
+      className="relative bg-[#F5F5F5] py-32 lg:py-48 px-6 lg:px-12 overflow-hidden"
       id="capabilities"
     >
       <div className="max-w-[1300px] mx-auto">
         
         {/* ── SECTION HEADER ───────────────────────────────────────────── */}
         <div className="mb-40 lg:mb-64 flex flex-col items-center text-center">
-          <h2 className="font-[var(--font-tusker)] text-[clamp(48px,10vw,120px)] leading-[0.9] text-black uppercase mb-10">
+          <h2 
+            style={{
+              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+              fontSize: 'clamp(48px, 10vw, 120px)',
+              lineHeight: 1.05,
+              color: '#000000',
+              textTransform: 'uppercase'
+            }}
+            className="mb-10"
+          >
             Four capabilities.<br />
-            <span className="text-[var(--chartreuse)]" style={{ WebkitTextStroke: '2.5px black' }}>One goal.</span>
+            One goal.
           </h2>
           <p className="font-[var(--font-cabinet)] text-black text-[clamp(20px,2.5vw,32px)] max-w-3xl leading-tight font-light">
             We solve for growth by aligning high-level strategy with the technical ability to actually ship the work.
@@ -148,7 +157,10 @@ export default function ServicesCapabilities() {
                 <div className="absolute inset-0 bg-black/5" />
                 
                 {/* Floating Number Tag */}
-                <div className="absolute top-8 left-8 lg:top-12 lg:left-12 font-[var(--font-tusker)] text-white/20 text-8xl lg:text-[12rem] leading-none select-none">
+                <div 
+                  className="absolute top-8 left-8 lg:top-12 lg:left-12 text-white/20 text-8xl lg:text-[12rem] leading-none select-none"
+                  style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+                >
                   {cap.number}
                 </div>
               </div>
@@ -161,10 +173,18 @@ export default function ServicesCapabilities() {
                 <div className="parallax-layer bg-white p-8 lg:p-16 shadow-[30px_30px_80px_rgba(0,0,0,0.08)]">
                   <div className="space-y-8">
                     <div className="space-y-4">
-                      <span className="block font-mono text-black text-[10px] tracking-[0.3em] font-bold uppercase py-1 px-3 border border-black/10 inline-block">
+                      <span className="block font-[var(--font-tusker)] text-black text-[10px] tracking-[0.3em] font-bold uppercase py-1 px-3 border border-black/10 inline-block">
                         SECTION_P0{cap.number}
                       </span>
-                      <h3 className="font-[var(--font-tusker)] text-[clamp(44px,5vw,70px)] leading-none text-black uppercase">
+                      <h3 
+                        style={{
+                          fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+                          fontSize: 'clamp(44px, 5vw, 70px)',
+                          lineHeight: 1.05,
+                          color: '#000000',
+                          textTransform: 'uppercase'
+                        }}
+                      >
                         {cap.title}
                       </h3>
                       <p className="font-[var(--font-cabinet)] text-black text-xl lg:text-2xl font-medium leading-tight italic">

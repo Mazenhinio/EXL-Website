@@ -1,24 +1,34 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const DIFFERENTIATORS = [
   {
+    isCover: true,
+    title: "HOW WE ARE DIFFERENT",
+    description: "The senior thinking of a global firm. The speed of an AI-native studio.",
+    image: null
+  },
+  {
     label: 'PILLAR 01',
     title: 'Senior strategy, not junior execution.',
-    description: 'Every engagement is led by a founder with international consulting experience across three continents. The senior thinking the big firms charge for, without the layers between you and the person actually solving your problem.'
+    description: 'Every engagement is led by a founder with international consulting experience across three continents. The senior thinking the big firms charge for, without the layers between you and the person actually solving your problem.',
+    image: '/assets/images/diff-senior.png'
   },
   {
     label: 'PILLAR 02',
-    title: "AI-native, so your timeline isn&apos;t a problem.",
-    description: 'Our production, content, and distribution stack was built on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the pace of your market.'
+    title: "AI-native, so your timeline isn't a problem.",
+    description: "Our production, content, and distribution stack was built on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the pace of your market.",
+    image: '/assets/images/diff-ai.png'
   },
   {
     label: 'PILLAR 03',
     title: 'Engineered for impact, top to bottom.',
-    description: 'Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this move the number? We build marketing that&apos;s accountable, and we own the outcome end to end.'
+    description: "Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this move the number? We build marketing that's accountable, and we own the outcome end to end.",
+    image: '/assets/images/diff-impact.png'
   }
 ]
 
@@ -47,45 +57,79 @@ export default function ServicesDifferentiators() {
       slides.forEach((slide, i) => {
         const content = slide.querySelector('.diff-content')
         const bgLabel = slide.querySelector('.diff-bg-label')
+        const bgImage = slide.querySelector('.diff-bg-image')
 
-        // Initial State: Tiny and faded
-        gsap.set(content, { scale: 0.01, opacity: 0, filter: 'blur(10px)' })
-        gsap.set(bgLabel, { opacity: 0, scale: 0.5 })
-
-        // 1. Entrance: Zoom IN from void
-        tl.to(content, {
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)',
-          duration: 2,
-          ease: 'power2.inOut'
-        }, i * 3)
-
-        tl.to(bgLabel, {
-          opacity: 0.05,
-          scale: 1,
-          duration: 2,
-          ease: 'power2.inOut'
-        }, i * 3)
-
-        // 2. Hold: Short pause at full scale
-        tl.to({}, { duration: 1 })
-
-        // 3. Exit: Zoom OUT (if not the last one)
-        if (i < slides.length - 1) {
+        if (i === 0) {
+          // COVER SLIDE: Start visible and zoom OUT
+          gsap.set(content, { scale: 1, opacity: 1 })
+          
           tl.to(content, {
             scale: 5,
             opacity: 0,
             filter: 'blur(20px)',
-            duration: 2,
+            duration: 1,
             ease: 'power2.in'
-          })
+          }, 0)
+        } else {
+          // PILLAR SLIDES: Zoom IN from void
+          gsap.set(content, { scale: 0.01, opacity: 0, filter: 'blur(10px)' })
+          gsap.set(bgLabel, { opacity: 0, scale: 0.5 })
+          if (bgImage) gsap.set(bgImage, { scale: 1.2, opacity: 0 })
+
+          // Start each pillar exactly after the previous one's sequence (1s in + 0.5s hold + 1s out = 2.5s total)
+          const startTime = i * 2.5
+
+          tl.to(content, {
+            scale: 1,
+            opacity: 1,
+            filter: 'blur(0px)',
+            duration: 1,
+            ease: 'power2.inOut'
+          }, startTime)
+
           tl.to(bgLabel, {
-            scale: 2,
-            opacity: 0,
-            duration: 2,
-            ease: 'power2.in'
-          }, '<')
+            opacity: 0.05,
+            scale: 1,
+            duration: 1,
+            ease: 'power2.inOut'
+          }, startTime)
+
+          if (bgImage) {
+            tl.to(bgImage, {
+              opacity: 0.4,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.inOut'
+            }, startTime)
+          }
+
+          // Hold
+          tl.to({}, { duration: 0.5 })
+
+          // Exit (if not the last one)
+          if (i < slides.length - 1) {
+            tl.to(content, {
+              scale: 5,
+              opacity: 0,
+              filter: 'blur(20px)',
+              duration: 1,
+              ease: 'power2.in'
+            })
+            tl.to(bgLabel, {
+              scale: 2,
+              opacity: 0,
+              duration: 1,
+              ease: 'power2.in'
+            }, '<')
+            if (bgImage) {
+              tl.to(bgImage, {
+                scale: 0.8,
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.in'
+              }, '<')
+            }
+          }
         }
       })
     }, containerRef)
@@ -98,11 +142,20 @@ export default function ServicesDifferentiators() {
       ref={containerRef}
       className="relative w-full h-screen bg-black overflow-hidden"
     >
-      {/* Background Label (Fixed) */}
-      <div className="absolute top-12 lg:top-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-        <span className="font-mono text-[10px] tracking-[0.4em] font-bold text-[var(--taupe)] uppercase opacity-40">
-          HOW WE&apos;RE DIFFERENT
-        </span>
+      {/* ── SECTION TITLE ───────────────────────────────────────────── */}
+      <div className="absolute top-12 lg:top-20 left-0 w-full z-30 flex justify-center">
+        <h2 
+          style={{
+            fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+            fontSize: 'clamp(32px, 4vw, 56px)',
+            lineHeight: 1.05,
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            textAlign: 'center'
+          }}
+        >
+          Why we&apos;re different.
+        </h2>
       </div>
 
       <div className="relative w-full h-full">
@@ -111,19 +164,39 @@ export default function ServicesDifferentiators() {
             key={i}
             className="diff-slide absolute inset-0 flex items-center justify-center p-6 lg:p-12"
           >
-            {/* Massive Ghost Label */}
-            <div className="diff-bg-label absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <span className="font-[var(--font-tusker)] text-[40vw] text-white opacity-0 whitespace-nowrap">
-                {diff.label}
-              </span>
-            </div>
+            {/* Background Image Layer (only for pillars) */}
+            {diff.image && (
+              <div className="diff-bg-image absolute inset-0 z-0">
+                <Image 
+                  src={diff.image} 
+                  alt={diff.title} 
+                  fill 
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/60" />
+              </div>
+            )}
+
+            {/* Massive Ghost Label (only for pillars) */}
+            {!diff.isCover && (
+              <div className="diff-bg-label absolute inset-0 flex items-center justify-center pointer-events-none select-none z-1">
+                <span className="font-[var(--font-tusker)] text-[40vw] text-white opacity-0 whitespace-nowrap">
+                  {diff.label}
+                </span>
+              </div>
+            )}
 
             {/* Content Box */}
-            <div className="diff-content relative z-10 max-w-5xl text-center space-y-12">
-              <h3 className="font-[var(--font-tusker)] text-[clamp(44px,8vw,120px)] leading-[0.85] text-white uppercase">
+            <div className={`diff-content relative z-10 max-w-5xl text-center space-y-12 ${diff.isCover ? 'scale-100' : ''}`}>
+              <h3 
+                style={{
+                  fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+                  lineHeight: 1.05
+                }}
+                className={`text-white uppercase ${diff.isCover ? 'text-[clamp(60px,12vw,180px)]' : 'text-[clamp(44px,8vw,120px)]'}`}>
                 {diff.title}
               </h3>
-              <p className="font-[var(--font-cabinet)] text-[var(--chartreuse)] text-[clamp(20px,2.5vw,36px)] leading-tight max-w-4xl mx-auto font-light">
+              <p className={`font-[var(--font-cabinet)] text-white/80 leading-tight max-w-4xl mx-auto font-light ${diff.isCover ? 'text-[clamp(24px,3vw,44px)]' : 'text-[clamp(20px,2.5vw,36px)]'}`}>
                 {diff.description}
               </p>
             </div>

@@ -77,12 +77,19 @@ export default function ServicesFlagships() {
       ref={containerRef}
       className="relative w-full h-screen bg-black overflow-hidden border-t border-white/5"
     >
-      {/* ── SECTION HEADER ───────────────────────────────────────────── */}
-      <div className="section-header-fs absolute top-12 lg:top-20 left-6 lg:left-12 z-30 max-w-xl">
-        <span className="font-mono text-[10px] tracking-[0.3em] font-bold uppercase text-[var(--taupe)] mb-4 block">
-          FLAGSHIP ENGAGEMENTS
-        </span>
-        <h2 className="font-[var(--font-tusker)] text-[clamp(32px,4vw,56px)] leading-[0.9] text-white uppercase">
+      {/* ── SECTION TITLE ───────────────────────────────────────────── */}
+      <div className="section-header-fs absolute top-12 lg:top-20 left-0 w-full z-30 flex justify-center">
+        <h2 
+          style={{
+            fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+            fontSize: 'clamp(32px, 4vw, 56px)',
+            lineHeight: 1.05,
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            textAlign: 'center'
+          }}
+          className="max-w-2xl"
+        >
           Two engagements we&apos;re known for.
         </h2>
       </div>
@@ -102,8 +109,23 @@ export default function ServicesFlagships() {
           
           <div className="relative z-10 h-full p-8 lg:p-16 flex flex-col justify-end">
             <div className="space-y-6 max-w-md">
-              <span className="font-mono text-[10px] tracking-[0.3em] font-bold text-[var(--chartreuse)]">{FLAGSHIPS[0].label}</span>
-              <h3 className="font-[var(--font-tusker)] text-[clamp(28px,3vw,48px)] leading-[0.95] text-white uppercase">{FLAGSHIPS[0].title}</h3>
+              <span 
+                className="text-[10px] tracking-[0.3em] font-bold text-[var(--chartreuse)]"
+                style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+              >
+                {FLAGSHIPS[0].label}
+              </span>
+              <h3 
+                style={{
+                  fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+                  fontSize: 'clamp(28px, 3vw, 48px)',
+                  lineHeight: 1.05,
+                  color: '#ffffff',
+                  textTransform: 'uppercase'
+                }}
+              >
+                {FLAGSHIPS[0].title}
+              </h3>
               <p className="font-[var(--font-cabinet)] text-white/50 text-base lg:text-lg leading-relaxed font-light">{FLAGSHIPS[0].description}</p>
               <Link href={FLAGSHIPS[0].link} className="inline-flex items-center gap-3 text-[var(--chartreuse)] font-[var(--font-tusker)] text-sm tracking-widest uppercase group-hover:gap-5 transition-all">
                 Explore flagship <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -124,8 +146,23 @@ export default function ServicesFlagships() {
           
           <div className="relative z-10 h-full p-8 lg:p-16 flex flex-col justify-end items-end text-right">
             <div className="space-y-6 max-w-md">
-              <span className="font-mono text-[10px] tracking-[0.3em] font-bold text-[var(--chartreuse)]">{FLAGSHIPS[1].label}</span>
-              <h3 className="font-[var(--font-tusker)] text-[clamp(28px,3vw,48px)] leading-[0.95] text-white uppercase">{FLAGSHIPS[1].title}</h3>
+              <span 
+                className="text-[10px] tracking-[0.3em] font-bold text-[var(--chartreuse)]"
+                style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+              >
+                {FLAGSHIPS[1].label}
+              </span>
+              <h3 
+                style={{
+                  fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+                  fontSize: 'clamp(28px, 3vw, 48px)',
+                  lineHeight: 1.05,
+                  color: '#ffffff',
+                  textTransform: 'uppercase'
+                }}
+              >
+                {FLAGSHIPS[1].title}
+              </h3>
               <p className="font-[var(--font-cabinet)] text-white/50 text-base lg:text-lg leading-relaxed font-light">{FLAGSHIPS[1].description}</p>
               <Link href={FLAGSHIPS[1].link} className="inline-flex items-center gap-3 text-[var(--chartreuse)] font-[var(--font-tusker)] text-sm tracking-widest uppercase group-hover:gap-5 transition-all flex-row-reverse">
                 Explore flagship <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rotate-180"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>

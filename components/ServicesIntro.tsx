@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -8,17 +9,20 @@ const PITFALLS = [
   {
     tag: 'OPTION 01',
     label: 'THE STRATEGY FIRM',
-    text: 'Hire a strategy firm and you get a beautiful deck and no one to execute it. The partners sell the vision, the juniors build the slides, and you are left with a 100-page PDF that dies in a drawer.'
+    text: 'Hire a strategy firm and you get a beautiful deck and no one to execute it. The partners sell the vision, the juniors build the slides, and you are left with a 100-page PDF that dies in a drawer.',
+    image: '/assets/images/pitfall-firm.png'
   },
   {
     tag: 'OPTION 02',
     label: 'THE TRADITIONAL AGENCY',
-    text: 'Hire an agency and you get execution without a clear strategy behind it. They ship assets, not outcomes. You get "content" that looks good but doesn’t move the needle because it wasn’t built on a foundation.'
+    text: 'Hire an agency and you get execution without a clear strategy behind it. They ship assets, not outcomes. You get "content" that looks good but doesn’t move the needle because it wasn’t built on a foundation.',
+    image: '/assets/images/pitfall-agency.png'
   },
   {
     tag: 'OPTION 03',
     label: 'THE FREELANCE NETWORK',
-    text: 'Hire freelancers and you become the project manager by default. You spend 80% of your week coordinating handoffs between a writer, a designer, and a dev. You aren’t running marketing; you’re running a circus.'
+    text: 'Hire freelancers and you become the project manager by default. You spend 80% of your week coordinating handoffs between a writer, a designer, and a dev. You aren’t running marketing; you’re running a circus.',
+    image: '/assets/images/pitfall-freelance.png'
   }
 ]
 
@@ -88,18 +92,23 @@ export default function ServicesIntro() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-screen bg-[#F5F5F5] overflow-hidden"
+      className="relative w-full h-screen bg-[#0A0A0A] overflow-hidden"
     >
       <div className="comparison-grid h-full w-full flex flex-col lg:flex-row px-6 lg:px-12 py-20 lg:py-32 gap-12 lg:gap-24">
         
         {/* LEFT COLUMN: STICKY HEADLINE */}
-        <div className="lg:w-1/2 flex flex-col justify-start pt-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] font-bold uppercase text-black/30 mb-8 block">
-            THE MARKET REALITY
-          </span>
-          <h2 className="font-[var(--font-tusker)] text-[clamp(44px,7vw,90px)] leading-[0.9] text-black uppercase">
+        <div className="lg:w-1/2 flex flex-col items-center lg:items-start justify-start pt-4">
+          <h2 
+            style={{
+              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+              fontSize: 'clamp(44px, 7vw, 90px)',
+              lineHeight: 1.05,
+              color: '#ffffff',
+              textTransform: 'uppercase'
+            }}
+          >
             Most brands are stuck between<br />
-            <span className="text-black/30">bad options.</span>
+            <span className="text-white/30">bad options.</span>
           </h2>
         </div>
 
@@ -111,27 +120,47 @@ export default function ServicesIntro() {
           {PITFALLS.map((pitfall, i) => (
             <div 
               key={i}
-              className="pitfall-card absolute inset-0 bg-white p-8 lg:p-16 border border-black/5 shadow-[0_40px_100px_rgba(0,0,0,0.04)] flex flex-col justify-between"
+              className="pitfall-card absolute inset-0 bg-neutral-900 overflow-hidden flex flex-col justify-between"
               style={{ zIndex: i + 1 }}
             >
-              <div className="space-y-12">
-                <div className="flex justify-between items-center border-b border-black/5 pb-6">
-                  <span className="font-mono text-[10px] tracking-[0.2em] font-bold text-black/40">
+              {/* Background Image with Overlay */}
+              <div className="absolute inset-0 z-0">
+                <Image 
+                  src={pitfall.image} 
+                  alt={pitfall.label} 
+                  fill 
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              </div>
+
+              <div className="relative z-10 p-8 lg:p-16 space-y-12">
+                <div className="flex justify-between items-center border-b border-white/10 pb-6">
+                  <span 
+                    className="text-[10px] tracking-[0.3em] font-bold text-[var(--chartreuse)]"
+                    style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+                  >
                     {pitfall.tag}
                   </span>
-                  <div className="w-12 h-[1px] bg-black/10" />
+                  <div className="w-12 h-[1px] bg-white/20" />
                 </div>
                 
-                <h3 className="font-[var(--font-tusker)] text-[clamp(32px,4vw,56px)] leading-none text-black uppercase">
+                <h3 
+                  className="text-white text-[clamp(32px,4vw,56px)] uppercase leading-none"
+                  style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+                >
                   {pitfall.label}
                 </h3>
                 
-                <p className="font-[var(--font-cabinet)] text-black/70 text-[clamp(18px,1.8vw,24px)] leading-relaxed font-light">
+                <p className="font-[var(--font-cabinet)] text-white/70 text-[clamp(18px,1.8vw,24px)] leading-relaxed font-light">
                   {pitfall.text}
                 </p>
               </div>
 
-              <div className="pt-8 text-[10px] font-mono tracking-widest text-black/20 uppercase">
+              <div 
+                className="relative z-10 p-8 lg:p-16 pt-0 text-[10px] tracking-[0.3em] text-white/30 uppercase"
+                style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+              >
                 SCROLL TO CONTINUE —
               </div>
             </div>
@@ -142,9 +171,17 @@ export default function ServicesIntro() {
       {/* FULL WIDTH SOLUTION REVEAL */}
       <div className="solution-full absolute inset-0 bg-black flex flex-col items-center justify-center text-center px-6 pointer-events-none opacity-0">
         <div className="max-w-5xl space-y-12">
-          <h3 className="font-[var(--font-tusker)] text-[clamp(44px,8vw,110px)] leading-[0.85] text-white uppercase">
+          <h3 
+            style={{
+              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+              fontSize: 'clamp(44px, 8vw, 100px)',
+              lineHeight: 1.05,
+              color: '#ffffff',
+              textTransform: 'uppercase'
+            }}
+          >
             EXL was built to<br />
-            <span className="bg-[var(--chartreuse)] text-black px-4 inline-block">end that tradeoff.</span>
+            end that <span className="bg-[var(--chartreuse)] text-black px-2 inline-block">tradeoff.</span>
           </h3>
           <p className="font-[var(--font-cabinet)] text-white text-[clamp(20px,2.5vw,36px)] leading-tight max-w-4xl mx-auto font-light">
             We advise, produce, build, and grow under one roof, with a senior team running each engagement end to end.

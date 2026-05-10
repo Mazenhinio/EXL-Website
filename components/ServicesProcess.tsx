@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -108,20 +109,36 @@ export default function ServicesProcess() {
       ref={containerRef}
       className="relative w-full h-screen bg-black overflow-hidden border-t border-white/5"
     >
-      {/* ── SECTION HEADER ───────────────────────────────────────────── */}
-      <div className="absolute top-12 lg:top-20 left-12 z-30">
-        <span className="font-mono text-[10px] tracking-[0.4em] font-bold text-[var(--taupe)] uppercase opacity-60">
-          THE OPERATING SYSTEM
-        </span>
-        <h2 className="font-[var(--font-tusker)] text-[clamp(32px,4vw,56px)] text-white uppercase mt-4">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/assets/images/services-process-bg.png" 
+          alt="Technical Blueprint" 
+          fill 
+          className="object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      {/* ── SECTION TITLE ───────────────────────────────────────────── */}
+      <div className="absolute top-12 lg:top-20 left-0 w-full z-30 flex justify-center">
+        <h2 
+          style={{
+            fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+            fontSize: 'clamp(32px, 4vw, 56px)',
+            lineHeight: 1.05,
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            textAlign: 'center'
+          }}
+        >
           How we work with you.
         </h2>
       </div>
-
-      <div className="relative w-full h-full max-w-[1400px] mx-auto flex items-center justify-center">
+      <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto flex items-center justify-center">
         
         {/* ── CENTRAL SPINE ───────────────────────────────────────────── */}
-        <div className="absolute left-1/2 top-[20%] bottom-[20%] w-[1px] bg-white/10 -translate-x-1/2">
+        <div className="absolute left-8 lg:left-1/2 top-[25%] bottom-[15%] w-[1px] bg-white/10 lg:-translate-x-1/2">
           <div 
             ref={progressLineRef}
             className="absolute top-0 left-0 w-full h-0 bg-[var(--chartreuse)] shadow-[0_0_15px_var(--chartreuse)]"
@@ -129,32 +146,37 @@ export default function ServicesProcess() {
         </div>
 
         {/* ── STEPS ───────────────────────────────────────────────────── */}
-        <div className="relative w-full h-[60%] flex flex-col justify-between py-10">
+        <div className="relative w-full h-[65%] flex flex-col justify-between py-10">
           {STEPS.map((step, i) => (
             <div 
               key={step.id}
-              className={`process-step relative w-full flex items-center ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+              className={`process-step relative w-full flex items-center ${i % 2 === 0 ? 'lg:justify-start' : 'lg:justify-end'} justify-start pl-16 lg:pl-0`}
             >
               {/* The Marker (on the spine) */}
-              <div className="step-marker absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full z-20 border border-black" />
+              <div className="step-marker absolute left-8 lg:left-1/2 lg:-translate-x-1/2 w-3 h-3 rounded-full z-20 border border-black" />
 
               {/* The Content */}
-              <div className={`step-content w-[42%] ${i % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'} space-y-4`}>
-                <div className="flex items-center gap-4 justify-end">
-                  {i % 2 === 0 && (
-                    <>
-                      <h3 className="font-[var(--font-tusker)] text-[clamp(28px,3vw,48px)] text-white uppercase leading-none">{step.title}</h3>
-                      <span className="font-mono text-[var(--chartreuse)] text-xs font-bold">{step.id}</span>
-                    </>
-                  )}
-                  {i % 2 !== 0 && (
-                    <>
-                      <span className="font-mono text-[var(--chartreuse)] text-xs font-bold">{step.id}</span>
-                      <h3 className="font-[var(--font-tusker)] text-[clamp(28px,3vw,48px)] text-white uppercase leading-none">{step.title}</h3>
-                    </>
-                  )}
+              <div className={`step-content w-[85%] lg:w-[42%] ${i % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:text-left'} space-y-2 lg:space-y-4`}>
+                <div className={`flex items-center gap-4 ${i % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} justify-start`}>
+                  <span 
+                    className="text-[10px] lg:text-xs font-bold text-[var(--chartreuse)] tracking-[0.2em]"
+                    style={{ fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif" }}
+                  >
+                    {step.id}
+                  </span>
+                  <h3 
+                    style={{
+                      fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+                      fontSize: 'clamp(24px, 4vw, 48px)',
+                      lineHeight: 1.05,
+                      color: '#ffffff',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {step.title}
+                  </h3>
                 </div>
-                <p className="font-[var(--font-cabinet)] text-white/50 text-lg lg:text-xl leading-relaxed font-light">
+                <p className="font-[var(--font-cabinet)] text-white/50 text-base lg:text-xl leading-snug lg:leading-relaxed font-light">
                   {step.text}
                 </p>
               </div>

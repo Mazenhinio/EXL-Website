@@ -92,7 +92,7 @@ export default function ServicesHero() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen bg-[#F5F5F5] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden"
+      className="relative w-full min-h-screen bg-[var(--off-white)] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden"
     >
       {/* ── BACKGROUND IMAGE ───────────────────────────────────────────── */}
       <div ref={imageRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -110,7 +110,6 @@ export default function ServicesHero() {
       <div ref={shapesRef} className="absolute inset-0 pointer-events-none z-0">
         <div className="bg-shape absolute top-[10%] left-[15%] w-64 h-64 bg-[#DEFF00]/10 rounded-full blur-[80px]" />
         <div className="bg-shape absolute bottom-[20%] right-[10%] w-96 h-96 bg-black/[0.03] rounded-full blur-[100px]" />
-        <div className="bg-shape absolute top-[40%] right-[30%] w-48 h-48 bg-[#DEFF00]/05 rotate-45 blur-[60px]" />
       </div>
 
       {/* ── HEADLINE SECTION (TOP HALF) ────────────────────────────────── */}
@@ -118,7 +117,14 @@ export default function ServicesHero() {
         <div className="relative">
           <h1 
             ref={headlineRef}
-            className="font-[var(--font-tusker)] text-[clamp(44px,10vw,120px)] leading-[0.95] text-center uppercase text-black tracking-tight"
+            style={{
+              fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
+              fontSize: 'clamp(44px, 10vw, 120px)',
+              lineHeight: 1.05,
+              color: '#000000',
+              textTransform: 'uppercase',
+              textAlign: 'center'
+            }}
           >
             <span className="snap-text block">Consulting-grade thinking.</span>
             <span className="snap-text block">In-house execution.</span>
@@ -140,7 +146,7 @@ export default function ServicesHero() {
               <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </button>
             
-            <a href="#capabilities" className="font-[var(--font-cabinet)] text-black hover:opacity-70 transition-opacity text-sm uppercase tracking-widest flex items-center gap-3 group font-medium">
+            <a href="#capabilities" className="font-[var(--font-tusker)] text-black hover:opacity-70 transition-opacity text-sm uppercase tracking-[0.3em] flex items-center gap-3 group font-medium">
               View Our Process
               <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-300" />
             </a>

@@ -119,7 +119,7 @@ All dividers: `0.5px solid rgba(0,0,0,0.08)`. Never 1px. The thinness is intenti
 
 The EXL logo is a custom geometric wordmark — not a font, not an approximation.
 
-**Asset:** `Exl_Logo_Black.png` — black wordmark on transparent background.
+**Asset:** `Exl_Logo_Black.webp` — black wordmark on transparent background.
 
 **Usage:**
 - Nav and all light backgrounds (off-white, pale silver, lavender): use as-is
@@ -134,7 +134,7 @@ The EXL logo is a custom geometric wordmark — not a font, not an approximation
 
 EXL's brand identity uses a signature cutout effect: PNG images of people are cut out against a transparent background and displayed with a chartreuse glow outline around the subject. This treatment appears in the brand guidelines on billboards, social ads, and on the website footer CTA.
 
-**Current asset:** `cutout_model.png` — chartreuse outline is baked into the PNG.
+**Current asset:** `cutout_model.webp` — chartreuse outline is baked into the PNG.
 
 **For future cutout assets without a baked-in outline:**
 ```css
@@ -190,7 +190,7 @@ Use `drop-shadow` not `box-shadow`. `drop-shadow` follows the transparent cutout
 
 **Layout:** Full viewport height (`100svh`). Content pinned to bottom-left. Photography fills entire background.
 
-**Background image:** `hero.jpg` — dark film studio, director's chair, cinematic. Apply bottom-to-top gradient: `rgba(0,0,0,0.85)` at bottom, transparent at top.
+**Background image:** `hero.webp` — dark film studio, director's chair, cinematic. Apply bottom-to-top gradient: `rgba(0,0,0,0.85)` at bottom, transparent at top.
 
 **Brand element:** Giant ghost letterform "EXL" behind content. Tusker Grotesk, ~95vw font size, `rgba(222,255,0,0.04)` opacity. Bottom-left positioned. Decorative only — not interactive.
 
@@ -231,7 +231,7 @@ Eerie black continuation of hero. 18–20px padding top/bottom.
 
 **Mobile layout:** Image first, full width, `60vw` min-height. Text panel below.
 
-**Image:** `what-we-do.jpg` fills column with `object-fit: cover`. Bottom gradient. Brand moment text at bottom.
+**Image:** `what-we-do.webp` fills column with `object-fit: cover`. Bottom gradient. Brand moment text at bottom.
 
 **Brand moment:** "No handoffs." in `--chartreuse`, Tusker Grotesk, `clamp(32px, 9vw, 68px)`. Wipes in left-to-right on scroll enter. See animation Section 8.3.
 
@@ -412,7 +412,7 @@ Intro:  Most EXL clients start with one of these two offers. Both
 
 **Card 1 — IMM:**
 ```
-Image:       flagship-imm.jpg (five-star hotel lobby)
+Image:       flagship-imm.webp (five-star hotel lobby)
 Brand text:  YOUR MARKETING DEPT.   (chartreuse, 12% opacity, Tusker Grotesk)
 Tag:         Flagship Service — 01
 Title:       Integrated Marketing Management.
@@ -427,7 +427,7 @@ CTA style:   Chartreuse pill, black text
 
 **Card 2 — Podcast:**
 ```
-Image:       flagship-podcast.jpg (podcast studio, Shure mics)
+Image:       flagship-podcast.webp (podcast studio, Shure mics)
 Brand text:  A SHOW WORTH WATCHING.   (chartreuse, 12% opacity, Tusker Grotesk)
 Tag:         Flagship Service — 02
 Title:       B2B Video Podcast Production.
@@ -450,7 +450,7 @@ CTA style:   Outline pill, white text
 
 **Mobile layout:** Text panel first, image below.
 
-**Image:** `best-in-b2b.jpg` — Dallas on-location production setup, camera rig, Dallas skyline at golden hour through floor-to-ceiling windows. Brand moment text at bottom.
+**Image:** `best-in-b2b.webp` — Dallas on-location production setup, camera rig, Dallas skyline at golden hour through floor-to-ceiling windows. Brand moment text at bottom.
 
 **Brand moment:** "Best in B2B." in `--chartreuse`, Tusker Grotesk. Left-to-right wipe on scroll enter.
 
@@ -501,7 +501,7 @@ Step numbers: Tusker Grotesk, ~64px, `rgba(0,0,0,0.10)`. Decorative only.
 
 **Layout:** Two-column desktop (headline left, sub + CTA right). Stacked mobile.
 
-**Cutout brand element:** `cutout_model.png` positioned absolutely, bottom-right, `height: 115%`, `right: -10px`. Bleeds above the section. Desktop only at full opacity. Mobile: `height: 70%`, `opacity: 0.5`.
+**Cutout brand element:** `cutout_model.webp` positioned absolutely, bottom-right, `height: 115%`, `right: -10px`. Bleeds above the section. Desktop only at full opacity. Mobile: `height: 70%`, `opacity: 0.5`.
 
 **Content area:** `max-width: 50%` on desktop so copy doesn't compete with the figure.
 
@@ -526,7 +526,7 @@ Three-column desktop, stacked mobile.
 
 **Column 1:**
 ```
-Logo:     Exl_Logo_Black.png at 24px, filter: brightness(0) invert(1)
+Logo:     Exl_Logo_Black.webp at 24px, filter: brightness(0) invert(1)
 Tagline:  A B2B consultancy and media production studio.
 Address:  825 Watters Creek Blvd., Building M, Suite 250
           Allen, Texas 75013
@@ -632,13 +632,13 @@ CSS only. `background → --lemon`, `padding-left +12px`. Duration `0.25s`.
 
 | Filename | Section | Notes |
 |---|---|---|
-| `hero.jpg` | Hero | Dark film studio, director's chair |
-| `what-we-do.jpg` | What We Do panel | Overhead strategy meeting |
-| `flagship-imm.jpg` | Flagship IMM card | Five-star hotel lobby, golden hour |
-| `flagship-podcast.jpg` | Flagship Podcast card | Podcast studio, Shure mics |
-| `best-in-b2b.jpg` | Best in B2B panel | Dallas production setup, city skyline |
-| `cutout_model.png` | Footer CTA | PNG cutout, transparent bg, chartreuse outline baked in |
-| `Exl_Logo_Black.png` | Nav + Footer | Black wordmark on transparent bg |
+| `hero.webp` | Hero | Dark film studio, director's chair |
+| `what-we-do.webp` | What We Do panel | Overhead strategy meeting |
+| `flagship-imm.webp` | Flagship IMM card | Five-star hotel lobby, golden hour |
+| `flagship-podcast.webp` | Flagship Podcast card | Podcast studio, Shure mics |
+| `best-in-b2b.webp` | Best in B2B panel | Dallas production setup, city skyline |
+| `cutout_model.webp` | Footer CTA | PNG cutout, transparent bg, chartreuse outline baked in |
+| `Exl_Logo_Black.webp` | Nav + Footer | Black wordmark on transparent bg |
 
 All photography: `object-fit: cover`, `object-position: center`. No developer cropping decisions — images are pre-framed.
 
@@ -767,7 +767,7 @@ Each article page should include:
 | `meta description` | We advise, produce, build, and grow for ambitious B2B and luxury brands. Senior strategy, AI-native workflows, cinematic output. Dallas. |
 | `og:title` | EXL — A B2B consultancy with its own production floor. |
 | `og:description` | Senior strategy, AI-native workflows, cinematic output. From Dallas, for clients across North America and the Middle East. |
-| `og:image` | `/og-image.jpg` (1200×630) |
+| `og:image` | `/og-image.webp` (1200×630) |
 | Canonical | https://exl.agency |
 
 ### 12.2 Internal Pages
@@ -834,13 +834,13 @@ Phase 1: all internal links except `/contact` point to `#` until Phase 2 pages a
 
 **Assets to be delivered by EXL before build starts:**
 - [ ] `index.html` — approved mockup, design source of truth
-- [ ] `Exl_Logo_Black.png` — official wordmark
-- [ ] `cutout_model.png` — footer CTA cutout figure
-- [ ] `hero.jpg` — hero background photography
-- [ ] `what-we-do.jpg` — What We Do panel photography
-- [ ] `flagship-imm.jpg` — IMM card photography
-- [ ] `flagship-podcast.jpg` — Podcast card photography
-- [ ] `best-in-b2b.jpg` — Best in B2B panel photography
+- [ ] `Exl_Logo_Black.webp` — official wordmark
+- [ ] `cutout_model.webp` — footer CTA cutout figure
+- [ ] `hero.webp` — hero background photography
+- [ ] `what-we-do.webp` — What We Do panel photography
+- [ ] `flagship-imm.webp` — IMM card photography
+- [ ] `flagship-podcast.webp` — Podcast card photography
+- [ ] `best-in-b2b.webp` — Best in B2B panel photography
 - [ ] `EXL_Website_Copy_Master_v4.docx` — all approved copy
 - [ ] Tusker Grotesk font files (purchased from Pangram Pangram)
 - [ ] Cabinet Grotesk font files (free from Fontshare)

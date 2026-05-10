@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function FooterCTA() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -73,7 +74,7 @@ export default function FooterCTA() {
           className="relative w-32 h-32 md:w-48 md:h-48 mb-8 md:mb-12"
         >
           <Image 
-            src="/assets/images/x-vibration.png"
+            src="/assets/images/x-vibration.webp"
             alt="X Vibration"
             fill
             className="object-contain"
@@ -96,7 +97,7 @@ export default function FooterCTA() {
             READY TO DOMINATE<br />YOUR MARKET?
           </h2>
 
-          <button className="group relative flex items-center gap-4 bg-[#1a1a1a] text-[#DEFF00] pl-8 pr-2 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl">
+          <Link href="/contact" className="group relative flex items-center gap-4 bg-[#1a1a1a] text-[#DEFF00] pl-8 pr-2 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl">
             <span className="font-[var(--font-cabinet)] font-bold text-lg md:text-xl">Book your discovery call</span>
             <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center text-black transition-all duration-300 group-hover:rotate-45">
               <svg 
@@ -113,7 +114,7 @@ export default function FooterCTA() {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </div>
-          </button>
+          </Link>
         </div>
 
       </div>

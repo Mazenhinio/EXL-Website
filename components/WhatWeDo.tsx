@@ -9,28 +9,28 @@ const capabilities = [
     name: 'ADVISE.',
     title: 'Senior strategy, not junior execution.',
     body: 'Positioning, brand, and go-to-market strategy from a team that has built businesses across three continents.',
-    img: '/assets/images/advise.png',
+    img: '/assets/images/advise.webp',
   },
   {
     id: '02',
     name: 'PRODUCE.',
     title: "Content that doesn't look like B2B.",
-    body: 'Podcasts, video, and social content shot in-house from our Dallas studio. B2B that looks like media.',
-    img: '/assets/images/produce.png',
+    body: 'Podcasts, video, and social content shot in-house from our Dallas agency. B2B that looks like media.',
+    img: '/assets/images/produce.webp',
   },
   {
     id: '03',
     name: 'BUILD.',
     title: 'Projects that land on the date.',
     body: 'Projects, launches, and integrated campaigns executed end to end. We scope it, build it, ship it, measure it.',
-    img: '/assets/images/build.png',
+    img: '/assets/images/build.webp',
   },
   {
     id: '04',
     name: 'GROW.',
     title: 'Distribution that turns into pipeline.',
     body: 'Partnerships, channels, and distribution systems that turn content into pipeline. We measure success by revenue.',
-    img: '/assets/images/grow.png',
+    img: '/assets/images/grow.webp',
   },
 ]
 
@@ -183,7 +183,7 @@ function WhatWeDoDesktop() {
       >
         <div ref={xRef} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <div className="relative w-full h-full">
-            <Image src="/assets/images/X.png" alt="EXL X" fill className="object-contain" priority />
+            <Image src="/assets/images/X.webp" alt="EXL X" fill className="object-contain" priority />
           </div>
         </div>
 
@@ -229,12 +229,7 @@ function WhatWeDoDesktop() {
                       {cap.body}
                     </p>
                   </div>
-                  <button className="w-24 h-24 bg-[var(--chartreuse)] text-black rounded-full flex items-center justify-center group/btn transition-all duration-300 hover:scale-110 shadow-lg">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             ))}
@@ -378,7 +373,7 @@ function WhatWeDoMobile() {
       >
         <div ref={xRef} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <div className="relative w-full h-full">
-            <Image src="/assets/images/X.png" alt="EXL X" fill className="object-contain" priority />
+            <Image src="/assets/images/X.webp" alt="EXL X" fill className="object-contain" priority />
           </div>
         </div>
 
@@ -424,12 +419,7 @@ function WhatWeDoMobile() {
                       {cap.body}
                     </p>
                   </div>
-                  <button className="mt-6 w-14 h-14 bg-[var(--chartreuse)] text-black rounded-full flex items-center justify-center shadow-lg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             ))}

@@ -8,19 +8,19 @@ const steps = [
     left: 'WEEKS',
     right: 'NOT QUARTERS',
     body: 'From brief to first delivery.',
-    image: '/assets/images/weeks-not-quarters.png'
+    image: '/assets/images/weeks-not-quarters.webp'
   },
   {
     left: 'SENIOR JUDGMENT',
     right: 'MACHINE LIFT',
     body: 'On every decision, with machines doing the lift underneath.',
-    image: '/assets/images/senior-judgement.png'
+    image: '/assets/images/senior-judgement.webp'
   },
   {
     left: 'SCALABLE SYSTEMS',
     right: 'NOT HEADCOUNT',
     body: 'Production and distribution systems that scale with your growth.',
-    image: '/assets/images/scalable-systems.png'
+    image: '/assets/images/scalable-systems.webp'
   }
 ]
 
@@ -122,7 +122,7 @@ export default function Advantage() {
           <div className="adv-intro absolute inset-0 z-50 flex flex-col items-center justify-center px-6 text-center bg-[var(--eerie)]">
             <div className="absolute inset-0 opacity-40">
               <Image 
-                src="/assets/images/advantage-intro.png" 
+                src="/assets/images/advantage-intro.webp" 
                 alt="Advantage Intro" 
                 fill 
                 className="object-cover"

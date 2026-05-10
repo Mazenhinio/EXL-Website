@@ -9,21 +9,21 @@ const pillars = [
     title: 'SENIOR STRATEGY,',
     highlight: 'NOT JUNIOR EXECUTION.',
     body: 'Every engagement is led by a founder with international consulting experience across three continents. You get the senior thinking the big firms charge for, without the layers between you and the person actually solving your problem.',
-    image: '/assets/images/senior-strategy.png'
+    image: '/assets/images/senior-strategy.webp'
   },
   {
     id: '02',
     title: 'AI-NATIVE, SO YOUR',
     highlight: "TIMELINE ISN'T A PROBLEM.",
     body: 'We built our production and content stack on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the pace of your market, not the pace of your agency.',
-    image: '/assets/images/ai-native-pillar.png'
+    image: '/assets/images/ai-native-pillar.webp'
   },
   {
     id: '03',
     title: 'ENGINEERED FOR',
     highlight: 'IMPACT, TOP TO BOTTOM.',
     body: 'Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this move the number? We build marketing that\'s accountable from planning through delivery, and we own the outcome end to end.',
-    image: '/assets/images/engineered-impact.png'
+    image: '/assets/images/engineered-impact.webp'
   }
 ]
 

@@ -10,7 +10,7 @@
 
 ### Added
 - **Cinematic Mobile Experience**: Re-engineered the 'What We Do' section for mobile, featuring a high-impact branding entry and a massive scale-zoom (50x) on the core "X" asset.
-- **Brand Assets**: Integrated new cinematic branding assets, including `X.png` and `x-vibration.png` for high-fidelity animations.
+- **Brand Assets**: Integrated new cinematic branding assets, including `X.webp` and `x-vibration.webp` for high-fidelity animations.
 
 ### Changed
 - **Visual Artifact Suppression**: Eliminated rectangular container artifacts in the 'What We Do' animation by switching to direct asset rendering and refined `clip-path` masks.

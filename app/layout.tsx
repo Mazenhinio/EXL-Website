@@ -23,13 +23,18 @@ const cabinet = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'EXL — B2B Consultancy & Production Studio',
+  title: 'EXL — B2B Consultancy & Production Agency',
   description: 'We advise, produce, build, and grow for ambitious B2B and luxury brands. Senior strategy, AI-native workflows, cinematic output. Dallas.',
+  icons: {
+    icon: '/assets/images/exl-icon.webp',
+    shortcut: '/assets/images/exl-icon.webp',
+    apple: '/assets/images/exl-icon.webp',
+  },
   openGraph: {
     title: 'EXL — A B2B consultancy with its own production floor.',
-    description: 'Senior strategy, AI-native workflows, cinematic output. From Dallas, for clients across North America and the Middle East.',
+    description: 'Senior strategy, AI-native workflows, cinematic output. Podcasts, video, and social content shot in-house from our Dallas agency. B2B that looks like media.',
     url: 'https://exl.agency',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.webp', width: 1200, height: 630 }],
     type: 'website',
   },
   alternates: {

@@ -68,7 +68,7 @@ export default function Hero() {
       <div style={{ position: 'absolute', inset: 0, display: 'flex', zIndex: 0 }}>
         <div style={{ position: 'relative', width: '50%', height: '100%', borderRight: '0.5px solid rgba(255,255,255,0.05)' }}>
           <Image
-            src="/assets/images/hero-2.png"
+            src="/assets/images/hero-2.webp"
             alt="Hero Left"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}
@@ -78,7 +78,7 @@ export default function Hero() {
         </div>
         <div style={{ position: 'relative', width: '50%', height: '100%' }}>
           <Image
-            src="/assets/images/hero-1.png"
+            src="/assets/images/hero-1.webp"
             alt="Hero Right"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}

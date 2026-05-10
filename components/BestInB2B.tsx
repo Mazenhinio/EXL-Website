@@ -91,7 +91,7 @@ export default function BestInB2B() {
     <section 
       ref={containerRef} 
       id="best-in-b2b" 
-      className="relative w-full h-[300vh] bg-[var(--lavender)]"
+      className="relative w-full h-[300vh] bg-[#5d4c39]"
     >
       <div 
         ref={stickyRef} 
@@ -104,7 +104,7 @@ export default function BestInB2B() {
         >
           <span 
             style={{ fontFamily: 'var(--font-tusker)' }}
-            className="text-[35vw] leading-none text-black/[0.03] uppercase select-none"
+            className="text-[35vw] leading-none text-white/[0.03] uppercase select-none"
           >
             B2B.MEDIA
           </span>
@@ -113,7 +113,7 @@ export default function BestInB2B() {
         {/* The revealed image */}
         <div ref={imageRef} className="absolute inset-0 z-10">
           <Image
-            src="/assets/images/best-in-b2b.jpg"
+            src="/assets/images/best-in-b2b.webp"
             alt="Dallas on-location production setup"
             fill
             className="object-cover"
@@ -127,22 +127,23 @@ export default function BestInB2B() {
         {/* The Shutters */}
         <div 
           ref={shutterLeftRef} 
-          className="absolute left-0 top-0 bottom-0 w-1/2 bg-[var(--lavender)] z-40 border-r border-black/5" 
+          className="absolute left-0 top-0 bottom-0 w-1/2 bg-[#5d4c39] z-40 border-r border-white/5" 
         />
         <div 
           ref={shutterRightRef} 
-          className="absolute right-0 top-0 bottom-0 w-1/2 bg-[var(--lavender)] z-40 border-l border-black/5" 
+          className="absolute right-0 top-0 bottom-0 w-1/2 bg-[#5d4c39] z-40 border-l border-white/5" 
         />
 
-        {/* Headline (Sits on top of shutters initially) */}
-        <div className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
-          <h2 
-            style={{ fontFamily: 'var(--font-tusker)' }}
-            className="main-headline text-[clamp(48px,11vw,110px)] text-black leading-[0.85] text-center uppercase"
-          >
-            Best in <br />
-            <span className="text-outline-black text-transparent">B2B.</span>
-          </h2>
+        <div className="main-headline absolute inset-0 z-50 flex items-center justify-center pointer-events-none px-6">
+          <div className="relative w-full max-w-[800px] aspect-[15/10] invert brightness-200">
+            <Image
+              src="/assets/images/best-in-b2b-logo-black.webp"
+              alt="Best in B2B Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
 
         {/* Foreground Content (Revealed) */}
@@ -157,14 +158,16 @@ export default function BestInB2B() {
             Our most visible build:<br />
             <span className="text-[var(--chartreuse)]">Best in B2B.</span>
           </h3>
-          <p 
-            className="b2b-reveal-el font-[var(--font-cabinet)] text-white/60 text-[clamp(16px,2vw,18px)] font-light leading-relaxed max-w-2xl mb-12"
-          >
-            Best in B2B is our own video podcast, filmed on location across
-            Dallas-Fort Worth. Framework-driven conversations with the operators
-            shaping the market. Everything we build for our clients, we built
-            here first.
-          </p>
+          <div className="b2b-reveal-el bg-black/80 backdrop-blur-md rounded-2xl p-8 lg:p-10 border border-white/5 shadow-2xl mb-12 max-w-3xl mx-auto">
+            <p 
+              className="font-[var(--font-cabinet)] text-white/90 text-[clamp(16px,2vw,19px)] font-light leading-relaxed"
+            >
+              Best in B2B is our own video podcast, filmed on location across
+              Dallas-Fort Worth. Framework-driven conversations with the operators
+              shaping the market. Everything we build for our clients, we built
+              here first.
+            </p>
+          </div>
           <div className="b2b-reveal-el">
             <Link
               href="https://b2b.media"
@@ -183,29 +186,33 @@ export default function BestInB2B() {
       </div>
 
       {/* MOBILE FALLBACK */}
-      <div className="lg:hidden relative z-[100] bg-[var(--lavender)] px-6 py-24 space-y-16">
+      <div className="lg:hidden relative z-[100] bg-[#5d4c39] px-6 py-24 space-y-16">
         <div className="text-center">
-          <p className="section-label mb-4 text-[var(--taupe)] font-semibold uppercase tracking-[0.15em] text-[11px]">
+          <p className="section-label mb-4 text-white/50 font-semibold uppercase tracking-[0.15em] text-[11px]">
             Owned Media
           </p>
-          <h2 
-            style={{ fontFamily: 'var(--font-tusker)' }}
-            className="text-6xl text-black leading-none uppercase mb-8"
-          >
-            Best in B2B.
-          </h2>
+          <div className="relative w-full max-w-[300px] aspect-[15/10] mx-auto mb-8 invert brightness-200">
+            <Image
+              src="/assets/images/best-in-b2b-logo-black.webp"
+              alt="Best in B2B Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-8 shadow-xl">
             <Image
-              src="/assets/images/best-in-b2b.jpg"
+              src="/assets/images/best-in-b2b.webp"
               alt="Dallas production"
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-black/30" />
           </div>
-          <p className="font-[var(--font-cabinet)] text-lg text-black/60 font-light leading-relaxed mb-10">
-            Best in B2B is our own video podcast, filmed on location across DFW. Framework-driven conversations with market operators.
-          </p>
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/10 mb-10 text-left">
+            <p className="font-[var(--font-cabinet)] text-white text-lg font-medium leading-relaxed">
+              Best in B2B is our own video podcast, filmed on location across DFW. Framework-driven conversations with market operators.
+            </p>
+          </div>
           <Link
             href="https://b2b.media"
             target="_blank"

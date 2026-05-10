@@ -38,7 +38,7 @@ export default function Nav() {
       {/* Logo */}
       <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
         <Image
-          src="/assets/images/Exl_Logo_Black.png"
+          src="/assets/images/Exl_Logo_Black.webp"
           alt="EXL"
           width={80}
           height={28}
@@ -64,7 +64,6 @@ export default function Nav() {
           { label: 'IMM', href: '/integrated-marketing-management' },
           { label: 'Podcast Production', href: '/podcast-production' },
           { label: 'Best in B2B', href: '#best-in-b2b' },
-          { label: 'About', href: '#' },
         ].map((item) => (
           <Link
             key={item.label}
@@ -162,7 +161,6 @@ export default function Nav() {
             { label: 'IMM', href: '/integrated-marketing-management' },
             { label: 'Podcast Production', href: '/podcast-production' },
             { label: 'Best in B2B', href: '#best-in-b2b' },
-            { label: 'About', href: '#' },
             { label: 'Book a call', href: '/contact' },
           ].map((item) => (
             <Link

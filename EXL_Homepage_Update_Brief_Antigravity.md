@@ -44,10 +44,10 @@ The reference mockup and the approved copy document (`EXL_Website_Copy_Master_v4
 
 | Card | Capability | Image |
 |---|---|---|
-| 01 | Advise. | `cap-advise.jpg` — overhead aerial of consultant at desk, warm directional light, Dallas skyline |
-| 02 | Produce. | `cap-produce.jpg` — cinematic production setup, softbox rig, camera on tripod, golden hour |
-| 03 | Build. | `cap-build.jpg` — overhead of campaign war room, printed layouts, long table, loft space |
-| 04 | Grow. | `cap-grow.jpg` — monitor showing analytics dashboard, green upward trend lines, dark room |
+| 01 | Advise. | `cap-advise.webp` — overhead aerial of consultant at desk, warm directional light, Dallas skyline |
+| 02 | Produce. | `cap-produce.webp` — cinematic production setup, softbox rig, camera on tripod, golden hour |
+| 03 | Build. | `cap-build.webp` — overhead of campaign war room, printed layouts, long table, loft space |
+| 04 | Grow. | `cap-grow.webp` — monitor showing analytics dashboard, green upward trend lines, dark room |
 
 *(Images provided separately. If not yet received, use the existing placeholder images from the mockup in the same overlay treatment until final assets arrive.)*
 

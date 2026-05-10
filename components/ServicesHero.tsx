@@ -53,8 +53,8 @@ export default function ServicesHero() {
       )
 
       // 3. Background Shapes Parallax
-      const shapes = gsap.utils.toArray('.bg-shape')
-      shapes.forEach((shape: any, i) => {
+      const shapes = gsap.utils.toArray('.bg-shape') as HTMLElement[]
+      shapes.forEach((shape, i) => {
         gsap.to(shape, {
           y: (i + 1) * 100,
           rotation: (i + 1) * 45,
@@ -97,7 +97,7 @@ export default function ServicesHero() {
       {/* ── BACKGROUND IMAGE ───────────────────────────────────────────── */}
       <div ref={imageRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
-          src="/assets/images/services-hero.png"
+          src="/assets/images/services-hero.webp"
           alt="EXL Studio Space"
           fill
           className="object-cover"

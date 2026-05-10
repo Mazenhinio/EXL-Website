@@ -12,7 +12,7 @@ const CAPABILITIES = [
     subheadline: 'Consulting-grade strategy and AI-native thinking.',
     description: 'We solve for growth by aligning high-level strategy with the technical ability to actually ship the work.',
     services: ['GTM Strategy', 'AI Implementation', 'Commercial Ops'],
-    image: '/assets/images/cap-advise.png'
+    image: '/assets/images/cap-advise.webp'
   },
   {
     number: '02',
@@ -20,7 +20,7 @@ const CAPABILITIES = [
     subheadline: 'Cinematic storytelling for brands that refuse to blend in.',
     description: 'Technical production and high-end creative execution that bridges the gap between vision and reality.',
     services: ['Film & Video', 'Podcast Production', 'Design & 3D'],
-    image: '/assets/images/cap-produce.png'
+    image: '/assets/images/cap-produce.webp'
   },
   {
     number: '03',
@@ -28,7 +28,7 @@ const CAPABILITIES = [
     subheadline: 'Architecting high-performance digital products.',
     description: 'Developing digital infrastructure and creative assets that aren’t just beautiful—they convert.',
     services: ['Web & Product', 'Content Engines', 'Tech Integration'],
-    image: '/assets/images/cap-build.png'
+    image: '/assets/images/cap-build.webp'
   },
   {
     number: '04',
@@ -36,7 +36,7 @@ const CAPABILITIES = [
     subheadline: 'Scaling results through integrated marketing management.',
     description: 'Precision media and growth operations designed to maximize impact across every touchpoint.',
     services: ['Media Management', 'Growth Ops', 'IMM'],
-    image: '/assets/images/cap-grow.png'
+    image: '/assets/images/cap-grow.webp'
   }
 ]
 
@@ -47,8 +47,8 @@ export default function ServicesCapabilities() {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      const rows = gsap.utils.toArray('.cap-row')
-      rows.forEach((row: any) => {
+      const rows = gsap.utils.toArray('.cap-row') as HTMLElement[]
+      rows.forEach((row) => {
         // Horizontal Blade Reveal
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -139,7 +139,7 @@ export default function ServicesCapabilities() {
                         {cap.title}
                       </h3>
                       <p className="font-[var(--font-cabinet)] text-black text-xl lg:text-2xl font-medium leading-tight italic">
-                        "{cap.subheadline}"
+                        &quot;{cap.subheadline}&quot;
                       </p>
                     </div>
 

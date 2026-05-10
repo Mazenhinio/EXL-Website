@@ -164,9 +164,7 @@ export default function Footer() {
                   Let&apos;s build something<br />
                   <span className="text-[var(--chartreuse)]">worth watching.</span>
                 </h2>
-                <p className="font-[var(--font-cabinet)] text-white/70 text-lg max-w-md leading-relaxed">
-                  Book a 20-minute call. No deck, no pitch. Just a conversation about what you&apos;re trying to ship.
-                </p>
+
               </div>
             </div>
 
@@ -184,18 +182,8 @@ export default function Footer() {
                 <div className="space-y-6">
                   <h4 className="font-[var(--font-cabinet)] text-white/30 text-[12px] tracking-widest uppercase">Company</h4>
                   <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium">
-                    <li><Link href="#insights" className="hover:text-[var(--chartreuse)] transition-colors">Insights</Link></li>
-                    <li><Link href="#about" className="hover:text-[var(--chartreuse)] transition-colors">About</Link></li>
-                    <li><Link href="#contact" className="hover:text-[var(--chartreuse)] transition-colors">Contact</Link></li>
+                    <li><Link href="/contact" className="hover:text-[var(--chartreuse)] transition-colors">Contact</Link></li>
                     <li><Link href="#best-in-b2b" className="hover:text-[var(--chartreuse)] transition-colors">Best in B2B</Link></li>
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <h4 className="font-[var(--font-cabinet)] text-white/30 text-[12px] tracking-widest uppercase">Social</h4>
-                  <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium">
-                    <li><Link href="#" className="hover:text-[var(--chartreuse)] transition-colors">LinkedIn</Link></li>
-                    <li><Link href="#" className="hover:text-[var(--chartreuse)] transition-colors">YouTube</Link></li>
-                    <li><Link href="#" className="hover:text-[var(--chartreuse)] transition-colors">Instagram</Link></li>
                   </ul>
                 </div>
               </div>
@@ -209,7 +197,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <p className="font-[var(--font-cabinet)] text-white/40 text-sm leading-tight max-w-xs">
-                  A B2B consultancy and media production studio.<br />
+                  A B2B consultancy and media production agency.<br />
                   825 Watters Creek Blvd, Building M, Suite 250, Allen, TX 75013
                 </p>
                 <p className="text-[10px] font-[var(--font-tusker)] text-white/20 tracking-widest uppercase">
@@ -224,7 +212,7 @@ export default function Footer() {
         <div className="absolute left-0 right-0 bottom-0 z-0 px-10 pointer-events-none opacity-80">
           <div className="relative w-full h-[250px]">
             <Image 
-              src="/assets/images/exl-logo-neon.png"
+              src="/assets/images/exl-logo-neon.webp"
               alt="EXL Neon Watermark"
               fill
               className="object-contain object-bottom"

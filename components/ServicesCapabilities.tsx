@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -9,33 +10,61 @@ const CAPABILITIES = [
   {
     number: '01',
     title: 'ADVISE',
-    subheadline: 'Consulting-grade strategy and AI-native thinking.',
-    description: 'We solve for growth by aligning high-level strategy with the technical ability to actually ship the work.',
-    services: ['GTM Strategy', 'AI Implementation', 'Commercial Ops'],
+    subheadline: 'Strategy and consulting for brands that need senior thinking, not a junior team learning on your budget.',
+    description: "Every Advise engagement is led by a founder with international consulting experience across three continents. You're working with the person actually solving your problem, not a slide deck passed down from a partner you met once.",
+    services: [
+      'Positioning & Brand Architecture',
+      'Go-to-Market Strategy',
+      'Content & Media Strategy',
+      'Fractional CMO & Advisory',
+      'Marketing Audits'
+    ],
+    link: '/services/advise',
     image: '/assets/images/cap-advise.webp'
   },
   {
     number: '02',
     title: 'PRODUCE',
-    subheadline: 'Cinematic storytelling for brands that refuse to blend in.',
-    description: 'Technical production and high-end creative execution that bridges the gap between vision and reality.',
-    services: ['Film & Video', 'Podcast Production', 'Design & 3D'],
+    subheadline: 'In-house video, podcast, and content production from our Dallas studio.',
+    description: 'Every frame shot and lit the way a film crew would. Every sound captured the way a record label would. Built inside an AI-accelerated workflow so production speed matches your calendar, not the pace of an agency.',
+    services: [
+      'Brand Films & Customer Stories',
+      'Podcast Production',
+      'Photography & Lifestyle',
+      'Social-First Video',
+      'Creative Direction'
+    ],
+    link: '/services/produce',
     image: '/assets/images/cap-produce.webp'
   },
   {
     number: '03',
     title: 'BUILD',
-    subheadline: 'Architecting high-performance digital products.',
-    description: 'Developing digital infrastructure and creative assets that aren’t just beautiful—they convert.',
-    services: ['Web & Product', 'Content Engines', 'Tech Integration'],
+    subheadline: 'Projects, launches, and integrated campaigns executed end to end.',
+    description: 'The capability for work that has a beginning, a middle, and a measurable end. Brand identity. A product launch. A website tied to a campaign. You don’t become the project manager. We do.',
+    services: [
+      'Brand Identity Rollout',
+      'Website Design & Build',
+      'Product & Service Launches',
+      'Integrated Marketing Campaigns',
+      'Third-Party Vendor Management'
+    ],
+    link: '/services/build',
     image: '/assets/images/cap-build.webp'
   },
   {
     number: '04',
     title: 'GROW',
-    subheadline: 'Scaling results through integrated marketing management.',
-    description: 'Precision media and growth operations designed to maximize impact across every touchpoint.',
-    services: ['Media Management', 'Growth Ops', 'IMM'],
+    subheadline: 'Distribution, channels, and partnerships that turn content into pipeline.',
+    description: 'Grow is the engine that makes sure everything we produce actually lands in front of the right buyers, through the right channels, at the right time. This is the engine that converts attention into revenue.',
+    services: [
+      'Paid Media (LinkedIn, Meta, Google)',
+      'Content Repurposing Systems',
+      'Email & CRM Automation',
+      'Partnership & Channel Programs',
+      'Marketing Ops & Pipeline Reporting'
+    ],
+    link: '/services/grow',
     image: '/assets/images/cap-grow.webp'
   }
 ]
@@ -157,6 +186,27 @@ export default function ServicesCapabilities() {
                           </span>
                         </div>
                       ))}
+                    </div>
+
+                    {/* CTA Link */}
+                    <div className="pt-4">
+                      <Link 
+                        href={cap.link}
+                        className="inline-flex items-center gap-4 text-black font-[var(--font-tusker)] text-lg tracking-[0.1em] uppercase group/link transition-all"
+                      >
+                        <span className="relative">
+                          Explore {cap.title}
+                          <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-black transition-all duration-300 group-hover/link:w-full" />
+                        </span>
+                        <svg 
+                          width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                          stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                          className="transition-transform duration-300 group-hover/link:translate-x-2"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </Link>
                     </div>
                   </div>
                 </div>

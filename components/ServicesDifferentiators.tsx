@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const DIFFERENTIATORS = [
   {
     isCover: true,
-    title: "HOW WE ARE DIFFERENT",
+    title: "HOW WE'RE DIFFERENT",
     description: "The senior thinking of a global firm. The speed of an AI-native studio.",
     image: null
   },
@@ -142,22 +142,6 @@ export default function ServicesDifferentiators() {
       ref={containerRef}
       className="relative w-full h-screen bg-black overflow-hidden"
     >
-      {/* ── SECTION TITLE ───────────────────────────────────────────── */}
-      <div className="absolute top-12 lg:top-20 left-0 w-full z-30 flex justify-center">
-        <h2 
-          style={{
-            fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-            fontSize: 'clamp(32px, 4vw, 56px)',
-            lineHeight: 1.05,
-            color: '#ffffff',
-            textTransform: 'uppercase',
-            textAlign: 'center'
-          }}
-        >
-          {"Why we're different."}
-        </h2>
-      </div>
-
       <div className="relative w-full h-full">
         {DIFFERENTIATORS.map((diff, i) => (
           <div 

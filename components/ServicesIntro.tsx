@@ -181,7 +181,14 @@ export default function ServicesIntro() {
             }}
           >
             EXL was built to<br />
-            end that <span className="bg-[var(--chartreuse)] text-black px-2 inline-block">tradeoff.</span>
+            end that <span 
+              className="text-black px-3 pt-0 pb-4 inline-block"
+              style={{ 
+                background: 'linear-gradient(to bottom, transparent 10%, var(--chartreuse) 10%)' 
+              }}
+            >
+              tradeoff.
+            </span>
           </h3>
           <p className="font-[var(--font-cabinet)] text-white text-[clamp(20px,2.5vw,36px)] leading-tight max-w-4xl mx-auto font-light">
             We advise, produce, build, and grow under one roof, with a senior team running each engagement end to end.

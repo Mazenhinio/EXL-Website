@@ -143,7 +143,7 @@ export default function ServicesWhoItsFor() {
             </h3>
             <p className="font-[var(--font-cabinet)] text-white/80 text-[clamp(14px,1.6vw,20px)] leading-relaxed max-w-3xl mx-auto font-light">
               We are not for brands looking for 50 posts a week or spray-and-pray ads 
-              without a strategic layer. We build deeper, and that's what we charge for.
+              without a strategic layer. {"We build deeper, and that's what we charge for."}
             </p>
           </div>
         </div>

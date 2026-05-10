@@ -154,7 +154,7 @@ export default function ServicesDifferentiators() {
             textAlign: 'center'
           }}
         >
-          Why we&apos;re different.
+          {"Why we're different."}
         </h2>
       </div>
 

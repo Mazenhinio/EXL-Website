@@ -90,7 +90,7 @@ export default function ServicesFlagships() {
           }}
           className="max-w-2xl"
         >
-          Two engagements we&apos;re known for.
+          {"Two engagements we're known for."}
         </h2>
       </div>
 

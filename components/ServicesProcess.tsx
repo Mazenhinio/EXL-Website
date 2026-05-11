@@ -112,10 +112,10 @@ export default function ServicesProcess() {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/assets/images/services-process-bg.png" 
-          alt="Technical Blueprint" 
+          src="/assets/images/services-process-flow.png" 
+          alt="Strategic Flow" 
           fill 
-          className="object-cover opacity-20"
+          className="object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -146,7 +146,7 @@ export default function ServicesProcess() {
         </div>
 
         {/* ── STEPS ───────────────────────────────────────────────────── */}
-        <div className="relative w-full h-[65%] flex flex-col justify-between py-10">
+        <div className="relative w-full h-[60%] flex flex-col justify-between py-10">
           {STEPS.map((step, i) => (
             <div 
               key={step.id}
@@ -156,7 +156,7 @@ export default function ServicesProcess() {
               <div className="step-marker absolute left-8 lg:left-1/2 lg:-translate-x-1/2 w-3 h-3 rounded-full z-20 border border-black" />
 
               {/* The Content */}
-              <div className={`step-content w-[85%] lg:w-[42%] ${i % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:text-left'} space-y-2 lg:space-y-4`}>
+              <div className={`step-content w-[85%] lg:w-[42%] ${i % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:text-left'} space-y-1 lg:space-y-4`}>
                 <div className={`flex items-center gap-4 ${i % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} justify-start`}>
                   <span 
                     className="text-[10px] lg:text-xs font-bold text-[var(--chartreuse)] tracking-[0.2em]"
@@ -167,7 +167,7 @@ export default function ServicesProcess() {
                   <h3 
                     style={{
                       fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-                      fontSize: 'clamp(24px, 4vw, 48px)',
+                      fontSize: 'clamp(20px, 3.5vw, 38px)',
                       lineHeight: 1.05,
                       color: '#ffffff',
                       textTransform: 'uppercase'
@@ -176,7 +176,7 @@ export default function ServicesProcess() {
                     {step.title}
                   </h3>
                 </div>
-                <p className="font-[var(--font-cabinet)] text-white/50 text-base lg:text-xl leading-snug lg:leading-relaxed font-light">
+                <p className="font-[var(--font-cabinet)] text-white/50 text-sm lg:text-lg leading-snug lg:leading-relaxed font-light">
                   {step.text}
                 </p>
               </div>

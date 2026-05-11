@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="pt-32 pb-20">
         <ContactForm />
       </div>
-      <Footer />
+      <Footer variant="dark" />
     </main>
   )
 }

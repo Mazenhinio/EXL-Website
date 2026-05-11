@@ -113,14 +113,14 @@ export default function ServicesHero() {
       </div>
 
       {/* ── HEADLINE SECTION (TOP HALF) ────────────────────────────────── */}
-      <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-center px-6 lg:px-12 pt-20">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center px-6 lg:px-12 pt-20">
         <div className="relative">
           <h1 
             ref={headlineRef}
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-              fontSize: 'clamp(44px, 10vw, 120px)',
-              lineHeight: 1.05,
+              fontSize: 'clamp(40px, 8vw, 100px)',
+              lineHeight: 1.15,
               color: '#000000',
               textTransform: 'uppercase',
               textAlign: 'center'
@@ -128,13 +128,13 @@ export default function ServicesHero() {
           >
             <span className="snap-text block">Consulting-grade thinking.</span>
             <span className="snap-text block">In-house execution.</span>
-            <span className="snap-text block text-[var(--chartreuse)]" style={{ WebkitTextStroke: '1px black' }}>One team.</span>
+            <span className="snap-text inline-block bg-black text-[var(--chartreuse)] px-4 lg:px-6 pt-1 pb-5">One team.</span>
           </h1>
         </div>
       </div>
 
       {/* ── SUBHEAD & CTA SECTION ───────────────────── */}
-      <div className="relative z-10 w-full py-20 lg:py-24 px-6 lg:px-12 flex flex-col items-center">
+      <div className="relative z-10 w-full py-8 lg:py-12 px-6 lg:px-12 flex flex-col items-center">
         <div className="hero-subhead max-w-4xl text-center space-y-12 opacity-0">
           <p className="font-[var(--font-cabinet)] text-black text-[clamp(18px,2.2vw,26px)] leading-relaxed font-light">
             EXL works with ambitious B2B and luxury brands that want <span className="text-black font-semibold italic">senior strategy</span> and the team to actually ship it. Four capabilities, two flagship engagements, one roof, no handoffs.

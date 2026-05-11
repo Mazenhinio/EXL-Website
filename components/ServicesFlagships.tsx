@@ -29,6 +29,7 @@ export default function ServicesFlagships() {
   const containerRef = useRef<HTMLDivElement>(null)
   const leftCardRef = useRef<HTMLDivElement>(null)
   const rightCardRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -40,32 +41,39 @@ export default function ServicesFlagships() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=250%',
+          end: '+=300%',
           pin: true,
           scrub: 1,
           anticipatePin: 1,
         }
       })
 
-      // 1. Initial State: Cards are off-screen (Left and Right)
+      // 1. Initial State
       gsap.set(leftCardRef.current, { x: '-100%', opacity: 0 })
       gsap.set(rightCardRef.current, { x: '100%', opacity: 0 })
-      gsap.set('.section-header-fs', { opacity: 0, y: 30 })
+      gsap.set(headerRef.current, { opacity: 0, y: 100 })
 
-      // 2. Step 1: Header fades in
-      tl.to('.section-header-fs', { opacity: 1, y: 0, duration: 1 })
+      // 2. Step 1: Header fades in (Centered)
+      tl.to(headerRef.current, { opacity: 1, y: 0, duration: 1.5 })
+      tl.to({}, { duration: 1 }) // Hold
 
-      // 3. Step 2: Cards slide in and meet in the middle
+      // 3. Step 2: Header slides UP and OUT, while cards slide IN
+      tl.to(headerRef.current, { 
+        y: -400, 
+        opacity: 0, 
+        duration: 2, 
+        ease: 'power2.inOut' 
+      }, 'reveal')
+      
       tl.to(leftCardRef.current, { x: '0%', opacity: 1, duration: 2, ease: 'power2.out' }, 'reveal')
         .to(rightCardRef.current, { x: '0%', opacity: 1, duration: 2, ease: 'power2.out' }, 'reveal')
 
-      // 4. Step 3: Hold for a beat
+      // 4. Step 3: Hold for cards
       tl.to({}, { duration: 1 })
 
-      // 5. Step 4: Vertical Exit (Left goes UP, Right goes DOWN)
+      // 5. Step 4: Vertical Exit
       tl.to(leftCardRef.current, { y: '-120%', opacity: 0, duration: 2, ease: 'power2.in' }, 'exit')
         .to(rightCardRef.current, { y: '120%', opacity: 0, duration: 2, ease: 'power2.in' }, 'exit')
-        .to('.section-header-fs', { opacity: 0, y: -50, duration: 1 }, 'exit')
 
     }, containerRef)
 
@@ -75,20 +83,23 @@ export default function ServicesFlagships() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-screen bg-black overflow-hidden border-t border-white/5"
+      className="relative w-full h-screen bg-black overflow-hidden"
     >
       {/* ── SECTION TITLE ───────────────────────────────────────────── */}
-      <div className="section-header-fs absolute top-12 lg:top-20 left-0 w-full z-30 flex justify-center">
+      <div 
+        ref={headerRef}
+        className="absolute top-1/2 left-0 w-full z-30 -translate-y-1/2 flex justify-center px-6"
+      >
         <h2 
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
-            fontSize: 'clamp(32px, 4vw, 56px)',
-            lineHeight: 1.05,
+            fontSize: 'clamp(48px, 10vw, 120px)',
+            lineHeight: 1,
             color: '#ffffff',
             textTransform: 'uppercase',
             textAlign: 'center'
           }}
-          className="max-w-2xl"
+          className="max-w-[1400px]"
         >
           {"Two engagements we're known for."}
         </h2>

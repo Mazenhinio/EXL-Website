@@ -23,12 +23,6 @@ const DIFFERENTIATORS = [
     title: "AI-native, so your timeline isn't a problem.",
     description: "Our production, content, and distribution stack was built on AI from day one. A lean Dallas team ships in weeks what traditional agencies ship in quarters. You move at the pace of your market.",
     image: '/assets/images/diff-ai.png'
-  },
-  {
-    label: 'PILLAR 03',
-    title: 'Engineered for impact, top to bottom.',
-    description: "Every decision, from the strategy brief to the lens choice on the shoot, runs through one filter: will this move the number? We build marketing that's accountable, and we own the outcome end to end.",
-    image: '/assets/images/diff-impact.png'
   }
 ]
 
@@ -47,9 +41,9 @@ export default function ServicesDifferentiators() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: `+=${slides.length * 200}%`,
+          end: `+=${slides.length * 65}%`,
           pin: true,
-          scrub: 1,
+          scrub: 0.5,
           anticipatePin: 1,
         }
       })
@@ -67,7 +61,7 @@ export default function ServicesDifferentiators() {
             scale: 5,
             opacity: 0,
             filter: 'blur(20px)',
-            duration: 1,
+            duration: 0.4,
             ease: 'power2.in'
           }, 0)
         } else {
@@ -76,21 +70,23 @@ export default function ServicesDifferentiators() {
           gsap.set(bgLabel, { opacity: 0, scale: 0.5 })
           if (bgImage) gsap.set(bgImage, { scale: 1.2, opacity: 0 })
 
-          // Start each pillar exactly after the previous one's sequence (1s in + 0.5s hold + 1s out = 2.5s total)
-          const startTime = i * 2.5
+          // Manual timing for balance
+          // i=1 (Pillar 1) starts at 0.4 (perfect transition from cover)
+          // i=2 (Pillar 2) starts at 1.5 (more breathing room)
+          const startTime = i === 1 ? 0.4 : 1.5
 
           tl.to(content, {
             scale: 1,
             opacity: 1,
             filter: 'blur(0px)',
-            duration: 1,
+            duration: 0.5,
             ease: 'power2.inOut'
           }, startTime)
 
           tl.to(bgLabel, {
             opacity: 0.05,
             scale: 1,
-            duration: 1,
+            duration: 0.5,
             ease: 'power2.inOut'
           }, startTime)
 
@@ -98,12 +94,12 @@ export default function ServicesDifferentiators() {
             tl.to(bgImage, {
               opacity: 0.4,
               scale: 1,
-              duration: 1,
+              duration: 0.5,
               ease: 'power2.inOut'
             }, startTime)
           }
 
-          // Hold
+          // Hold to let them read
           tl.to({}, { duration: 0.5 })
 
           // Exit (if not the last one)
@@ -112,20 +108,20 @@ export default function ServicesDifferentiators() {
               scale: 5,
               opacity: 0,
               filter: 'blur(20px)',
-              duration: 1,
+              duration: 0.5,
               ease: 'power2.in'
             })
             tl.to(bgLabel, {
               scale: 2,
               opacity: 0,
-              duration: 1,
+              duration: 0.5,
               ease: 'power2.in'
             }, '<')
             if (bgImage) {
               tl.to(bgImage, {
                 scale: 0.8,
                 opacity: 0,
-                duration: 1,
+                duration: 0.5,
                 ease: 'power2.in'
               }, '<')
             }

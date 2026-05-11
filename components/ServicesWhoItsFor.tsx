@@ -62,7 +62,7 @@ export default function ServicesWhoItsFor() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/assets/images/fit-yes.png" 
+            src="/assets/images/fit-yes.webp" 
             alt="Ideal Fit" 
             fill 
             className="object-cover opacity-20 contrast-125"
@@ -109,7 +109,7 @@ export default function ServicesWhoItsFor() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/assets/images/fit-no.png" 
+            src="/assets/images/fit-no.webp" 
             alt="Not a Fit" 
             fill 
             className="object-cover opacity-60 grayscale"

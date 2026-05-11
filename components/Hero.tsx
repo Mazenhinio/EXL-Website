@@ -148,7 +148,7 @@ export default function Hero() {
             fontWeight: 300,
             fontSize: 'clamp(13px, 3.5vw, 30px)',
             lineHeight: 1.2,
-            color: 'rgba(255,255,255,0.72)',
+            color: '#ffffff',
             maxWidth: '1000px',
             marginBottom: '48px',
             opacity: 0,

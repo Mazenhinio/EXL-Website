@@ -9,7 +9,7 @@ const capabilities = [
     name: 'ADVISE.',
     title: 'Senior strategy, not junior execution.',
     body: 'Positioning, brand, and go-to-market strategy from a team that has built businesses across three continents.',
-    img: '/assets/images/advise.webp',
+    img: '/assets/images/cap-advise.webp',
   },
   {
     id: '02',
@@ -101,7 +101,7 @@ function WhatWeDoDesktop() {
           { backgroundColor: '#DEFF00', duration: 60, ease: 'power2.inOut', immediateRender: false },
           '<'
         )
-        tl.set(stickyRef.current, { attr: { 'data-cursor-theme': 'light' } }, '<')
+
 
         tl.fromTo(headlineRef.current,
           { color: '#FFFFFF' },
@@ -173,13 +173,11 @@ function WhatWeDoDesktop() {
       ref={railRef}
       className="relative w-full h-[500vh]"
       style={{ backgroundColor: '#1C2416' }}
-      data-cursor-theme="dark"
     >
       <div
         ref={stickyRef}
         className="sticky top-0 h-screen w-full overflow-hidden"
         style={{ backgroundColor: '#1C2416' }}
-        data-cursor-theme="dark"
       >
         <div ref={xRef} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <div className="relative w-full h-full">
@@ -295,7 +293,7 @@ function WhatWeDoMobile() {
           { backgroundColor: '#DEFF00', duration: 40, ease: 'power2.inOut', immediateRender: false }, 
           '>-30'
         )
-        tl.set(stickyRef.current, { attr: { 'data-cursor-theme': 'light' } }, '<')
+
         tl.set(cardsContainerRef.current, { opacity: 1 })
 
         // 6. Headline blurs out
@@ -363,13 +361,11 @@ function WhatWeDoMobile() {
       ref={railRef}
       className="relative w-full h-[400vh]"
       style={{ backgroundColor: '#1C2416' }}
-      data-cursor-theme="dark"
     >
       <div
         ref={stickyRef}
         className="sticky top-0 h-screen w-full overflow-hidden"
         style={{ backgroundColor: '#1C2416' }}
-        data-cursor-theme="dark"
       >
         <div ref={xRef} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <div className="relative w-full h-full">

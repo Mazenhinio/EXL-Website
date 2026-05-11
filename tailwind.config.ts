@@ -12,6 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        tusker: ["var(--font-tusker)"],
+        cabinet: ["var(--font-cabinet)"],
+        "mona-narrow": ["var(--font-mona-narrow)"],
+      },
     },
   },
   plugins: [],

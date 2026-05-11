@@ -1,202 +1,116 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <nav
       id="nav"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        backgroundColor: 'var(--off-white)',
-        borderBottom: scrolled
-          ? '0.5px solid rgba(0,0,0,0.18)'
-          : '0.5px solid rgba(0,0,0,0.08)',
-        transition: 'border-color 0.3s ease',
-        height: '56px',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 32px',
-        justifyContent: 'space-between',
-      }}
+      className="absolute top-6 left-1/2 -translate-x-1/2 z-[1000] w-[95%] max-w-[1200px]"
     >
-      {/* Logo */}
-      <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-        <Image
-          src="/assets/images/Exl_Logo_Black.webp"
-          alt="EXL"
-          width={80}
-          height={28}
-          style={{ height: '28px', width: 'auto' }}
-          priority
-        />
-      </Link>
-
-      {/* Desktop Nav Links */}
-      <div
-        className="desktop-nav"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '32px',
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }}
+      <div 
+        className="flex items-center justify-between px-6 py-2.5 rounded-full transition-all duration-500 border border-black/5 bg-[#F2FFB8] shadow-sm"
       >
-        {[
-          { label: 'Services', href: '/services' },
-          { label: 'IMM', href: '/integrated-marketing-management' },
-          { label: 'Podcast Production', href: '/podcast-production' },
-          { label: 'Best in B2B', href: '#best-in-b2b' },
-        ].map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            style={{
-              fontFamily: "var(--font-tusker), sans-serif",
-              fontSize: '13px',
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--black)',
-              opacity: 0.7,
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.7')}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </div>
-
-      {/* Desktop Right */}
-      <div
-        className="desktop-right"
-        style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-tusker), sans-serif",
-            fontSize: '13px',
-            fontWeight: 500,
-            color: 'var(--black)',
-            opacity: 0.5,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em'
-          }}
-        >
-          Call us
-        </span>
-        <Link
-          href="/contact"
-          id="nav-book-cta"
-          style={{
-            fontFamily: "var(--font-tusker), sans-serif",
-            fontSize: '13px',
-            fontWeight: 600,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: 'var(--black)',
-            backgroundColor: 'var(--chartreuse)',
-            padding: '8px 16px',
-            display: 'inline-block',
-          }}
-        >
-          Book a call
+        {/* Logo */}
+        <Link href="/" className="flex items-center pl-2">
+          <Image
+            src="/assets/images/Exl_Logo_Black.webp"
+            alt="EXL"
+            width={70}
+            height={24}
+            className="h-6 w-auto"
+            priority
+          />
         </Link>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="hamburger"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          style={{
-            display: 'none',
-            flexDirection: 'column',
-            gap: '5px',
-            padding: '4px',
-          }}
-        >
-          <span style={{ display: 'block', width: '22px', height: '1px', background: 'var(--black)' }} />
-          <span style={{ display: 'block', width: '22px', height: '1px', background: 'var(--black)' }} />
-          <span style={{ display: 'block', width: '22px', height: '1px', background: 'var(--black)' }} />
-        </button>
+        {/* Desktop Nav Links */}
+        <div className="hidden lg:flex items-center gap-8">
+          <Link href="/services" className="nav-link">Services</Link>
+          <Link href="/#how-different" className="nav-link">Why EXL</Link>
+          <Link href="/#best-in-b2b" className="nav-link">Best in B2B</Link>
+
+        </div>
+
+        {/* Desktop Right (CTA) */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="group flex items-center gap-4 bg-[#1C2416] text-white pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span className="font-[var(--font-cabinet)] font-bold text-sm tracking-tight">Contact Us</span>
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black transition-all duration-300 group-hover:rotate-45">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </Link>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="lg:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-[1.5px] bg-black transition-transform ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-[1.5px] bg-black transition-opacity ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-[1.5px] bg-black transition-transform ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '56px',
-            left: 0,
-            right: 0,
-            backgroundColor: 'var(--off-white)',
-            borderBottom: '0.5px solid rgba(0,0,0,0.08)',
-            padding: '24px 32px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '20px',
-          }}
-        >
-          {[
-            { label: 'Services', href: '/services' },
-            { label: 'IMM', href: '/integrated-marketing-management' },
-            { label: 'Podcast Production', href: '/podcast-production' },
-            { label: 'Best in B2B', href: '#best-in-b2b' },
-            { label: 'Book a call', href: '/contact' },
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontFamily: "var(--font-cabinet), 'DM Sans', sans-serif",
-                fontSize: '18px',
-                fontWeight: 500,
-                color: 'var(--black)',
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="lg:hidden absolute top-full left-0 right-0 mt-4 bg-white rounded-3xl shadow-2xl border border-black/5 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+          <Link href="/services" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Services</Link>
+          <Link href="/#how-different" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Why EXL</Link>
+          <Link href="/#best-in-b2b" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Best in B2B</Link>
+
         </div>
       )}
 
       <style jsx>{`
-        @media (max-width: 767px) {
-          nav {
-            height: 52px !important;
-            padding: 0 20px !important;
-          }
+        .nav-link {
+          font-family: var(--font-cabinet);
+          font-size: 14px;
+          font-weight: 500;
+          color: #1a1a1a;
+          opacity: 0.8;
+          transition: all 0.3s;
+          cursor: pointer;
         }
-        @media (max-width: 1023px) {
-          .desktop-nav {
-            display: none !important;
-          }
-          .desktop-right span {
-            display: none;
-          }
-          .hamburger {
-            display: flex !important;
-          }
+        .nav-link:hover {
+          opacity: 1;
+          transform: translateY(-1px);
+        }
+        .dropdown-item {
+          display: block;
+          padding: 10px 16px;
+          font-family: var(--font-cabinet);
+          font-size: 13px;
+          font-weight: 500;
+          color: #1a1a1a;
+          border-radius: 10px;
+          transition: all 0.2s;
+        }
+        .dropdown-item:hover {
+          background-color: #F2FFB8;
+        }
+        .mobile-nav-link {
+          font-family: var(--font-cabinet);
+          font-size: 18px;
+          font-weight: 600;
+          color: #1a1a1a;
+        }
+        .mobile-sub-link {
+          font-family: var(--font-cabinet);
+          font-size: 15px;
+          font-weight: 500;
+          color: #1a1a1a/70;
         }
       `}</style>
     </nav>

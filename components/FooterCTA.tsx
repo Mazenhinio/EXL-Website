@@ -64,7 +64,6 @@ export default function FooterCTA() {
     <section 
       ref={containerRef} 
       className="relative w-full h-[220vh] bg-[#1a1a1a]"
-      data-cursor-theme="light"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
         

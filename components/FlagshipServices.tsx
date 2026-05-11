@@ -45,6 +45,21 @@ export default function FlagshipServices() {
           imgs.forEach(img => {
             tl.fromTo(img, { scale: 1.12 }, { scale: 1, ease: 'power1.out' }, 0.4)
           })
+
+          // Pill Floating Animation
+          const pills = railRef.current.querySelectorAll('.expert-pill')
+          pills.forEach((pill, i) => {
+            gsap.to(pill, {
+              y: 'random(-15, 15)',
+              x: 'random(-10, 10)',
+              rotation: '+=random(-2, 2)',
+              duration: 'random(2.5, 4)',
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.2
+            })
+          })
         } else {
           // MOBILE: Vertical Reveal
           const cards = gsap.utils.toArray('.flagship-card-mobile') as HTMLElement[]
@@ -115,7 +130,54 @@ export default function FlagshipServices() {
           alignItems: 'center',
           justifyContent: 'center',
           padding: '0 10%',
+          position: 'relative'
         }}>
+          {/* Expertise Pills */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
+            {[
+              { text: 'Senior', color: '#ade3ff', img: '/assets/images/person-1.webp', top: '15%', left: '8%', rot: -6, scale: 1.8 },
+              { text: 'Native', color: '#ff5400', img: '/assets/images/person-2.webp', top: '22%', right: '10%', rot: 8, scale: 1.4 },
+              { text: 'Cinematic', color: '#e8adff', img: '/assets/images/person-3.webp', bottom: '22%', left: '12%', rot: 4, scale: 1.1 },
+              { text: 'Impact', color: '#deebc2', img: '/assets/images/person-4.webp', bottom: '18%', right: '8%', rot: -5, scale: 1.1 },
+            ].map((pill, i) => (
+              <div 
+                key={pill.text}
+                className="expert-pill absolute flex items-center gap-4 pl-8 pr-1.5 py-1.5 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"
+                style={{
+                  backgroundColor: pill.color,
+                  top: pill.top,
+                  left: pill.left,
+                  right: pill.right,
+                  bottom: pill.bottom,
+                  transform: `rotate(${pill.rot}deg)`,
+                  zIndex: 10,
+                  border: '1px solid rgba(255,255,255,0.1)'
+                }}
+              >
+                <span style={{ 
+                  fontFamily: 'var(--font-tusker)', 
+                  fontSize: '32px', 
+                  color: pill.color === '#ff5400' ? '#fff' : '#000',
+                  textTransform: 'uppercase',
+                  lineHeight: 1,
+                  letterSpacing: '0.01em'
+                }}>
+                  {pill.text}
+                </span>
+                <div className="w-14 h-14 rounded-full overflow-hidden relative flex-shrink-0 bg-black/5">
+                  <Image 
+                    src={pill.img} 
+                    alt="" 
+                    fill 
+                    className="object-cover" 
+                    style={{ transform: `scale(${pill.scale})` }}
+                    priority 
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
           <p className="section-label" style={{ marginBottom: '16px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--taupe)' }}>
             Flagship Services
           </p>
@@ -128,7 +190,9 @@ export default function FlagshipServices() {
             color: 'var(--black)', 
             textTransform: 'uppercase', 
             marginBottom: '32px',
-            overflowWrap: 'break-word'
+            overflowWrap: 'break-word',
+            position: 'relative',
+            zIndex: 5
           }}>
             Two engagements<br />
             <span className="highlight-marker" style={{ marginTop: '12px' }}>we&apos;re known for.</span>
@@ -140,7 +204,9 @@ export default function FlagshipServices() {
             textAlign: 'center', 
             maxWidth: '900px', 
             lineHeight: 1.3, 
-            fontWeight: 300 
+            fontWeight: 300,
+            position: 'relative',
+            zIndex: 5
           }}>
             Most EXL clients start with <span className="font-medium text-black">one of these two offers</span>. Both combine our <span className="font-medium text-black">four capabilities</span> into a <span className="font-medium text-black">single monthly engagement</span>, led by a <span className="font-medium text-black">senior partner</span>, delivered by our <span className="font-medium text-black">in-house team</span>.
           </p>

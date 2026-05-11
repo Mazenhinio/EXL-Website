@@ -22,6 +22,19 @@ const cabinet = localFont({
   display: 'swap',
 })
 
+const monaNarrow = localFont({
+  src: [
+    { path: './fonts/Mona-Sans-UltraLightNarrow.ttf', weight: '200', style: 'normal' },
+    { path: './fonts/Mona-Sans-LightNarrow.ttf', weight: '300', style: 'normal' },
+    { path: './fonts/Mona-Sans-RegularNarrow.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/Mona-Sans-MediumNarrow.ttf', weight: '500', style: 'normal' },
+    { path: './fonts/Mona-Sans-BoldNarrow.ttf', weight: '700', style: 'normal' },
+    { path: './fonts/Mona-Sans-BlackNarrow.ttf', weight: '900', style: 'normal' },
+  ],
+  variable: '--font-mona-narrow',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'EXL — B2B Consultancy & Production Agency',
   description: 'We advise, produce, build, and grow for ambitious B2B and luxury brands. Senior strategy, AI-native workflows, cinematic output. Dallas.',
@@ -43,15 +56,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://exl.agency'),
 }
 
-import CustomCursor from '@/components/CustomCursor'
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${tusker.variable} ${cabinet.variable}`}>
+    <html lang="en" className={`${tusker.variable} ${cabinet.variable} ${monaNarrow.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -61,10 +72,8 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <CustomCursor />
         {children}
       </body>
     </html>
   )
 }
-

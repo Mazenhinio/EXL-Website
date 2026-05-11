@@ -139,7 +139,7 @@ export default function FlagshipServices() {
               { text: 'Native', color: '#ff5400', img: '/assets/images/person-2.webp', top: '22%', right: '10%', rot: 8, scale: 1.4 },
               { text: 'Cinematic', color: '#e8adff', img: '/assets/images/person-3.webp', bottom: '22%', left: '12%', rot: 4, scale: 1.1 },
               { text: 'Impact', color: '#deebc2', img: '/assets/images/person-4.webp', bottom: '18%', right: '8%', rot: -5, scale: 1.1 },
-            ].map((pill, i) => (
+            ].map((pill) => (
               <div 
                 key={pill.text}
                 className="expert-pill absolute flex items-center gap-4 pl-8 pr-1.5 py-1.5 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"

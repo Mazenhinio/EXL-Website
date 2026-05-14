@@ -125,7 +125,7 @@ export default function HowWeWork() {
           <h2 style={{
             fontFamily: 'var(--font-tusker)',
             fontSize: 'clamp(40px, 6vw, 80px)',
-            lineHeight: 0.9,
+            lineHeight: 1.35,
             color: 'var(--black)',
             textTransform: 'uppercase',
             textAlign: 'center'

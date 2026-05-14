@@ -71,9 +71,11 @@ export default function ServicesIntro() {
         <div className="w-[0.5px] h-6 bg-white/15 mb-6" />
         <h2 
           style={{ fontFamily: 'var(--font-tusker)' }}
-          className="text-[clamp(32px,6.5vw,68px)] leading-[1.05] text-white uppercase max-w-[900px] tracking-tight text-center"
+          className="text-[clamp(32px,6.5vw,68px)] text-white uppercase max-w-[1200px] tracking-tight text-center flex flex-col items-center gap-1 lg:gap-2"
         >
-          Most brands are stuck between <span className="highlight-marker">bad options.</span>
+          <span className="leading-none">Most brands are stuck</span>
+          <span className="leading-none">between</span>
+          <span className="highlight-marker whitespace-nowrap !inline-block px-4 pt-2 pb-4 mt-2">bad options.</span>
         </h2>
       </div>
 
@@ -110,7 +112,7 @@ export default function ServicesIntro() {
               <div className="mt-auto">
                 <h3 
                   style={{ fontFamily: 'var(--font-tusker)' }}
-                  className={`uppercase transition-all duration-700 leading-[1.05]
+                  className={`uppercase transition-all duration-700 leading-[1.3]
                   ${activePitfall === i ? 'text-[clamp(28px,4.5vw,56px)] text-white' : 'text-[clamp(20px,2.5vw,28px)] text-white/40'}`}
                 >
                   {pitfall.title} <br/>

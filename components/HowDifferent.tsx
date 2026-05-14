@@ -69,7 +69,7 @@ export default function HowDifferent() {
         <div className="w-[0.5px] h-6 bg-white/15 mb-6" />
         <h2 
           style={{ fontFamily: 'var(--font-tusker)' }}
-          className="text-[clamp(32px,6.5vw,68px)] leading-[1.05] text-white uppercase max-w-[900px] tracking-tight text-center"
+          className="text-[clamp(32px,6.5vw,68px)] leading-[1.35] text-white uppercase max-w-[900px] tracking-tight text-center"
         >
           Why clients pick EXL over the <span className="highlight-marker">alternatives.</span>
         </h2>

@@ -138,13 +138,14 @@ hr,
 
 /* ── Utility overrides ──────────────────────────────────────────────── */
 /* ── Highlights ─────────────────────────────────────────────────────── */
+/* ── Highlights ─────────────────────────────────────────────────────── */
 .highlight-marker {
   background-color: var(--chartreuse);
   color: var(--black);
-  padding: 0 0.15em 0.15em;
-  display: inline-block;
-  line-height: 1;
-  vertical-align: middle;
+  padding: 0 0.15em;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 

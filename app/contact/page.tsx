@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black">
       <Nav />
-      <div className="pt-32 pb-20">
+      <div className="pt-40 pb-20">
         <ContactForm />
       </div>
       <Footer variant="dark" />

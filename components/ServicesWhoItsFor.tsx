@@ -82,7 +82,7 @@ export default function ServicesWhoItsFor() {
               style={{
                 fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                 fontSize: 'clamp(32px, 6vw, 80px)',
-                lineHeight: 1.05,
+                lineHeight: 1.3,
                 color: '#000000',
                 textTransform: 'uppercase'
               }}
@@ -132,7 +132,7 @@ export default function ServicesWhoItsFor() {
               style={{
                 fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                 fontSize: 'clamp(30px, 5vw, 60px)',
-                lineHeight: 1.05,
+                lineHeight: 1.3,
                 color: '#ffffff',
                 textTransform: 'uppercase'
               }}

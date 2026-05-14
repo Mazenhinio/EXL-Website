@@ -129,7 +129,7 @@ export default function Hero() {
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
             fontSize: 'clamp(25px, 7vw, 90px)',
-            lineHeight: 1.05,
+            lineHeight: 1.35,
             color: '#ffffff',
             marginBottom: '28px',
             opacity: 0,

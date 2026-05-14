@@ -192,13 +192,13 @@ function WhatWeDoDesktop() {
               fontFamily: 'var(--font-tusker)',
               fontSize: 'clamp(44px, 10vw, 80px)',
               textAlign: 'center',
-              lineHeight: 0.9,
+              lineHeight: 1.35,
               color: 'var(--black)',
               textTransform: 'uppercase'
             }}
           >
             One firm.<br />
-            <span className="highlight-marker" style={{ marginTop: '12px' }}>Four capabilities.</span>
+            <span className="highlight-marker">Four capabilities.</span>
           </h2>
         </div>
 
@@ -380,13 +380,13 @@ function WhatWeDoMobile() {
               fontFamily: 'var(--font-tusker)',
               fontSize: 'clamp(44px, 12vw, 56px)',
               textAlign: 'center',
-              lineHeight: 0.9,
+              lineHeight: 1.35,
               color: 'var(--black)',
               textTransform: 'uppercase'
             }}
           >
             One firm.<br />
-            <span className="highlight-marker" style={{ marginTop: '8px' }}>Four capabilities.</span>
+            <span className="highlight-marker">Four capabilities.</span>
           </h2>
         </div>
 

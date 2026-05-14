@@ -46,19 +46,37 @@ export default function FlagshipServices() {
             tl.fromTo(img, { scale: 1.12 }, { scale: 1, ease: 'power1.out' }, 0.4)
           })
 
-          // Pill Floating Animation
+          // Pill Explosion Animation
           const pills = railRef.current.querySelectorAll('.expert-pill')
-          pills.forEach((pill, i) => {
-            gsap.to(pill, {
-              y: 'random(-15, 15)',
-              x: 'random(-10, 10)',
-              rotation: '+=random(-2, 2)',
-              duration: 'random(2.5, 4)',
-              repeat: -1,
-              yoyo: true,
-              ease: 'sine.inOut',
-              delay: i * 0.2
-            })
+          gsap.set(pills, { 
+            top: '50%', 
+            left: '50%', 
+            xPercent: -50, 
+            yPercent: -50, 
+            scale: 1,
+            opacity: 1,
+            rotation: 0,
+            zIndex: 4
+          })
+
+          gsap.to(pills, {
+            x: (i) => i === 0 || i === 2 ? '-32vw' : '32vw', // Explode left or right
+            y: (i) => i < 2 ? '-25vh' : '25vh',             // Explode up or down
+            xPercent: -50,
+            yPercent: -50,
+            scale: 1,
+            opacity: 1,
+            rotation: (i) => [ -6, 8, 4, -5 ][i],
+            zIndex: 12,
+            duration: 1.8,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 65%",
+              toggleActions: "play none none none",
+              once: true
+            }
           })
         } else {
           // MOBILE: Vertical Reveal
@@ -135,23 +153,23 @@ export default function FlagshipServices() {
           {/* Expertise Pills */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
             {[
-              { text: 'Senior', color: '#ade3ff', img: '/assets/images/person-1.webp', top: '15%', left: '8%', rot: -6, scale: 1.8 },
-              { text: 'Native', color: '#ff5400', img: '/assets/images/person-2.webp', top: '22%', right: '10%', rot: 8, scale: 1.4 },
-              { text: 'Cinematic', color: '#e8adff', img: '/assets/images/person-3.webp', bottom: '22%', left: '12%', rot: 4, scale: 1.1 },
-              { text: 'Impact', color: '#deebc2', img: '/assets/images/person-4.webp', bottom: '18%', right: '8%', rot: -5, scale: 1.1 },
+              { text: 'Senior', color: '#ade3ff', img: '/assets/images/person-1.webp', scale: 1.8 },
+              { text: 'Native', color: '#ff5400', img: '/assets/images/person-2.webp', scale: 1.4 },
+              { text: 'Cinematic', color: '#e8adff', img: '/assets/images/person-3.webp', scale: 1.1 },
+              { text: 'Impact', color: '#deebc2', img: '/assets/images/person-4.webp', scale: 1.1 },
             ].map((pill) => (
               <div 
                 key={pill.text}
-                className="expert-pill absolute flex items-center gap-4 pl-8 pr-1.5 py-1.5 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"
+                className="expert-pill absolute flex items-center gap-4 pl-8 pr-1.5 py-1.5 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:scale-105"
                 style={{
                   backgroundColor: pill.color,
-                  top: pill.top,
-                  left: pill.left,
-                  right: pill.right,
-                  bottom: pill.bottom,
-                  transform: `rotate(${pill.rot}deg)`,
-                  zIndex: 10,
-                  border: '1px solid rgba(255,255,255,0.1)'
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  opacity: 1,
+                  zIndex: 4,
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 <span style={{ 
@@ -186,7 +204,7 @@ export default function FlagshipServices() {
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 8vw, 80px)', 
             textAlign: 'center', 
-            lineHeight: 1.1, 
+            lineHeight: 1.35, 
             color: 'var(--black)', 
             textTransform: 'uppercase', 
             marginBottom: '32px',
@@ -195,7 +213,7 @@ export default function FlagshipServices() {
             zIndex: 5
           }}>
             Two engagements<br />
-            <span className="highlight-marker" style={{ marginTop: '12px' }}>we&apos;re known for.</span>
+            <span className="highlight-marker">we&apos;re known for.</span>
           </h2>
           <p style={{ 
             fontFamily: 'var(--font-cabinet)', 
@@ -219,7 +237,7 @@ export default function FlagshipServices() {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 80%)', zIndex: 1 }} />
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
               <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>01 — IMM</p>
-              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>Integrated Marketing Management.</h3>
+              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1.3, marginBottom: '20px' }}>Integrated Marketing Management.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(16px, 2vw, 28px)', lineHeight: 1.5, marginBottom: '32px', maxWidth: '480px' }}>Your marketing department, on retainer. Built for five-star hospitality, luxury brands, and B2B companies whose reputation is their asset.</p>
               <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', backgroundColor: 'var(--chartreuse)', color: '#000', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore IMM</Link>
             </div>
@@ -229,7 +247,7 @@ export default function FlagshipServices() {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 80%)', zIndex: 1 }} />
             <div style={{ position: 'absolute', bottom: '10%', left: '8%', right: '8%', zIndex: 5 }}>
               <p style={{ fontFamily: 'var(--font-tusker)', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 500, marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '0.12em' }}>02 — PRODUCTION</p>
-              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1, marginBottom: '20px' }}>B2B Video Podcast Production.</h3>
+              <h3 style={{ fontFamily: 'var(--font-tusker)', fontSize: 'clamp(32px, 4vw, 56px)', color: '#fff', lineHeight: 1.3, marginBottom: '20px' }}>B2B Video Podcast Production.</h3>
               <p style={{ fontFamily: 'var(--font-cabinet)', color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(16px, 2vw, 28px)', lineHeight: 1.5, marginBottom: '32px', maxWidth: '480px' }}>Your production floor, on retainer. A high-output content engine for CEOs and CMOs who need to dominate LinkedIn, YouTube, and the podcast charts.</p>
               <Link href="#footer-cta" style={{ fontFamily: 'var(--font-tusker)', border: '1px solid #fff', color: '#fff', padding: '14px 32px', borderRadius: '100px', fontWeight: 600, fontSize: '12px', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explore Podcast Production</Link>
             </div>
@@ -250,7 +268,7 @@ export default function FlagshipServices() {
             overflowWrap: 'break-word'
           }}>
             Two engagements<br />
-            <span className="highlight-marker" style={{ marginTop: '4px' }}>we&apos;re known for.</span>
+            <span className="highlight-marker">we&apos;re known for.</span>
           </h2>
           <p style={{ fontFamily: 'var(--font-cabinet)', fontSize: '16px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.6 }}>
             Most EXL clients start with one of these two offers. Led by a senior partner, delivered by our in-house team.

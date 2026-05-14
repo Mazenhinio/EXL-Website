@@ -137,7 +137,7 @@ export default function Advantage() {
                 style={{ 
                   fontFamily: 'var(--font-tusker)',
                   fontSize: 'clamp(36px, 9vw, 64px)', 
-                  lineHeight: 1.1,
+                  lineHeight: 1.35,
                   textTransform: 'uppercase',
                   color: 'white',
                   marginBottom: '32px'
@@ -145,7 +145,7 @@ export default function Advantage() {
                 className="max-w-[1000px] tracking-tight"
               >
                 A traditional consultancy with an <br/>
-                <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
+                <span className="highlight-marker">AI-native engine</span> underneath.
               </h2>
               <p className="font-[var(--font-cabinet)] text-[clamp(18px,4.5vw,32px)] text-white/60 max-w-[850px] font-light leading-relaxed">
                 Every EXL deliverable runs through an AI-accelerated workflow. Not to replace the work, to compress the timeline. We build and maintain internal automation systems that handle research, transcription, editing assistance, content repurposing, CRM sync, and distribution, so our senior team spends their hours on strategy and craft, not on tasks a machine can do better.
@@ -209,12 +209,12 @@ export default function Advantage() {
           <h2 style={{ 
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 10vw, 64px)', 
-            lineHeight: 1.05, 
+            lineHeight: 1.35, 
             textTransform: 'uppercase', 
             color: 'white' 
           }}>
             A traditional consultancy with an <br/>
-            <span className="highlight-marker" style={{ marginTop: '8px' }}>AI-native engine</span> underneath.
+            <span className="highlight-marker">AI-native engine</span> underneath.
           </h2>
         </div>
         

@@ -152,12 +152,12 @@ export default function Footer({ variant = 'default' }: FooterProps) {
   }, [])
 
   return (
-    <div className={`${isDark ? 'bg-black' : 'bg-[#DEFF00]'} p-4 md:p-8 flex justify-center ${isDark ? '' : 'rounded-t-[3rem] lg:rounded-t-[5rem]'}`}>
+    <div className={`${isDark ? 'bg-black' : 'bg-[#DEFF00]'} p-4 md:p-8 flex justify-center ${isDark ? '' : 'rounded-t-[3rem] lg:rounded-t-[5rem]'} -mt-16 md:-mt-20 relative z-10`}>
       <footer 
         ref={footerRef}
         className={`relative ${isDark ? 'bg-[#CEC5B7]' : 'bg-[#000000]'} ${isDark ? 'text-black' : 'text-white'} pt-16 pb-8 rounded-[40px] overflow-hidden min-h-[700px] w-full max-w-[1400px] flex flex-col shadow-2xl border ${isDark ? 'border-black/5' : 'border-white/5'}`}
       >
-        <div className="relative z-10 w-full px-10">
+        <div className="relative z-[60] w-full px-10 pointer-events-none">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
             <div className="space-y-10">
               <div className="space-y-6">
@@ -172,7 +172,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 <div className="space-y-6">
                   <h4 className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/30' : 'text-white/30'} text-[12px] tracking-widest uppercase`}>Services</h4>
-                  <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium">
+                  <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium pointer-events-auto">
                     <li><Link href="/services" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Services</Link></li>
                     <li><Link href="/integrated-marketing-management" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Integrated Marketing Management</Link></li>
                     <li><Link href="/podcast-production" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Podcast Production</Link></li>
@@ -180,7 +180,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
                 </div>
                 <div className="space-y-6">
                   <h4 className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/30' : 'text-white/30'} text-[12px] tracking-widest uppercase`}>Company</h4>
-                  <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium">
+                  <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium pointer-events-auto">
                     <li><Link href="/contact" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Contact</Link></li>
                     <li><Link href="#best-in-b2b" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Best in B2B</Link></li>
                   </ul>
@@ -190,7 +190,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
               <div className={`pt-4 space-y-4 border-t ${isDark ? 'border-black/5' : 'border-white/5'} mt-8`}>
                 <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
                   <p className="font-[var(--font-cabinet)] font-bold text-sm">EXL Ventures LLC</p>
-                  <a href="mailto:info@exl.agency" className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-[var(--chartreuse)]'} transition-colors text-sm`}>
+                  <a href="mailto:info@exl.agency" className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-[var(--chartreuse)]'} transition-colors text-sm pointer-events-auto`}>
                     info@exl.agency
                   </a>
                 </div>

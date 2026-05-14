@@ -103,7 +103,7 @@ export default function BestInB2B() {
           className="absolute inset-0 z-0 flex items-center justify-center whitespace-nowrap pointer-events-none"
         >
           <span 
-            className="font-mona-narrow text-[35vw] leading-none text-white/[0.03] uppercase select-none"
+            className="font-[var(--font-tusker)] text-[35vw] leading-none text-white/[0.03] uppercase select-none"
           >
             B2B.MEDIA
           </span>
@@ -163,18 +163,21 @@ export default function BestInB2B() {
 
         {/* Foreground Content (Revealed) */}
         <div ref={contentRef} className="relative z-30 w-full max-w-4xl px-6 flex flex-col items-center text-center">
-          <p className="b2b-reveal-el section-label mb-8 text-[var(--chartreuse)] font-semibold uppercase tracking-[0.15em] text-[11px]">
+          <p className="b2b-reveal-el section-label mb-4 text-[var(--chartreuse)] !border-none !before:hidden">
             Owned Media
           </p>
+          <div className="b2b-reveal-el w-[0.5px] h-8 bg-[var(--chartreuse)]/30 mb-8" />
+          
           <h3 
-            className="b2b-reveal-el font-mona-narrow text-white text-[clamp(32px,6vw,56px)] leading-[1.05] uppercase mb-8"
+            style={{ fontFamily: 'var(--font-tusker)' }}
+            className="b2b-reveal-el text-white text-[clamp(32px,6vw,88px)] leading-[1.05] uppercase mb-8"
           >
             Our most visible build:<br />
             <span className="text-[var(--chartreuse)]">Best in B2B.</span>
           </h3>
           <div className="b2b-reveal-el bg-black/80 backdrop-blur-md rounded-2xl p-8 lg:p-10 border border-white/5 shadow-2xl mb-12 max-w-3xl mx-auto">
             <p 
-              className="font-mona-narrow text-white/90 text-[clamp(16px,2vw,19px)] font-light leading-relaxed"
+              className="font-[var(--font-cabinet)] text-white/90 text-[clamp(16px,1.8vw,22px)] font-light leading-tight"
             >
               Best in B2B is our own video podcast, filmed on location across
               Dallas-Fort Worth. Framework-driven conversations with the operators
@@ -187,7 +190,7 @@ export default function BestInB2B() {
               href="https://b2b.media"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 bg-[var(--chartreuse)] text-black px-10 py-5 rounded-full font-mona-narrow text-[14px] tracking-widest uppercase transition-transform hover:scale-105"
+              className="group flex items-center gap-4 bg-[var(--chartreuse)] text-black px-10 py-5 rounded-full font-[var(--font-cabinet)] font-bold text-[14px] tracking-widest uppercase transition-transform hover:scale-105"
             >
               Visit b2b.media
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -202,9 +205,11 @@ export default function BestInB2B() {
       {/* MOBILE FALLBACK */}
       <div className="lg:hidden relative z-[100] bg-black px-6 py-24 space-y-16">
         <div className="text-center">
-          <p className="section-label mb-4 text-white/50 font-semibold uppercase tracking-[0.15em] text-[11px]">
+          <p className="section-label mb-4 text-white/50 !border-none !before:hidden">
             Owned Media
           </p>
+          <div className="w-[0.5px] h-8 bg-white/20 mx-auto mb-8" />
+          
           <div className="relative w-full max-w-[300px] aspect-[15/10] mx-auto mb-8 invert brightness-200">
             <Image
               src="/assets/images/best-in-b2b-logo-black.webp"
@@ -223,14 +228,14 @@ export default function BestInB2B() {
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/10 mb-10 text-left">
-            <p className="font-mona-narrow text-white text-lg font-medium leading-relaxed">
+            <p className="font-[var(--font-cabinet)] text-white text-lg font-medium leading-relaxed">
               Best in B2B is our own video podcast, filmed on location across DFW. Framework-driven conversations with market operators.
             </p>
           </div>
           <Link
             href="https://b2b.media"
             target="_blank"
-            className="inline-flex bg-black text-[var(--chartreuse)] px-8 py-4 rounded-full font-mona-narrow text-[12px] tracking-widest uppercase"
+            className="inline-flex bg-[var(--chartreuse)] text-black px-8 py-4 rounded-full font-[var(--font-cabinet)] font-bold text-[12px] tracking-widest uppercase"
           >
             Visit b2b.media
           </Link>
@@ -238,9 +243,6 @@ export default function BestInB2B() {
       </div>
 
       <style jsx>{`
-        .section-label {
-          font-family: var(--font-mona-narrow) !important;
-        }
         .text-outline-black {
           -webkit-text-stroke: 1.5px black;
         }

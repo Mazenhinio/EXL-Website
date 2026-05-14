@@ -120,7 +120,7 @@ export default function ServicesHero() {
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontSize: 'clamp(40px, 8vw, 100px)',
-              lineHeight: 1.15,
+              lineHeight: 1.3,
               color: '#000000',
               textTransform: 'uppercase',
               textAlign: 'center'

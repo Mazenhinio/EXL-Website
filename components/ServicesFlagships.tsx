@@ -94,7 +94,7 @@ export default function ServicesFlagships() {
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
             fontSize: 'clamp(48px, 10vw, 120px)',
-            lineHeight: 1,
+            lineHeight: 1.3,
             color: '#ffffff',
             textTransform: 'uppercase',
             textAlign: 'center'
@@ -130,7 +130,7 @@ export default function ServicesFlagships() {
                 style={{
                   fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                   fontSize: 'clamp(28px, 3vw, 48px)',
-                  lineHeight: 1.05,
+                  lineHeight: 1.3,
                   color: '#ffffff',
                   textTransform: 'uppercase'
                 }}
@@ -167,7 +167,7 @@ export default function ServicesFlagships() {
                 style={{
                   fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                   fontSize: 'clamp(28px, 3vw, 48px)',
-                  lineHeight: 1.05,
+                  lineHeight: 1.3,
                   color: '#ffffff',
                   textTransform: 'uppercase'
                 }}

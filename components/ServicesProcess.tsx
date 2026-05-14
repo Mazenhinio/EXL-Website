@@ -126,7 +126,7 @@ export default function ServicesProcess() {
           style={{
             fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
             fontSize: 'clamp(32px, 4vw, 56px)',
-            lineHeight: 1.05,
+            lineHeight: 1.3,
             color: '#ffffff',
             textTransform: 'uppercase',
             textAlign: 'center'
@@ -168,7 +168,7 @@ export default function ServicesProcess() {
                     style={{
                       fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                       fontSize: 'clamp(20px, 3.5vw, 38px)',
-                      lineHeight: 1.05,
+                      lineHeight: 1.3,
                       color: '#ffffff',
                       textTransform: 'uppercase'
                     }}

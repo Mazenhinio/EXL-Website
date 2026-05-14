@@ -197,7 +197,7 @@ export default function ServicesCapabilities() {
             style={{
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontSize: 'clamp(48px, 10vw, 120px)',
-              lineHeight: 1.05,
+              lineHeight: 1.3,
               color: '#000000',
               textTransform: 'uppercase'
             }}
@@ -251,7 +251,7 @@ export default function ServicesCapabilities() {
                       style={{
                         fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
                         fontSize: 'clamp(44px, 5vw, 80px)',
-                        lineHeight: 1,
+                        lineHeight: 1.3,
                         color: '#000000',
                         textTransform: 'uppercase'
                       }}

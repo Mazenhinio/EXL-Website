@@ -128,7 +128,7 @@ export default function ServicesHero() {
           >
             <span className="snap-text block">Consulting-grade thinking.</span>
             <span className="snap-text block">In-house execution.</span>
-            <span className="snap-text inline-block bg-black text-[var(--chartreuse)] px-4 lg:px-6 pt-1 pb-5">One team.</span>
+            <span className="snap-text inline-block text-[var(--chartreuse)]">One team.</span>
           </h1>
         </div>
       </div>

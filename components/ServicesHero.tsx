@@ -21,8 +21,8 @@ export default function ServicesHero() {
 
       // 1. Image Zoom Entrance
       tl.fromTo(imageRef.current,
-        { scale: 1.2, opacity: 0 },
-        { scale: 1, opacity: 0.3, duration: 2, ease: 'power2.out' }
+        { scale: 1.1, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
       )
 
       // 2. Headline Snap
@@ -96,14 +96,14 @@ export default function ServicesHero() {
     >
       {/* ── BACKGROUND IMAGE ───────────────────────────────────────────── */}
       <div ref={imageRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <Image
-          src="/assets/images/services-hero.webp"
-          alt="EXL Studio Space"
+        <Image 
+          src="/assets/images/services-hero-final-sharp.png" 
+          alt="The EXL Team at Work" 
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-white/60" /> {/* Subtle overlay for text clarity */}
+        <div className="absolute inset-0 bg-black/30" /> {/* Subtle overlay for text clarity */}
       </div>
 
       {/* ── BACKGROUND GEOMETRIC SHAPES ────────────────────────────────── */}
@@ -121,7 +121,7 @@ export default function ServicesHero() {
               fontFamily: "var(--font-tusker), 'Bebas Neue', sans-serif",
               fontSize: 'clamp(40px, 8vw, 100px)',
               lineHeight: 1.3,
-              color: '#000000',
+              color: '#FFFFFF',
               textTransform: 'uppercase',
               textAlign: 'center'
             }}
@@ -136,8 +136,8 @@ export default function ServicesHero() {
       {/* ── SUBHEAD & CTA SECTION ───────────────────── */}
       <div className="relative z-10 w-full py-8 lg:py-12 px-6 lg:px-12 flex flex-col items-center">
         <div className="hero-subhead max-w-4xl text-center space-y-12 opacity-0">
-          <p className="font-[var(--font-cabinet)] text-black text-[clamp(18px,2.2vw,26px)] leading-relaxed font-light">
-            EXL works with ambitious B2B and luxury brands that want <span className="text-black font-semibold italic">senior strategy</span> and the team to actually ship it. Four capabilities, two flagship engagements, one roof, no handoffs.
+          <p className="font-[var(--font-cabinet)] text-white/80 text-[clamp(18px,2.2vw,26px)] leading-relaxed font-light">
+            EXL works with ambitious B2B and luxury brands that want <span className="text-white font-semibold italic">senior strategy</span> and the team to actually ship it. Four capabilities, two flagship engagements, one roof, no handoffs.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-4">
@@ -146,9 +146,9 @@ export default function ServicesHero() {
               <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </button>
             
-            <a href="#capabilities" className="font-[var(--font-tusker)] text-black hover:opacity-70 transition-opacity text-sm uppercase tracking-[0.3em] flex items-center gap-3 group font-medium">
+            <a href="#capabilities" className="font-[var(--font-tusker)] text-white hover:opacity-70 transition-opacity text-sm uppercase tracking-[0.3em] flex items-center gap-3 group font-medium">
               View Our Process
-              <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-300" />
+              <div className="w-8 h-[1px] bg-white group-hover:w-12 transition-all duration-300" />
             </a>
           </div>
         </div>

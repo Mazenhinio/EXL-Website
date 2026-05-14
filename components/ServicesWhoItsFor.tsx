@@ -20,7 +20,7 @@ export default function ServicesWhoItsFor() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=200%',
+          end: '+=120%',
           pin: true,
           scrub: 1,
           anticipatePin: 1,

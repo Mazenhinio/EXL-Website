@@ -137,7 +137,7 @@ export default function Advantage() {
                 style={{ 
                   fontFamily: 'var(--font-tusker)',
                   fontSize: 'clamp(36px, 9vw, 64px)', 
-                  lineHeight: 1.35,
+                  lineHeight: 1.6,
                   textTransform: 'uppercase',
                   color: 'white',
                   marginBottom: '32px'
@@ -209,7 +209,7 @@ export default function Advantage() {
           <h2 style={{ 
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 10vw, 64px)', 
-            lineHeight: 1.35, 
+            lineHeight: 1.6, 
             textTransform: 'uppercase', 
             color: 'white' 
           }}>

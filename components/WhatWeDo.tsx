@@ -192,7 +192,7 @@ function WhatWeDoDesktop() {
               fontFamily: 'var(--font-tusker)',
               fontSize: 'clamp(44px, 10vw, 80px)',
               textAlign: 'center',
-              lineHeight: 1.35,
+              lineHeight: 1.6,
               color: 'var(--black)',
               textTransform: 'uppercase'
             }}
@@ -380,7 +380,7 @@ function WhatWeDoMobile() {
               fontFamily: 'var(--font-tusker)',
               fontSize: 'clamp(44px, 12vw, 56px)',
               textAlign: 'center',
-              lineHeight: 1.35,
+              lineHeight: 1.6,
               color: 'var(--black)',
               textTransform: 'uppercase'
             }}

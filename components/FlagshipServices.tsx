@@ -204,7 +204,7 @@ export default function FlagshipServices() {
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 8vw, 80px)', 
             textAlign: 'center', 
-            lineHeight: 1.35, 
+            lineHeight: 1.6, 
             color: 'var(--black)', 
             textTransform: 'uppercase', 
             marginBottom: '32px',
@@ -261,7 +261,7 @@ export default function FlagshipServices() {
           <h2 style={{ 
             fontFamily: 'var(--font-tusker)', 
             fontSize: 'clamp(36px, 10vw, 56px)', // Unified scale
-            lineHeight: 1, 
+            lineHeight: 1.6, 
             color: 'var(--black)', 
             textTransform: 'uppercase', 
             marginBottom: '24px',

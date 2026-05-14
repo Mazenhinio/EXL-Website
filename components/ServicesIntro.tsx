@@ -70,12 +70,10 @@ export default function ServicesIntro() {
         </p>
         <div className="w-[0.5px] h-6 bg-white/15 mb-6" />
         <h2 
-          style={{ fontFamily: 'var(--font-tusker)' }}
-          className="text-[clamp(32px,6.5vw,68px)] text-white uppercase max-w-[1200px] tracking-tight text-center flex flex-col items-center gap-1 lg:gap-2"
+          style={{ fontFamily: 'var(--font-tusker)', lineHeight: 1.6 }}
+          className="text-[clamp(32px,6.5vw,68px)] text-white uppercase max-w-[1000px] tracking-tight text-center"
         >
-          <span className="leading-none">Most brands are stuck</span>
-          <span className="leading-none">between</span>
-          <span className="highlight-marker whitespace-nowrap !inline-block px-4 pt-2 pb-4 mt-2">bad options.</span>
+          Most brands are stuck between <br /> <span className="highlight-marker">bad options.</span>
         </h2>
       </div>
 

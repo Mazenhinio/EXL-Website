@@ -4,20 +4,20 @@
 
 /* ── Design Tokens ─────────────────────────────────────────────────── */
 :root {
-  --chartreuse:   #DEFF00;
-  --black:        #000000;
-  --pale-silver:  #CEC5B7;
-  --eerie:        #1C2416;
-  --nyanza:       #E8FFDC;
-  --mystic-red:   #FF550D;
-  --platinum:     #E5E5E5;
-  --off-white:    #EDE8DF;
-  --sky:          #B8D0F0;
-  --sage:         #C4DDB0;
-  --lavender:     #E0C8F8;
-  --peach:        #F8C8B0;
-  --lemon:        #F2FFB8;
-  --taupe:        #B8AFA0;
+  --chartreuse: #DEFF00;
+  --black: #000000;
+  --pale-silver: #CEC5B7;
+  --eerie: #1C2416;
+  --nyanza: #E8FFDC;
+  --mystic-red: #FF550D;
+  --platinum: #E5E5E5;
+  --off-white: #EDE8DF;
+  --sky: #B8D0F0;
+  --sage: #C4DDB0;
+  --lavender: #E0C8F8;
+  --peach: #F8C8B0;
+  --lemon: #F2FFB8;
+  --taupe: #B8AFA0;
 }
 
 /* ── Base ───────────────────────────────────────────────────────────── */
@@ -40,7 +40,8 @@ body {
   color: var(--black);
   font-family: var(--font-cabinet), 'DM Sans', sans-serif;
   font-weight: 400;
-  font-size: 16px; /* Slightly smaller for mobile */
+  font-size: 16px;
+  /* Slightly smaller for mobile */
   line-height: 1.6;
   overflow-x: hidden;
   width: 100%;
@@ -77,8 +78,13 @@ hr,
 
 /* ── Ticker ─────────────────────────────────────────────────────────── */
 @keyframes ticker-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .ticker-inner {
@@ -131,6 +137,7 @@ hr,
     opacity: 0;
     right: -20px;
   }
+
   .footer-cutout.visible {
     opacity: 0.5;
   }
@@ -142,8 +149,7 @@ hr,
 .highlight-marker {
   background-color: var(--chartreuse);
   color: var(--black);
-  padding: 0 0.15em;
-  display: inline;
+  box-shadow: 0.2em 0 0 var(--chartreuse), -0.2em 0 0 var(--chartreuse);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }

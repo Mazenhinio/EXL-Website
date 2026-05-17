@@ -15,7 +15,7 @@ const PILLS = [
 ]
 
 interface FooterProps {
-  variant?: 'default' | 'dark'
+  variant?: 'default' | 'dark' | 'b2b-red'
 }
 
 export default function Footer({ variant = 'default' }: FooterProps) {
@@ -25,6 +25,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
   const pillsRef = useRef<{ body: Matter.Body; element: HTMLDivElement }[]>([])
 
   const isDark = variant === 'dark'
+  const isB2BRed = variant === 'b2b-red'
 
   useEffect(() => {
     if (!sceneRef.current || !footerRef.current) return
@@ -152,7 +153,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
   }, [])
 
   return (
-    <div className={`${isDark ? 'bg-black' : 'bg-[#DEFF00]'} p-4 md:p-8 flex justify-center ${isDark ? '' : 'rounded-t-[3rem] lg:rounded-t-[5rem]'} -mt-16 md:-mt-20 relative z-10`}>
+    <div className={`${isDark ? 'bg-black' : isB2BRed ? 'bg-[#ff5500]' : 'bg-[#DEFF00]'} p-4 md:p-8 flex justify-center ${isDark ? '' : 'rounded-t-[3rem] lg:rounded-t-[5rem]'} -mt-16 md:-mt-20 relative z-30`}>
       <footer 
         ref={footerRef}
         className={`relative ${isDark ? 'bg-[#CEC5B7]' : 'bg-[#000000]'} ${isDark ? 'text-black' : 'text-white'} pt-16 pb-8 rounded-[40px] overflow-hidden min-h-[700px] w-full max-w-[1400px] flex flex-col shadow-2xl border ${isDark ? 'border-black/5' : 'border-white/5'}`}
@@ -163,7 +164,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
               <div className="space-y-6">
                 <h2 style={{ fontFamily: 'var(--font-tusker)' }} className="text-[clamp(44px,6vw,72px)] leading-[1.1] uppercase">
                   Let&apos;s build something<br />
-                  <span className={isDark ? 'text-black' : 'text-[var(--chartreuse)]'}>worth watching.</span>
+                  <span className={isDark ? 'text-black' : isB2BRed ? 'text-[#ff5500]' : 'text-[var(--chartreuse)]'}>worth watching.</span>
                 </h2>
               </div>
             </div>
@@ -173,16 +174,16 @@ export default function Footer({ variant = 'default' }: FooterProps) {
                 <div className="space-y-6">
                   <h4 className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/30' : 'text-white/30'} text-[12px] tracking-widest uppercase`}>Services</h4>
                   <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium pointer-events-auto">
-                    <li><Link href="/services" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Services</Link></li>
-                    <li><Link href="/integrated-marketing-management" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Integrated Marketing Management</Link></li>
-                    <li><Link href="/podcast-production" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Podcast Production</Link></li>
+                    <li><Link href="/services" className={`transition-colors ${isDark ? 'hover:text-black/60' : isB2BRed ? 'hover:text-[#ff5500]' : 'hover:text-[var(--chartreuse)]'}`}>Services</Link></li>
+                    <li><Link href="/integrated-marketing-management" className={`transition-colors ${isDark ? 'hover:text-black/60' : isB2BRed ? 'hover:text-[#ff5500]' : 'hover:text-[var(--chartreuse)]'}`}>Integrated Marketing Management</Link></li>
+                    <li><Link href="/podcast-production" className={`transition-colors ${isDark ? 'hover:text-black/60' : isB2BRed ? 'hover:text-[#ff5500]' : 'hover:text-[var(--chartreuse)]'}`}>Podcast Production</Link></li>
                   </ul>
                 </div>
                 <div className="space-y-6">
                   <h4 className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/30' : 'text-white/30'} text-[12px] tracking-widest uppercase`}>Company</h4>
                   <ul className="space-y-3 font-[var(--font-cabinet)] text-sm font-medium pointer-events-auto">
-                    <li><Link href="/contact" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Contact</Link></li>
-                    <li><Link href="#best-in-b2b" className={`transition-colors ${isDark ? 'hover:text-black/60' : 'hover:text-[var(--chartreuse)]'}`}>Best in B2B</Link></li>
+                    <li><Link href="/contact" className={`transition-colors ${isDark ? 'hover:text-black/60' : isB2BRed ? 'hover:text-[#ff5500]' : 'hover:text-[var(--chartreuse)]'}`}>Contact</Link></li>
+                    <li><Link href="#best-in-b2b" className={`transition-colors ${isDark ? 'hover:text-black/60' : isB2BRed ? 'hover:text-[#ff5500]' : 'hover:text-[var(--chartreuse)]'}`}>Best in B2B</Link></li>
                   </ul>
                 </div>
               </div>
@@ -190,7 +191,7 @@ export default function Footer({ variant = 'default' }: FooterProps) {
               <div className={`pt-4 space-y-4 border-t ${isDark ? 'border-black/5' : 'border-white/5'} mt-8`}>
                 <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
                   <p className="font-[var(--font-cabinet)] font-bold text-sm">EXL Ventures LLC</p>
-                  <a href="mailto:info@exl.agency" className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-[var(--chartreuse)]'} transition-colors text-sm pointer-events-auto`}>
+                  <a href="mailto:info@exl.agency" className={`font-[var(--font-cabinet)] ${isDark ? 'text-black/50 hover:text-black' : isB2BRed ? 'text-white/50 hover:text-[#ff5500]' : 'text-white/50 hover:text-[var(--chartreuse)]'} transition-colors text-sm pointer-events-auto`}>
                     info@exl.agency
                   </a>
                 </div>

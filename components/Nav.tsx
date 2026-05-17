@@ -29,9 +29,9 @@ export default function Nav() {
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-8">
-          <Link href="/services" className="nav-link">Services</Link>
-          <Link href="/#how-different" className="nav-link">Why EXL</Link>
-          <Link href="/#best-in-b2b" className="nav-link">Best in B2B</Link>
+          <Link href="/services" className="nav-link" style={{ color: '#1a1a1a' }}>Services</Link>
+          <Link href="/#how-different" className="nav-link" style={{ color: '#1a1a1a' }}>Why EXL</Link>
+          <Link href="/podcast-production" className="nav-link" style={{ color: '#1a1a1a' }}>Best in B2B</Link>
 
         </div>
 
@@ -68,49 +68,50 @@ export default function Nav() {
         <div className="lg:hidden absolute top-full left-0 right-0 mt-4 bg-white rounded-3xl shadow-2xl border border-black/5 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
           <Link href="/services" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Services</Link>
           <Link href="/#how-different" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Why EXL</Link>
-          <Link href="/#best-in-b2b" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Best in B2B</Link>
+          <Link href="/podcast-production" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Best in B2B</Link>
 
         </div>
       )}
 
       <style jsx>{`
-        .nav-link {
-          font-family: var(--font-cabinet);
-          font-size: 14px;
-          font-weight: 500;
-          color: #1a1a1a;
-          opacity: 0.8;
-          transition: all 0.3s;
-          cursor: pointer;
-        }
-        .nav-link:hover {
-          opacity: 1;
-          transform: translateY(-1px);
-        }
-        .dropdown-item {
-          display: block;
-          padding: 10px 16px;
-          font-family: var(--font-cabinet);
-          font-size: 13px;
-          font-weight: 500;
-          color: #1a1a1a;
-          border-radius: 10px;
-          transition: all 0.2s;
-        }
-        .dropdown-item:hover {
-          background-color: #F2FFB8;
-        }
-        .mobile-nav-link {
+        :global(.nav-link) {
           font-family: var(--font-cabinet);
           font-size: 18px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: #1a1a1a !important;
+          opacity: 0.85;
+          transition: all 0.3s;
+          cursor: pointer;
         }
-        .mobile-sub-link {
+        :global(.nav-link:hover) {
+          opacity: 1;
+          transform: translateY(-1px);
+          color: #1a1a1a !important;
+        }
+        :global(.dropdown-item) {
+          display: block;
+          padding: 10px 16px;
           font-family: var(--font-cabinet);
           font-size: 15px;
-          font-weight: 500;
-          color: #1a1a1a/70;
+          font-weight: 600;
+          color: #1a1a1a !important;
+          border-radius: 10px;
+          transition: all 0.2s;
+        }
+        :global(.dropdown-item:hover) {
+          background-color: #F2FFB8;
+        }
+        :global(.mobile-nav-link) {
+          font-family: var(--font-cabinet);
+          font-size: 22px;
+          font-weight: 700;
+          color: #1a1a1a !important;
+        }
+        :global(.mobile-sub-link) {
+          font-family: var(--font-cabinet);
+          font-size: 18px;
+          font-weight: 600;
+          color: #1a1a1a !important;
         }
       `}</style>
     </nav>

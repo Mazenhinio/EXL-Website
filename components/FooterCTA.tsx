@@ -23,7 +23,7 @@ export default function FooterCTA() {
             trigger: containerRef.current,
             start: 'top top',
             end: 'bottom bottom',
-            scrub: 0.5,
+            scrub: 1.5,
           }
         })
 
@@ -57,13 +57,18 @@ export default function FooterCTA() {
 
       return () => ctx.revert()
     }
-    loadGsap()
+
+    const timer = setTimeout(() => {
+      loadGsap()
+    }, 150)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full h-[220vh] bg-[#1a1a1a]"
+      className="relative w-full h-[320vh] bg-[#1a1a1a] z-20 selection:bg-black selection:text-white"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
         
